@@ -37,6 +37,6 @@ getCarDetails(carEndPoint, carNumber)
     return isCarHandicap(carHandicapEndPoint, carNumber);
   })
   .then((isHandicap) => {
-    console.log("Handicap:", isHandicap);
+    console.log("Handicapped:", isHandicap);
   })
   .catch(console.error);
