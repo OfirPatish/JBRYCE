@@ -41,30 +41,30 @@ getCarDetails(carEndPoint, carNumber)
   })
   .catch(console.error);
 
-// Second Promise
+// // Second Promise
 
-const promise1 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve("Hello from promise 1");
-  }, 1000);
-});
+// const promise1 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve("Hello from promise 1");
+//   }, 1000);
+// });
 
-const promise2 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve("Hello from promise 2");
-  }, 1000);
-});
+// const promise2 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve("Hello from promise 2");
+//   }, 1000);
+// });
 
-const promise3 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve("Hello from promise 3");
-  }, 1000);
-});
+// const promise3 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve("Hello from promise 3");
+//   }, 1000);
+// });
 
-Promise.all([promise1, promise2, promise3])
-  .then((results) => {
-    console.log(results);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+// Promise.all([promise1, promise2, promise3])
+//   .then((results) => {
+//     console.log(results);
+//   })
+//   .catch((error) => {
+//     console.error(error);
+//   });
