@@ -2,80 +2,93 @@ class Animal {
   constructor(name, sound) {
     this.name = name;
     this.sound = sound;
-    this.alive = true;
+    this.isAlive = true;
   }
 
-  getName() {
+  get getName() {
     return this.name;
   }
 
-  makeSound() {
-    console.log(`${this.getName()} makes a ${this.sound} sound`);
+  get getSound() {
+    return this.sound;
   }
 
-  isAlive() {
-    return this.alive;
+  get getIsAlive() {
+    return this.isAlive;
   }
 
-  setAlive(alive) {
-    this.alive = alive;
-  }
-}
-
-class Lion extends Animal {
-  constructor() {
-    super("Lion", "Roar");
+  set setName(name) {
+    this.name = name;
   }
 
-  eat(animal) {
-    if (animal instanceof Cow && animal.isAlive()) {
-      animal.setAlive(false);
-      console.log(`${this.getName()} eats ${animal.getName()}`);
-    }
+  set setSound(sound) {
+    this.sound = sound;
   }
-}
 
-class Cow extends Animal {
-  constructor() {
-    super("Cow", "Moo");
-  }
-}
-
-class Cat extends Animal {
-  constructor() {
-    super("Cat", "Meow");
+  set setIsAlive(isAlive) {
+    this.isAlive = isAlive;
   }
 
   eat(animal) {
-    if (animal instanceof Mouse && animal.isAlive()) {
-      animal.setAlive(false);
-      console.log(`${this.getName()} eats ${animal.getName()}`);
+    if (this instanceof Lion || this instanceof Cat) {
+      animal.setIsAlive = false;
     }
   }
 
   drinkMilk(cow) {
-    if (cow instanceof Cow && cow.isAlive()) {
-      console.log(`${this.getName()} drinks milk from ${cow.getName()}`);
+    if (cow instanceof Cow) {
+      return cow.isAlive === true;
     }
   }
 }
 
-class Mouse extends Animal {
-  constructor() {
-    super("Mouse", "Squeak");
+class Lion extends Animal {
+  constructor(name, sound) {
+    super(name, sound);
   }
 }
 
-let lion = new Lion();
-let cow = new Cow();
-let cat = new Cat();
-let mouse = new Mouse();
+class Cow extends Animal {
+  constructor(name, sound) {
+    super(name, sound);
+  }
+}
+
+class Cat extends Animal {
+  constructor(name, sound) {
+    super(name, sound);
+  }
+}
+
+class Mouse extends Animal {
+  constructor(name, sound) {
+    super(name, sound);
+  }
+}
+
+let lion = new Lion("Simba", "Roar");
+let cow = new Cow("Bessie", "Moo");
+let cat = new Cat("Whiskers", "Meow");
+let mouse = new Mouse("Squeaky", "Squeak");
+
+console.log(`The lion named ${lion.getName} makes a sound: ${lion.getSound}`);
+console.log(`The cow named ${cow.getName} makes a sound: ${cow.getSound}`);
+console.log(`The cat named ${cat.getName} makes a sound: ${cat.getSound}`);
+console.log(`The mouse named ${mouse.getName} makes a sound: ${mouse.getSound}`);
+
+console.log(`===== Space =====`);
+
+console.log(
+  `Can ${cat.getName} drink milk from ${cow.getName}? ${
+    cat.drinkMilk(cow) ? "Yes, the cat drinks milk." : "No, the cat cannot drink milk."
+  }`
+);
+console.log(`===== Space =====`);
 
 lion.eat(cow);
-cat.drinkMilk(cow);
-cat.eat(mouse);
 
-lion.makeSound();
-cow.makeSound();
-cat.makeSound();
-mouse.makeSound();
+console.log(
+  `Can ${cat.getName} drink milk from ${cow.getName} after ${lion.getName} ate it? ${
+    cat.drinkMilk(cow) ? "Yes, the cat drinks milk." : "No, the cat cannot drink milk."
+  }`
+);
