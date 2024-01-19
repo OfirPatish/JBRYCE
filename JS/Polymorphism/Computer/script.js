@@ -64,10 +64,10 @@ class Computer {
   }
 
   printDetails() {
-    return `${this.cpuMemory}\n${this.diskMemory}\n${this.processorModel}\n${this.price}\n${this.warrantyYears}\n`;
+    return `CPU Memory: ${this.cpuMemory}\nDisk Memory: ${this.diskMemory}\nProcessor Model: ${this.processorModel}\nPrice: ${this.price}\nWarranty Years: ${this.warrantyYears}\n`;
   }
 
-  executeFunctions() {
+  executeActions() {
     return `${this.printDetails()}\n${this.purchaseEquipment()}`;
   }
 }
@@ -108,7 +108,7 @@ class DesktopComputer extends Computer {
     return `${super.printDetails()}Is Mouse Wireless: ${this.isMouseWireless}\nScreen Size: ${this.screenSize}\n`;
   }
 
-  executeFunctions() {
+  executeActions() {
     return `${this.printDetails()}\n${this.purchaseEquipment()}`;
   }
 }
@@ -168,7 +168,7 @@ class Laptop extends Computer {
   }
 
   chargeLaptop() {
-    return "Your laptop's battery has been successfully charged.";
+    return `Battery is ${this.batteryPercentage === 100 ? "fully charged" : "not fully charged"}`;
   }
 
   printDetails() {
@@ -177,8 +177,8 @@ class Laptop extends Computer {
     }\nIs Touch Screen: ${this.isTouchScreen}\n`;
   }
 
-  executeFunctions() {
-    return `${super.executeFunctions()}\n${this.chargeLaptop()}`;
+  executeActions() {
+    return `${super.executeActions()}\n${this.chargeLaptop()}`;
   }
 }
 
@@ -196,5 +196,5 @@ for (let index = 0; index < computers.length; index++) {
 
 for (let computer of computers) {
   console.log(`Computer [${computers.indexOf(computer)}] is an instance of ${computer.constructor.name}`);
-  console.log(computer.executeFunctions());
+  console.log(computer.executeActions());
 }
