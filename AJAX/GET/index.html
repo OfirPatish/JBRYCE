@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      td,
+      th {
+        border: 1px solid black;
+        padding: 5px;
+      }
+      #continentPopulations {
+        border: 1px solid black;
+        padding: 5px;
+        margin-top: 10px;
+        width: 250px;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="countriesTable">
+      <tr>
+        <th>Flag</th>
+        <th>Name</th>
+        <th>Capital</th>
+        <th>Population</th>
+        <th>Continent</th>
+      </tr>
+    </table>
+    <div id="continentPopulations"></div>
+    <script>
+      let continentPopulations = {};
+
+      $.get(`https://restcountries.com/v3.1/all`, function (allCountriesData) {
+        // console.log(allCountriesData);
+        allCountriesData.forEach((countryData) => {
+          let continent = countryData.region;
+
+          if (continent in continentPopulations) {
+            continentPopulations[continent] += countryData.population;
+          } else {
+            continentPopulations[continent] = countryData.population;
+          }
+        });
+
+        allCountriesData.slice(0, 10).forEach((countryData, index) => {
+          let flagImg = $("<img>", { src: countryData.flags.png, width: "50px", height: "30px" });
+          let countryName = $("<td>").text(countryData.name.common);
+          let capital = $("<td>").text(countryData.capital);
+          let population = $("<td>").text(countryData.population);
+          let continent = countryData.region;
+          let continentCell = $("<td>").text(continent);
+
+          let row = $("<tr>").append(flagImg, countryName, capital, population, continentCell);
+          $("#countriesTable").append(row);
+        });
+
+        for (let continent in continentPopulations) {
+          let continentPopulationDiv = $("<div>").text(`${continent}: ${continentPopulations[continent]}`);
+          $("#continentPopulations").append(continentPopulationDiv);
+        }
+      });
+    </script>
+  </body>
+</html>
