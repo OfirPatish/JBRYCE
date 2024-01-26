@@ -8,6 +8,7 @@
     <style>
       table {
         border-collapse: collapse;
+        margin-bottom: 25px;
       }
       td,
       th {
@@ -32,38 +33,44 @@
         <th>Continent</th>
       </tr>
     </table>
-    <div id="continentPopulations"></div>
+    <table id="regionPopulationsTable">
+      <tr>
+        <th>Region</th>
+        <th>Population</th>
+      </tr>
+    </table>
     <script>
-      let continentPopulations = {};
+      let regionPopulations = {};
 
       $.get(`https://restcountries.com/v3.1/all`, function (allCountriesData) {
-        // console.log(allCountriesData);
         allCountriesData.forEach((countryData) => {
-          let continent = countryData.region;
+          let region = countryData.subregion;
 
-          if (continent in continentPopulations) {
-            continentPopulations[continent] += countryData.population;
+          if (region in regionPopulations) {
+            regionPopulations[region] += countryData.population;
           } else {
-            continentPopulations[continent] = countryData.population;
+            regionPopulations[region] = countryData.population;
           }
         });
+
+        for (let region in regionPopulations) {
+          let regionName = $("<td>").text(region);
+          let population = $("<td>").text(regionPopulations[region]);
+          let row = $("<tr>").append(regionName, population);
+          $("#regionPopulationsTable").append(row);
+        }
 
         allCountriesData.slice(0, 10).forEach((countryData, index) => {
           let flagImg = $("<img>", { src: countryData.flags.png, width: "50px", height: "30px" });
           let countryName = $("<td>").text(countryData.name.common);
           let capital = $("<td>").text(countryData.capital);
           let population = $("<td>").text(countryData.population);
-          let continent = countryData.region;
-          let continentCell = $("<td>").text(continent);
+          let region = countryData.region;
+          let regionCell = $("<td>").text(region);
 
-          let row = $("<tr>").append(flagImg, countryName, capital, population, continentCell);
+          let row = $("<tr>").append(flagImg, countryName, capital, population, regionCell);
           $("#countriesTable").append(row);
         });
-
-        for (let continent in continentPopulations) {
-          let continentPopulationDiv = $("<div>").text(`${continent}: ${continentPopulations[continent]}`);
-          $("#continentPopulations").append(continentPopulationDiv);
-        }
       });
     </script>
   </body>
