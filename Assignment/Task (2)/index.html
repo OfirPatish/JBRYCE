@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Link to Bootstrap CSS and custom CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Link to Bootstrap JS and custom JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+    <!-- Main container -->
+    <div class="container">
+      <!-- Row for form and canvas -->
+      <div class="row">
+        <!-- Form column -->
+        <div class="col-lg-6">
+          <!-- Form section -->
+          <div class="form-section top-space">
+            <!-- Form to calculate area -->
+            <form onsubmit="event.preventDefault(); calculateArea();">
+              <!-- Input for rib A -->
+              <div class="mb-3">
+                <label for="ribA" class="form-label">Rib A</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="ribA"
+                  placeholder="Enter the length of the first rib"
+                  required
+                />
+              </div>
+              <!-- Input for rib B -->
+              <div class="mb-3">
+                <label for="ribB" class="form-label">Rib B</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="ribB"
+                  placeholder="Enter the length of the second rib"
+                  required
+                />
+              </div>
+              <!-- Input for X coordinate -->
+              <div class="mb-3">
+                <label for="coordX" class="form-label">X Coordinate</label>
+                <input type="number" class="form-control" id="coordX" placeholder="Enter the X coordinate" required />
+              </div>
+              <!-- Input for Y coordinate -->
+              <div class="mb-3">
+                <label for="coordY" class="form-label">Y Coordinate</label>
+                <input type="number" class="form-control" id="coordY" placeholder="Enter the Y coordinate" required />
+              </div>
+              <!-- Display area -->
+              <div class="mb-3">
+                <label id="squareArea" class="form-label">Square Area: </label>
+              </div>
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-primary">Calculate</button>
+            </form>
+          </div>
+        </div>
+        <!-- Canvas column -->
+        <div class="col-lg-6">
+          <!-- Canvas section -->
+          <div class="canvas-section top-space">
+            <h2>Drawing On Canvas!</h2>
+            <!-- Canvas element -->
+            <canvas id="myCanvas" width="500" height="500" style="border: 1px solid #d3d3d3"> </canvas>
+            <!-- Button to clear canvas -->
+            <button type="button" class="btn btn-secondary clear-canvas-btn" onclick="clearCanvas()">
+              Clear Canvas
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
