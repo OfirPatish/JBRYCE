@@ -16,17 +16,17 @@
       <div class="row">
         <!-- Form section -->
         <div class="col-lg-6">
-          <div class="form-section top-space">
+          <div class="form-section mt-3">
             <!-- Form to calculate area -->
-            <form onsubmit="event.preventDefault(); calculateArea();">
+            <form id="areaForm">
               <!-- Input fields for edges and coordinates -->
               <div class="mb-3">
                 <label for="edgeA" class="form-label">Edge A</label>
                 <input
                   type="number"
-                  class="form-control"
+                  class="form-control w-50"
                   id="edgeA"
-                  placeholder="Enter the length of the first edge"
+                  placeholder="Length of the first edge"
                   required
                 />
               </div>
@@ -34,22 +34,34 @@
                 <label for="edgeB" class="form-label">Edge B</label>
                 <input
                   type="number"
-                  class="form-control"
+                  class="form-control w-50"
                   id="edgeB"
-                  placeholder="Enter the length of the second edge"
+                  placeholder="Length of the second edge"
                   required
                 />
               </div>
               <div class="mb-3">
                 <label for="coordX" class="form-label">X Coordinate</label>
-                <input type="number" class="form-control" id="coordX" placeholder="Enter the X coordinate" required />
+                <input
+                  type="number"
+                  class="form-control w-50"
+                  id="coordX"
+                  placeholder="Position of the X coordinate"
+                  required
+                />
               </div>
               <div class="mb-3">
                 <label for="coordY" class="form-label">Y Coordinate</label>
-                <input type="number" class="form-control" id="coordY" placeholder="Enter the Y coordinate" required />
+                <input
+                  type="number"
+                  class="form-control w-50"
+                  id="coordY"
+                  placeholder="Position of the Y coordinate"
+                  required
+                />
               </div>
               <!-- Display area -->
-              <div class="mb-3">
+              <div class="mb-1">
                 <label id="squareArea" class="form-label">Square Area: </label>
               </div>
               <!-- Submit button -->
@@ -58,8 +70,8 @@
           </div>
         </div>
         <!-- Canvas section -->
-        <div class="col-lg-6">
-          <div class="canvas-section top-space">
+        <div class="col-lg-6 canvas-right">
+          <div class="canvas-section mt-3">
             <h2>Drawing On Canvas!</h2>
             <!-- Canvas element -->
             <canvas id="myCanvas" width="500" height="500" style="border: 1px solid #d3d3d3"> </canvas>

@@ -1,13 +1,9 @@
-.top-space {
-  margin-top: 20px;
-}
-
-form .form-control {
-  width: 300px;
-}
-
-.canvas-section .clear-canvas-btn {
-  width: 500px;
-  clear: both;
+.clear-canvas-btn {
+  width: 100%;
   display: block;
+}
+
+.canvas-right {
+  display: flex;
+  justify-content: flex-end;
 }

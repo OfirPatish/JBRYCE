@@ -56,6 +56,13 @@ function calculateArea() {
   ctx.strokeRect(coordX, coordY, edgeA, edgeB);
 }
 
+// Event listener for form submission
+document.getElementById("areaForm").addEventListener("submit", function (areaFormSubmission) {
+  areaFormSubmission.preventDefault();
+  calculateArea();
+});
+
+// Event listener for canvas clicks
 canvas.addEventListener("click", function (buttonClickEvent) {
   // Get the coordinates of the click relative to the canvas
   var rect = canvas.getBoundingClientRect();
