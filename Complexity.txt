@@ -1,0 +1,15 @@
+O(1): Constant. This means the operation does not depend on the size of the input data. For example, accessing an element in an array by its index is an O(1) operation because it takes the same amount of time regardless of the size of the array.
+
+O(n): Linear. This means the operation will grow linearly with the size of the input data. For example, if you have to loop through an array to find a specific element, this is an O(n) operation because the time it takes grows with the size of the array.
+
+O(log n): Logarithmic. This means the operation will grow logarithmically with the size of the input data. For example, binary search is an O(log n) operation because it halves the search space with each step.
+
+O(n log n): Linearithmic. This means the operation will grow in a linear-logarithmic fashion with the size of the input data. For example, sorting algorithms like quicksort and mergesort are O(n log n) because they divide the problem into smaller parts (log n) and process each part (n).
+
+O(n^2): Quadratic. This means the operation will grow quadratically with the size of the input data. For example, a nested loop operation on an array where for each element in the array, you loop through the array again, is an O(n^2) operation.
+
+O(n^3): Cubic. This means the operation will grow cubically with the size of the input data. For example, a triple nested loop operation on an array is an O(n^3) operation.
+
+O(2^n): Exponential. This means the operation will grow exponentially with the size of the input data. For example, the time complexity of the recursive calculation of Fibonacci numbers is O(2^n) because each calculation is the sum of two separate calculations.
+
+O(n!): Factorial. This means the operation will grow factorially with the size of the input data. For example, finding all permutations of a string is an O(n!) operation because there are n! permutations.

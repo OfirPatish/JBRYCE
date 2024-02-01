@@ -1,6 +1,6 @@
 // Store the elements and context in variables
-var ribAElement = document.getElementById("ribA");
-var ribBElement = document.getElementById("ribB");
+var edgeAElement = document.getElementById("edgeA");
+var edgeBElement = document.getElementById("edgeB");
 var coordXElement = document.getElementById("coordX");
 var coordYElement = document.getElementById("coordY");
 var squareAreaElement = document.getElementById("squareArea");
@@ -15,13 +15,13 @@ function clearCanvas() {
 // Function to calculate the area of a rectangle and draw it on a canvas
 function calculateArea() {
   // Get the values from the input fields
-  var ribA = ribAElement.value;
-  var ribB = ribBElement.value;
+  var edgeA = edgeAElement.value;
+  var edgeB = edgeBElement.value;
   var coordX = coordXElement.value;
   var coordY = coordYElement.value;
 
   // Check if all fields have values
-  if (ribA === "" || ribB === "" || coordX === "" || coordY === "") {
+  if (edgeA === "" || edgeB === "" || coordX === "" || coordY === "") {
     alert("Please enter values in all fields.");
     return;
   }
@@ -30,30 +30,30 @@ function calculateArea() {
   var regex = /^[0-9]+$/;
 
   // Check if all inputs are numbers
-  if (!ribA.match(regex) || !ribB.match(regex) || !coordX.match(regex) || !coordY.match(regex)) {
+  if (!edgeA.match(regex) || !edgeB.match(regex) || !coordX.match(regex) || !coordY.match(regex)) {
     alert("Please enter numeric values only.");
     return;
   }
 
   // Parse the inputs to integers
-  ribA = parseInt(ribA);
-  ribB = parseInt(ribB);
+  edgeA = parseInt(edgeA);
+  edgeB = parseInt(edgeB);
   coordX = parseInt(coordX);
   coordY = parseInt(coordY);
 
   // Check if the rectangle fits within the canvas
-  if (coordX + ribA > canvas.width || coordY + ribB > canvas.height) {
+  if (coordX + edgeA > canvas.width || coordY + edgeB > canvas.height) {
     alert("The rectangle exceeds the canvas area. Please enter smaller values.");
     return;
   }
 
   // Calculate the area of the rectangle and display it
-  var area = ribA * ribB;
+  var area = edgeA * edgeB;
   squareAreaElement.textContent = "Square Area: " + area;
 
   // Clear the canvas and draw the rectangle
   clearCanvas();
-  ctx.strokeRect(coordX, coordY, ribA, ribB);
+  ctx.strokeRect(coordX, coordY, edgeA, edgeB);
 }
 
 canvas.addEventListener("click", function (buttonClickEvent) {
@@ -72,10 +72,10 @@ canvas.addEventListener("click", function (buttonClickEvent) {
 
 //   var coordX = Math.floor(Math.random() * canvas.width);
 //   var coordY = Math.floor(Math.random() * canvas.height);
-//   var ribA = Math.floor(Math.random() * (canvas.width - coordX));
-//   var ribB = Math.floor(Math.random() * (canvas.height - coordY));
+//   var edgeA = Math.floor(Math.random() * (canvas.width - coordX));
+//   var edgeB = Math.floor(Math.random() * (canvas.height - coordY));
 
-//   ctx.strokeRect(coordX, coordY, ribA, ribB);
+//   ctx.strokeRect(coordX, coordY, edgeA, edgeB);
 // }
 
 // setInterval(generateRectangle, 1000);
