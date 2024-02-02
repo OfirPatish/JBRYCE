@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bus Stations</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div id="searchContainer">
+      <input type="text" id="neighborhoodSearch" placeholder="Search for a neighborhood" />
+      <button id="searchButton">Search</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Neighborhood</th>
+          <th>Lat</th>
+          <th>Long</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <!-- Rows will be added here by JavaScript -->
+      </tbody>
+    </table>
+  </body>
+</html>
