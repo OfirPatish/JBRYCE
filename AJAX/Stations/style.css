@@ -49,5 +49,7 @@ tr:nth-child(even) {
 }
 
 #map {
+  margin: auto;
   height: 80vh;
+  width: 80%;
 }
