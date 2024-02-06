@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $("#searchButton").click(function () {
-    var neighborhood = $("#neighborhoodSearch").val();
+    var neighborhood = $("#citySearch").val();
     var apiUrl =
       "https://data.gov.il/api/3/action/datastore_search?resource_id=e873e6a2-66c1-494f-a677-f5e77348edb0&q=" +
       neighborhood;
