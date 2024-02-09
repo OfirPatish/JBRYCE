@@ -13,22 +13,14 @@ function fetchData() {
       let results = data.result.records;
 
       results.forEach((result) => {
-        let tr = $("<tr></tr>");
-        tr.append(`<td>${result.city}</td>`);
-        tr.append(`<td>${result.district}</td>`);
-        tr.append(`<td>${result.sumcandidates}</td>`);
-        let candidates = result.candidates
-          .split(",")
-          .map((candidate) => candidate.split(":")[0])
-          .join(", ");
-        tr.append(`<td>${candidates}</td>`);
-        $("#res").append(tr);
-
         if (result.sumcandidates == 1) {
-          let event = new CustomEvent("caseA", { detail: result });
+          let event = new CustomEvent("caseOne", { detail: result });
           document.dispatchEvent(event);
         } else if (result.sumcandidates >= 5) {
-          let event = new CustomEvent("caseB", { detail: result });
+          let event = new CustomEvent("caseFive", { detail: result });
+          document.dispatchEvent(event);
+        } else {
+          let event = new CustomEvent("caseOther", { detail: result });
           document.dispatchEvent(event);
         }
       });

@@ -6,51 +6,56 @@
     <title>Candidates</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/main.js" defer></script>
-    <script src="js/caseA.js" defer></script>
-    <script src="js/caseB.js" defer></script>
-    <style>
-      body {
-        text-align: center;
-      }
-      #res {
-        margin: 0 auto;
-        width: 85%;
-        border-collapse: collapse;
-      }
-
-      #res th,
-      #res td {
-        border: 1px solid #ddd;
-        padding: 8px;
-      }
-
-      #res tr:nth-child(even) {
-        background-color: #f2f2f2;
-      }
-
-      #res th {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: left;
-        background-color: #4caf50;
-        color: white;
-      }
-    </style>
+    <script src="js/caseOne.js" defer></script>
+    <script src="js/caseFive.js" defer></script>
+    <script src="js/caseOther.js" defer></script>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <input type="button" id="candidateBtn" value="Show" />
+    <div class="button-container">
+      <input type="button" id="candidateBtn" value="Show" />
+    </div>
     <hr />
-    <table id="res">
+    <h2>sumCandidates = 1</h2>
+    <table id="tableOne">
       <thead>
         <tr>
           <th>City</th>
           <th>District</th>
-          <th>SumCandidates</th>
+          <th>Total Candidates</th>
           <th>Candidates</th>
         </tr>
       </thead>
       <tbody>
-        <!-- Table data goes here -->
+        <!-- Dynamically added rows -->
+      </tbody>
+    </table>
+    <h2>sumCandidates >= 5</h2>
+    <table id="tableFive">
+      <thead>
+        <tr>
+          <th>City</th>
+          <th>District</th>
+          <th>Total Candidates</th>
+          <th>Candidates</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Dynamically added rows -->
+      </tbody>
+    </table>
+    <h2>Other Cases</h2>
+    <table id="tableOther">
+      <thead>
+        <tr>
+          <th>City</th>
+          <th>District</th>
+          <th>Total Candidates</th>
+          <th>Candidates</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Dynamically added rows -->
       </tbody>
     </table>
   </body>
