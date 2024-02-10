@@ -1,3 +1,3 @@
-document.addEventListener("event:database", () => {
-  res.textContent = input.value;
+document.addEventListener("event:response", function (e) {
+  res.innerHTML = e.detail;
 });
