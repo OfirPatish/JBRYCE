@@ -6,7 +6,7 @@
 #candidateBtn {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #287d9e;
+  background-color: #4a90e2;
   color: white;
   border: none;
   cursor: pointer;
@@ -15,7 +15,7 @@
 }
 
 #candidateBtn:hover {
-  background-color: #287d9e;
+  background-color: #4a90e2;
 }
 
 h2 {
@@ -40,6 +40,6 @@ td {
 }
 
 th {
-  background-color: #287d9e;
+  background-color: #4a90e2;
   color: white;
 }
