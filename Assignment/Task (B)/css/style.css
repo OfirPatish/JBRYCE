@@ -1,0 +1,74 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+#country-search-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#country-search-form input,
+#country-search-form button {
+  margin: 5px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#country-search-form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#country-search-form button:hover {
+  background-color: #0056b3;
+}
+
+#country-data {
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+#country-data p {
+  font-size: 18px;
+  color: #333;
+}
+
+#country-data table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+#country-data table th,
+#country-data table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#country-data table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#country-data table tr:hover {
+  background-color: #ddd;
+}
+
+#country-data table th {
+  background-color: #007bff;
+  color: white;
+}
