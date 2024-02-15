@@ -1,79 +1,50 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  padding: 20px;
 }
 
-h1 {
-  text-align: center;
+.container {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.table th {
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  text-align: left;
+  width: 50%;
+}
+
+.table td {
+  padding: 15px;
+  border-top: 1px solid #dee2e6;
+}
+
+.data-display {
+  font-weight: bold;
   color: #333;
 }
 
-#country-search-form {
-  display: flex;
-  justify-content: center;
+.data-table {
   margin-bottom: 20px;
 }
 
-#country-search-form input,
-#country-search-form button {
-  margin: 5px;
-  padding: 10px;
-  font-size: 16px;
-}
-
-#country-search-form button {
+.data-table th {
   background-color: #007bff;
   color: white;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-#country-search-form button:hover {
-  background-color: #0056b3;
-}
-
-#country-data {
-  display: none;
-  margin-top: 20px;
-  background-color: white;
-  border-radius: 5px;
-  padding: 20px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#country-data p {
+.error-message {
+  color: red;
+  font-weight: bold;
   font-size: 18px;
-  color: #333;
-}
-
-#country-data table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-top: 20px;
-}
-
-#country-data table th,
-#country-data table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-  width: 100px;
-}
-
-#country-data table tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-#country-data table tr:hover {
-  background-color: #ddd;
-}
-
-#country-data table th {
-  background-color: #007bff;
-  color: white;
 }
