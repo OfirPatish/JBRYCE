@@ -5,9 +5,10 @@ $(document).ready(function () {
       type: "GET",
       success: function (data) {
         // Calculate total population
-        var totalPopulation = data.reduce(function (total, country) {
-          return total + country.population;
-        }, 0);
+        var totalPopulation = 0;
+        for (var index = 0; index < data.length; index++) {
+          totalPopulation += data[index].population;
+        }
 
         // Calculate average population
         var averagePopulation = totalPopulation / data.length;
@@ -27,26 +28,18 @@ $(document).ready(function () {
         html += "<p>Total population: " + totalPopulation + "</p>";
         html += "<p>Average population: " + averagePopulation + "</p>";
 
-        // Display the region data
-        html += "<p>Number of countries per region:</p>";
-        html += "<ul>";
-        for (var region in regionCounts) {
-          html += "<li>" + region + ": " + regionCounts[region] + "</li>";
-        }
-        html += "</ul>";
-
         // Display the table
-        html += "<table><tr><th>Country Name</th><th>Number of Citizens</th><th>Region</th></tr>";
+        html += "<table><tr><th>Country Name</th><th>Number of Citizens</th></tr>";
         data.forEach(function (country) {
-          html +=
-            "<tr><td>" +
-            country.name.common +
-            "</td><td>" +
-            country.population +
-            "</td><td>" +
-            country.region +
-            "</td></tr>";
+          html += "<tr><td>" + country.name.common + "</td><td>" + country.population + "</td></tr>";
         });
+        html += "</table>";
+
+        // Display the region data
+        html += "<table><tr><th>Region</th><th>Number of Countries</th></tr>";
+        for (var region in regionCounts) {
+          html += "<tr><td>" + region + "</td><td>" + regionCounts[region] + "</td></tr>";
+        }
         html += "</table>";
 
         $("#country-data").html(html).show();
@@ -57,17 +50,19 @@ $(document).ready(function () {
     });
   });
 
-  $("#search-button").click(function () {
+  $("#search-button").click(function (clickEvent) {
+    clickEvent.preventDefault();
     var countryName = $("#country-name").val();
     $.ajax({
       url: "https://restcountries.com/v3.1/name/" + countryName,
       type: "GET",
       success: function (data) {
         if (data.length > 0) {
-          // Calculate total population
-          var totalPopulation = data.reduce(function (total, country) {
-            return total + country.population;
-          }, 0);
+          // Calculate total population using a for loop
+          var totalPopulation = 0;
+          for (var index = 0; index < data.length; index++) {
+            totalPopulation += data[index].population;
+          }
 
           // Calculate average population
           var averagePopulation = totalPopulation / data.length;
