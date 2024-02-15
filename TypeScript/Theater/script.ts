@@ -1,78 +1,72 @@
-class Theater {
+class Cinema {
   private _name: string;
-  private _seatNumber: number;
-  private _openHours: number;
-  private _closingHours: number;
+  private _seats: number;
+  private _openingHour: number;
+  private _closingHour: number;
 
-  constructor(name: string, seatNumber: number, openHours: number, closingHours: number) {
+  constructor(name: string, openingHour: number = 6, closingHour: number = 23, seats?: number) {
     this._name = name;
-    this._seatNumber = seatNumber;
-    this._openHours = openHours;
-    this._closingHours = closingHours;
+    this._openingHour = openingHour;
+    this._closingHour = closingHour;
+    this._seats = seats || 0;
   }
 
   public get name(): string {
     return this._name;
   }
 
-  public set setName(value: string) {
+  public set name(value: string) {
     this._name = value;
   }
 
-  public get seatNumber(): number {
-    return this._seatNumber;
+  public get openingHour(): number {
+    return this._openingHour;
   }
 
-  public set setSeatNumber(value: number) {
-    if (value < 0) {
-      throw new Error("Seat number must be a positive value");
-    }
-    this._seatNumber = value;
-  }
-
-  public get openHours(): number {
-    return this._openHours;
-  }
-
-  public set setOpenHours(value: number) {
+  public set openingHour(value: number) {
     if (value < 6 || value > 12) {
-      throw new Error("Open hours must be a full number between 6 and 12");
+      throw new Error("Opening hour must be between 6 and 12.");
     }
-    if (this._closingHours && value >= this._closingHours) {
-      throw new Error("Open hours must be less than closing hours");
-    }
-    this._openHours = value;
+    this._openingHour = value;
   }
 
-  public get closingHours(): number {
-    return this._closingHours;
+  public get closingHour(): number {
+    return this._closingHour;
   }
 
-  public set setClosingHours(value: number) {
+  public set closingHour(value: number) {
     if (value < 18 || value > 23) {
-      throw new Error("Closing hours must be a full number between 18 and 23");
+      throw new Error("Closing hour must be between 18 and 23.");
     }
-    if (this._openHours && value <= this._openHours) {
-      throw new Error("Closing hours must be greater than open hours");
-    }
-    this._closingHours = value;
+    this._closingHour = value;
   }
 
-  public calculateOpenHours(): number {
-    return this._closingHours - this._openHours;
+  public get seats(): number {
+    return this._seats;
   }
 
-  public printTheaterDetails(): void {
-    console.log(
-      `Theater name: ${this._name}, Number of seats: ${this._seatNumber}, Open hours: ${this._openHours}, Closing hours: ${this._closingHours}`
+  public set seats(value: number) {
+    this._seats = value;
+  }
+
+  public calculateHoursOpen(): number {
+    return this._closingHour - this._openingHour;
+  }
+
+  public displayDetails(): void {
+    return console.log(
+      `Name: ${this._name}\nOpening Hour: ${this._openingHour}\nClosing Hour: ${this._closingHour}\nSeats: ${
+        this._seats
+      }\nHours Open: ${this.calculateHoursOpen()}`
     );
   }
 }
 
-let theater = new Theater("PVR", 100, 6, 23);
-theater.setName = "AMC";
-theater.setSeatNumber = 200;
-theater.setOpenHours = 7;
-theater.setClosingHours = 22;
-theater.printTheaterDetails();
-console.log(theater.calculateOpenHours());
+let cinema1 = new Cinema("Cinema1", 7, 22, 100);
+let cinema2 = new Cinema("Cinema2", 8, 23);
+
+cinema1.displayDetails();
+
+console.log("\n");
+
+cinema2.displayDetails();
