@@ -46,6 +46,9 @@ class Cinema {
   }
 
   public set seats(value: number) {
+    if (value < 0) {
+      throw new Error("Number of seats cannot be negative.");
+    }
     this._seats = value;
   }
 
