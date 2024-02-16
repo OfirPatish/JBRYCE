@@ -1,101 +1,98 @@
-class Endpoint {
-  private _name: string;
-  private _number: number;
-
-  constructor(name: string, number: number) {
-    if (number < 1 || number > 13) {
-      throw new Error("Invalid number. Number can only be between 1 and 13.");
-    }
-    this._name = name;
-    this._number = number;
-  }
-
-  public get name(): string {
-    return this._name;
-  }
-
-  public get number(): number {
-    return this._number;
-  }
-}
-
-class Device {
-  private _name: string;
-  private _location: string;
-  private _number: number;
-  private _endpoints: Endpoint[];
-
-  constructor(name: string, location: string, number: number, endpoints: Endpoint[]) {
-    if (number < 10 || number > 150) {
-      throw new Error("Invalid number. Number can only be between 10 and 150.");
-    }
-    this._name = name;
-    this._location = location;
-    this._number = number;
-    this._endpoints = endpoints;
-  }
-
-  public get name(): string {
-    return this._name;
-  }
-
-  public get location(): string {
-    return this._location;
-  }
-
-  public get number(): number {
-    return this._number;
-  }
-
-  public get endpoints(): Endpoint[] {
-    return this._endpoints;
-  }
-}
-
 class SmartHome {
-  private _devices: Device[];
+  private homeName: string;
+  private homeAddress: string;
+  private smartDevices: SmartDevice[];
 
-  constructor(devices: Device[]) {
-    this._devices = devices;
+  constructor(homeName: string, homeAddress: string) {
+    this.homeName = homeName;
+    this.homeAddress = homeAddress;
+    this.smartDevices = [];
   }
 
-  public setEndpointName(deviceNumber: number, endpointNumber: number, name: string): void {
-    const device = this._devices.find((device) => device.number === deviceNumber);
-    if (!device) {
-      throw new Error(`Device with number ${deviceNumber} not found.`);
-    }
-    const endpoint = device.endpoints.find((endpoint) => endpoint.number === endpointNumber);
-    if (!endpoint) {
-      throw new Error(`Endpoint with number ${endpointNumber} not found in device ${deviceNumber}.`);
-    }
-    Object.defineProperty(endpoint, "name", { value: name });
+  public addSmartDevice(deviceName: string, deviceLocation: string, deviceNodeId: number, totalEndpoints: number) {
+    const newSmartDevice = new SmartDevice(deviceName, deviceLocation, deviceNodeId);
+    newSmartDevice.createEndpoints(totalEndpoints);
+    this.smartDevices.push(newSmartDevice);
+  }
+
+  public displayHomeDetails(): void {
+    this.smartDevices.forEach((device) => {
+      console.log(`\nDevice Details:`);
+      console.log(`----------------`);
+      console.log(`Name: ${device.getDeviceName}`);
+      console.log(`Location: ${device.getDeviceLocation}`);
+      console.log(`Node ID: ${device.getDeviceNodeId}`);
+      console.log(`\nEndpoints:`);
+      console.log(`----------`);
+      device.getDeviceEndpoints.forEach((endpoint) => {
+        console.log(`ID: ${endpoint.getEndpointId}`);
+        console.log(`Name: ${endpoint.getEndpointName}`);
+        console.log(`----------`);
+      });
+    });
   }
 }
 
-const endpoint1 = new Endpoint("Lamp", 1);
-const endpoint2 = new Endpoint("Light", 2);
-const endpoint3 = new Endpoint("Fan", 3);
-const endpoint4 = new Endpoint("Heater", 4);
-const endpoint5 = new Endpoint("AC", 5);
-const endpoint6 = new Endpoint("TV", 6);
+class SmartDevice {
+  private deviceName: string;
+  private deviceLocation: string;
+  private deviceNodeId: number;
+  private deviceEndpoints: Endpoint[];
 
-const device1 = new Device("Living Room Lamp", "Living Room", 10, [endpoint1]);
+  constructor(deviceName: string, deviceLocation: string, deviceNodeId: number) {
+    this.deviceName = deviceName;
+    this.deviceLocation = deviceLocation;
+    this.deviceNodeId = deviceNodeId;
+    this.deviceEndpoints = [];
+  }
 
-const device2 = new Device("Living Room Light", "Living Room", 11, [endpoint2]);
+  public createEndpoints(totalEndpoints: number): void {
+    for (let counter = 1; counter <= totalEndpoints; counter++) {
+      const singleEndpoint = new Endpoint(`Node ID-${this.deviceNodeId}-Endpoint ID-${counter}`, counter);
+      this.deviceEndpoints.push(singleEndpoint);
+    }
+  }
 
-const device3 = new Device("Living Room Fan", "Living Room", 12, [endpoint3]);
+  public get getDeviceName(): string {
+    return this.deviceName;
+  }
 
-const device4 = new Device("Living Room Heater", "Living Room", 13, [endpoint4]);
+  public get getDeviceLocation(): string {
+    return this.deviceLocation;
+  }
 
-const device5 = new Device("Living Room AC", "Living Room", 14, [endpoint5]);
+  public get getDeviceNodeId(): number {
+    return this.deviceNodeId;
+  }
 
-const device6 = new Device("Living Room TV", "Living Room", 15, [endpoint6]);
+  public get getDeviceEndpoints(): Endpoint[] {
+    return this.deviceEndpoints;
+  }
+}
 
-const smartHome = new SmartHome([device1, device2, device3, device4, device5, device6]);
-smartHome.setEndpointName(10, 1, "Living Room Lamp");
-smartHome.setEndpointName(11, 2, "Living Room Light");
-smartHome.setEndpointName(12, 3, "Living Room Fan");
-smartHome.setEndpointName(13, 4, "Living Room Heater");
-smartHome.setEndpointName(14, 5, "Living Room AC");
-smartHome.setEndpointName(15, 6, "Living Room TV");
-console.log(smartHome);
+class Endpoint {
+  private endpointName: string;
+  private endpointId: number;
+
+  constructor(endpointName: string, endpointId: number) {
+    this.endpointName = endpointName;
+    this.endpointId = endpointId;
+  }
+
+  public get getEndpointName(): string {
+    return this.endpointName;
+  }
+
+  public get getEndpointId(): number {
+    return this.endpointId;
+  }
+}
+
+const myLuxuryHome = new SmartHome("Ofir's Luxury Villa", "Qiryat Motzkin");
+myLuxuryHome.addSmartDevice("Main Entrance", "Ground Floor", 10, 13);
+myLuxuryHome.addSmartDevice("Spacious Living Room", "Ground Floor", 11, 13);
+myLuxuryHome.addSmartDevice("Master Suite", "First Floor", 12, 13);
+myLuxuryHome.addSmartDevice("Private Home Theater", "Basement", 13, 3);
+myLuxuryHome.addSmartDevice("Children's Playroom", "Basement", 14, 3);
+
+myLuxuryHome.displayHomeDetails();
