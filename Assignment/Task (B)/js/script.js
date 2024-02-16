@@ -22,6 +22,18 @@ $(document).ready(function () {
           }
         });
 
+        // Count countries per currency
+        let currencyCounts = {};
+        data.forEach(function (country) {
+          for (let currencyCode in country.currencies) {
+            if (currencyCode in currencyCounts) {
+              currencyCounts[currencyCode]++;
+            } else {
+              currencyCounts[currencyCode] = 1;
+            }
+          }
+        });
+
         // Construct HTML for data display
         let html = "<p class='data-display'>Total countries: " + data.length + "</p>";
         html += "<p class='data-display'>Total population: " + totalPopulation + "</p>";
@@ -38,6 +50,14 @@ $(document).ready(function () {
         html += "<table class='table'><thead><tr><th>Region</th><th>Number of Countries</th></tr></thead><tbody>";
         for (let region in regionCounts) {
           html += "<tr><td>" + region + "</td><td>" + regionCounts[region] + "</td></tr>";
+        }
+        html += "</tbody></table>";
+
+        // Construct HTML for currencies table
+        html +=
+          "<table class='table'><thead><tr><th>Currency</th><th>Countries Using This Currency</th></tr></thead><tbody>";
+        for (let currency in currencyCounts) {
+          html += "<tr><td>" + currency + "</td><td>" + currencyCounts[currency] + "</td></tr>";
         }
         html += "</tbody></table>";
 
@@ -80,6 +100,18 @@ $(document).ready(function () {
             }
           });
 
+          // Count countries per currency
+          let currencyCounts = {};
+          data.forEach(function (country) {
+            for (let currencyCode in country.currencies) {
+              if (currencyCode in currencyCounts) {
+                currencyCounts[currencyCode]++;
+              } else {
+                currencyCounts[currencyCode] = 1;
+              }
+            }
+          });
+
           // Construct HTML for data display
           let html = "<p class='data-display'>Total countries: " + data.length + "</p>";
           html += "<p class='data-display'>Total population: " + totalPopulation + "</p>";
@@ -97,6 +129,14 @@ $(document).ready(function () {
           html += "<table class='table'><thead><tr><th>Region</th><th>Number of Countries</th></tr></thead><tbody>";
           for (let region in regionCounts) {
             html += "<tr><td>" + region + "</td><td>" + regionCounts[region] + "</td></tr>";
+          }
+          html += "</tbody></table>";
+
+          // Construct HTML for currencies table
+          html +=
+            "<table class='table'><thead><tr><th>Currency</th><th>Countries Using This Currency</th></tr></thead><tbody>";
+          for (let currency in currencyCounts) {
+            html += "<tr><td>" + currency + "</td><td>" + currencyCounts[currency] + "</td></tr>";
           }
           html += "</tbody></table>";
 
