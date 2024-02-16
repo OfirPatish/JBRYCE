@@ -57,7 +57,7 @@ class Cinema {
   }
 
   public displayDetails(): void {
-    return console.log(
+    console.log(
       `Name: ${this._name}\nOpening Hour: ${this._openingHour}\nClosing Hour: ${this._closingHour}\nSeats: ${
         this._seats
       }\nHours Open: ${this.calculateHoursOpen()}`
@@ -65,11 +65,15 @@ class Cinema {
   }
 }
 
-let cinema1 = new Cinema("Cinema1", 7, 22, 100);
-let cinema2 = new Cinema("Cinema2", 8, 23);
+let cinema1 = new Cinema("Cinema1");
+cinema1.openingHour = 7;
+cinema1.closingHour = 22;
+cinema1.seats = 100;
+
+let cinema2 = new Cinema("Cinema2");
+cinema2.openingHour = 8;
+cinema2.closingHour = 23;
 
 cinema1.displayDetails();
-
 console.log("\n");
-
 cinema2.displayDetails();
