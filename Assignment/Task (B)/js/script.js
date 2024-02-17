@@ -1,5 +1,7 @@
 $(document).ready(function () {
   $("#all-button").click(function () {
+    // Clear the input field
+    $("#country-name").val("");
     $.ajax({
       url: "https://restcountries.com/v3.1/all",
       type: "GET",
