@@ -150,7 +150,7 @@ $(document).ready(function () {
         }
       },
       error: function (error) {
-        $("#country-data").html("<p class='error-message'>Country not found</p>");
+        $("#country-data").html("<p class='error-message'>An error occurred while fetching the country data</p>");
         console.log("Error:", error);
       },
     });
