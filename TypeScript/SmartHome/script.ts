@@ -17,74 +17,68 @@ class SmartHome {
 
   public displayHomeDetails(): void {
     this.smartDevices.forEach((device) => {
-      console.log(`\nDevice Details:`);
-      console.log(`----------------`);
-      console.log(`Name: ${device.getDeviceName}`);
-      console.log(`Location: ${device.getDeviceLocation}`);
-      console.log(`Node ID: ${device.getDeviceNodeId}`);
-      console.log(`\nEndpoints:`);
-      console.log(`----------`);
-      device.getDeviceEndpoints.forEach((endpoint) => {
-        console.log(`ID: ${endpoint.getEndpointId}`);
-        console.log(`Name: ${endpoint.getEndpointName}`);
-        console.log(`----------`);
+      console.log(
+        `\nDevice Details:\n----------------\nName: ${device.name}\nLocation: ${device.location}\nNode ID: ${device.nodeId}\n\nEndpoints:\n----------`
+      );
+      device.endpoints.forEach((endpoint) => {
+        console.log(`ID: ${endpoint.id}\nName: ${endpoint.name}\n----------`);
       });
     });
   }
 }
 
 class SmartDevice {
-  private deviceName: string;
-  private deviceLocation: string;
-  private deviceNodeId: number;
-  private deviceEndpoints: Endpoint[];
+  private _name: string;
+  private _location: string;
+  private _nodeId: number;
+  private _endpoints: Endpoint[];
 
-  constructor(deviceName: string, deviceLocation: string, deviceNodeId: number) {
-    this.deviceName = deviceName;
-    this.deviceLocation = deviceLocation;
-    this.deviceNodeId = deviceNodeId;
-    this.deviceEndpoints = [];
+  constructor(name: string, location: string, nodeId: number) {
+    this._name = name;
+    this._location = location;
+    this._nodeId = nodeId;
+    this._endpoints = [];
   }
 
   public createEndpoints(totalEndpoints: number): void {
     for (let counter = 1; counter <= totalEndpoints; counter++) {
-      const singleEndpoint = new Endpoint(`Node ID-${this.deviceNodeId}-Endpoint ID-${counter}`, counter);
-      this.deviceEndpoints.push(singleEndpoint);
+      const singleEndpoint = new Endpoint(`Node ID-${this._nodeId}-Endpoint ID-${counter}`, counter);
+      this._endpoints.push(singleEndpoint);
     }
   }
 
-  public get getDeviceName(): string {
-    return this.deviceName;
+  public get name(): string {
+    return this._name;
   }
 
-  public get getDeviceLocation(): string {
-    return this.deviceLocation;
+  public get location(): string {
+    return this._location;
   }
 
-  public get getDeviceNodeId(): number {
-    return this.deviceNodeId;
+  public get nodeId(): number {
+    return this._nodeId;
   }
 
-  public get getDeviceEndpoints(): Endpoint[] {
-    return this.deviceEndpoints;
+  public get endpoints(): Endpoint[] {
+    return this._endpoints;
   }
 }
 
 class Endpoint {
-  private endpointName: string;
-  private endpointId: number;
+  private _name: string;
+  private _id: number;
 
-  constructor(endpointName: string, endpointId: number) {
-    this.endpointName = endpointName;
-    this.endpointId = endpointId;
+  constructor(name: string, id: number) {
+    this._name = name;
+    this._id = id;
   }
 
-  public get getEndpointName(): string {
-    return this.endpointName;
+  public get name(): string {
+    return this._name;
   }
 
-  public get getEndpointId(): number {
-    return this.endpointId;
+  public get id(): number {
+    return this._id;
   }
 }
 
