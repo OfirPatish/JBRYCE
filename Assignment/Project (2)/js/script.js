@@ -5,7 +5,6 @@ let selectedCoins = [];
 let allCoinsData = [];
 const container = $("#coins-container .row");
 
-// Fetch and display coins
 function fetchAndDisplayCoins() {
   const coinsData = localStorage.getItem("coinsData");
   const lastFetch = Number(localStorage.getItem("lastFetch")); // Convert the retrieved string back to a number
@@ -29,36 +28,60 @@ function fetchAndDisplayCoins() {
   }
 }
 
-// Display coins
+// Add an event listener to the search button
+$("#searchButton").on("click", function () {
+  // Get the search term
+  const searchTerm = $("#searchInput").val().toLowerCase();
+
+  // Clear the container
+  container.empty();
+
+  // Check if the search term is empty
+  if (!searchTerm) {
+    // If the search term is empty, display an error message
+    container.append("<p>Search term cannot be empty.</p>");
+    return;
+  }
+
+  // Filter the coins based on the search term
+  const filteredCoins = allCoinsData.filter((coin) => coin.symbol.toLowerCase() === searchTerm);
+
+  // Check if any coins were found
+  if (filteredCoins.length > 0) {
+    // Display the filtered coins
+    displayCoins(filteredCoins);
+  } else {
+    // If no coins were found, display a message
+    container.append("<p>No coins found for the given search term.</p>");
+  }
+});
+
 function displayCoins(data) {
   // Limit the data to the first 100 coins
   const limitedData = data.slice(0, 100);
-
-  // Create a new div to contain the cards
-  const cardContainer = $('<div class="d-flex flex-wrap justify-content-center"></div>');
 
   // Loop through each coin in the limited data
   limitedData.forEach((coin) => {
     // Create a new card for each coin
     const card = `
-      <div class="col-md-4">
-          <div class="card">
-              <div class="card-body d-flex justify-content-between align-items-start">
-                  <div>
-                  <h5 class="card-title">${coin.id}</h5>
-                  <p class="card-text">Symbol: ${coin.symbol}<br>Name: ${coin.name}</p>
-                      <a href="#" class="btn btn-primary" onclick="fetchAndDisplayCoinDetails(event, '${coin.id}')">View Details</a>
-                  </div>
-                  <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheck${coin.id}">
+          <div class="col-md-4">
+              <div class="card">
+                  <div class="card-body d-flex justify-content-between align-items-start">
+                      <div>
+                      <h5 class="card-title">${coin.id}</h5>
+                      <p class="card-text">Symbol: ${coin.symbol}<br>Name: ${coin.name}</p>
+                          <a href="#" class="btn btn-primary" onclick="fetchAndDisplayCoinDetails(event, '${coin.id}')">View Details</a>
+                      </div>
+                      <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheck${coin.id}">
+                      </div>
                   </div>
               </div>
           </div>
-      </div>
-    `;
+      `;
 
-    // Add the card to the card container
-    cardContainer.append(card);
+    // Add the card to the container
+    container.append(card);
 
     // Add an event listener to the switch
     $(`#flexSwitchCheck${coin.id}`).on("change", function () {
@@ -78,12 +101,8 @@ function displayCoins(data) {
       }
     });
   });
-
-  // Add the card container to the main container
-  container.append(cardContainer);
 }
 
-// Update selected coins list
 function updateSelectedCoinsList() {
   // Get the list element
   const list = $("#selectedCoinsList");
@@ -99,7 +118,6 @@ function updateSelectedCoinsList() {
   });
 }
 
-// Deselect coin
 function deselectCoin(id) {
   // Deselect the coin
   $(`#flexSwitchCheck${id}`).prop("checked", false);
@@ -111,7 +129,6 @@ function deselectCoin(id) {
   updateSelectedCoinsList();
 }
 
-// Fetch and display coin details
 function fetchAndDisplayCoinDetails(event, id) {
   // Prevent the default action of the click event
   event.preventDefault();
@@ -186,7 +203,6 @@ function fetchAndDisplayCoinDetails(event, id) {
   }
 }
 
-// Display coin details
 function displayCoinDetails(data) {
   $("#coinImage").attr("src", data.image.large);
   $("#coinImage").css({ width: "200px", height: "auto" }); // Set the dimensions of the image
@@ -214,33 +230,6 @@ $(document).ready(function () {
     $(".form-check-input").prop("checked", false);
     selectedCoins = [];
   }
-
-  $("#searchButton").on("click", function () {
-    // Get the search term
-    const searchTerm = $("#searchInput").val().toLowerCase();
-
-    // Clear the container
-    container.empty();
-
-    // Check if the search term is empty
-    if (!searchTerm) {
-      // If the search term is empty, display an error message
-      container.append("<p>Search term cannot be empty.</p>");
-      return;
-    }
-
-    // Filter the coins based on the search term
-    const filteredCoins = allCoinsData.filter((coin) => coin.symbol.toLowerCase() === searchTerm);
-
-    // Check if any coins were found
-    if (filteredCoins.length > 0) {
-      // Display the filtered coins
-      displayCoins(filteredCoins);
-    } else {
-      // If no coins were found, display a message
-      container.append("<p>No coins found for the given search term.</p>");
-    }
-  });
 
   $("#coinsLink").on("click", function (event) {
     event.preventDefault();
