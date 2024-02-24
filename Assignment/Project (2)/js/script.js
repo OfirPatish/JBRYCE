@@ -1,106 +1,121 @@
 // Global variables
 const coinCache = {};
+const container = $("#coins-container .row");
+const goTopButton = document.getElementById("goTopButton");
 let countdownInterval;
 let selectedCoins = [];
 let allCoinsData = [];
-const container = $("#coins-container .row");
+let currentPage = 1;
 
+// Function declarations
 function fetchAndDisplayCoins() {
   const coinsData = localStorage.getItem("coinsData");
-  const lastFetch = Number(localStorage.getItem("lastFetch")); // Convert the retrieved string back to a number
+  const lastFetch = Number(localStorage.getItem("lastFetch"));
 
-  // Check if data is in localStorage and not older than 1 day
   if (coinsData && lastFetch && new Date().getTime() - lastFetch < 24 * 60 * 60 * 1000) {
-    // Parse the coins data and pass the first 21 coins to displayCoins
     allCoinsData = JSON.parse(coinsData);
-    displayCoins(allCoinsData.slice(0, 21));
+    displayCoins(allCoinsData.slice(0, 50 * currentPage));
   } else {
-    // Use jQuery's $.get() function to fetch data from the API
     $.get("https://api.coingecko.com/api/v3/coins/list", function (data) {
-      // Save the fetched data and the fetch time to localStorage
       localStorage.setItem("coinsData", JSON.stringify(data));
-      localStorage.setItem("lastFetch", new Date().getTime().toString()); // Convert the date to a string before storing
+      localStorage.setItem("lastFetch", new Date().getTime().toString());
 
-      // Pass the first 21 coins to displayCoins
       allCoinsData = data;
-      displayCoins(data.slice(0, 21));
+      displayCoins(data.slice(0, 50 * currentPage));
     });
   }
 }
 
-// Add an event listener to the search button
-$("#searchButton").on("click", function () {
-  // Get the search term
-  const searchTerm = $("#searchInput").val().toLowerCase();
-
-  // Clear the container
-  container.empty();
-
-  // Check if the search term is empty
-  if (!searchTerm) {
-    // If the search term is empty, display an error message
-    container.append("<p>Search term cannot be empty.</p>");
-    return;
-  }
-
-  // Filter the coins based on the search term
-  const filteredCoins = allCoinsData.filter((coin) => coin.symbol.toLowerCase() === searchTerm);
-
-  // Check if any coins were found
-  if (filteredCoins.length > 0) {
-    // Display the filtered coins
-    displayCoins(filteredCoins);
-  } else {
-    // If no coins were found, display a message
-    container.append("<p>No coins found for the given search term.</p>");
-  }
-});
-
-function displayCoins(data) {
-  // Limit the data to the first 100 coins
-  const limitedData = data.slice(0, 100);
-
-  // Loop through each coin in the limited data
-  limitedData.forEach((coin) => {
-    // Create a new card for each coin
-    const card = `
-          <div class="col-md-4">
-              <div class="card">
-                  <div class="card-body d-flex justify-content-between align-items-start">
-                      <div>
-                      <h5 class="card-title">${coin.id}</h5>
-                      <p class="card-text">Symbol: ${coin.symbol}<br>Name: ${coin.name}</p>
-                          <a href="#" class="btn btn-primary" onclick="fetchAndDisplayCoinDetails(event, '${coin.id}')">View Details</a>
-                      </div>
-                      <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheck${coin.id}">
-                      </div>
-                  </div>
-              </div>
-          </div>
-      `;
-
-    // Add the card to the container
-    container.append(card);
-
-    // Add an event listener to the switch
-    $(`#flexSwitchCheck${coin.id}`).on("change", function () {
+function addSwitchListeners(data) {
+  data.forEach((coin) => {
+    const switchElement = $(`#flexSwitchCheck${coin.id}`);
+    switchElement.on("change", function () {
       if (this.checked) {
-        // If the switch is turned on, add the coin to the list
         if (selectedCoins.length < 5) {
           selectedCoins.push(coin);
+          localStorage.setItem("selectedCoins", JSON.stringify(selectedCoins));
         } else {
-          // If there are already 5 coins in the list, show the coin limit modal
           this.checked = false;
           updateSelectedCoinsList();
           $("#coinLimitModal").modal("show");
         }
       } else {
-        // If the switch is turned off, remove the coin from the list
         selectedCoins = selectedCoins.filter((selectedCoin) => selectedCoin.id !== coin.id);
+        localStorage.setItem("selectedCoins", JSON.stringify(selectedCoins));
       }
     });
   });
+}
+
+function displayCoins(data) {
+  // Create a table title
+  let tableTitle = '<h2 class="text-center mb-4">Cryptocurrency List</h2>';
+
+  // Create a table and a table head
+  let table = `
+    <table class="table table-hover shadow">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Symbol</th>
+          <th scope="col">Name</th>
+          <th scope="col">Details</th>
+          <th scope="col">Select</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
+
+  // Loop through each coin in the limited data
+  data.forEach((coin) => {
+    // Create a new row for each coin
+    const row = `
+      <tr>
+        <td>${coin.id}</td>
+        <td>${coin.symbol}</td>
+        <td>${coin.name}</td>
+        <td><button class="btn btn-primary" onclick="fetchAndDisplayCoinDetails(event, '${
+          coin.id
+        }')">View Details</button></td>
+        <td>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheck${coin.id}" ${
+      selectedCoins.find((selectedCoin) => selectedCoin.id === coin.id) ? "checked" : ""
+    }>
+          </div>
+        </td>
+      </tr>
+    `;
+
+    // Add the row to the table
+    table += row;
+  });
+
+  // Close the table body and the table
+  table += `
+      </tbody>
+    </table>
+  `;
+
+  // Add the table title and the table to the container
+  container.empty();
+  container.append(tableTitle);
+  container.append(table);
+
+  // Add the event listeners to the switches
+  addSwitchListeners(data); // Pass the data to the function
+
+  // Add a "View More" button if there are more coins to display
+  if (data.length < allCoinsData.length) {
+    const viewMoreButton = $('<button class="btn btn-primary">View More</button>');
+    viewMoreButton.on("click", function () {
+      currentPage++;
+      fetchAndDisplayCoins();
+    });
+    const buttonWrapper = $('<div class="d-flex justify-content-center"></div>');
+    buttonWrapper.append(viewMoreButton);
+    container.append(buttonWrapper);
+  }
 }
 
 function updateSelectedCoinsList() {
@@ -217,148 +232,185 @@ function displayCoinDetails(data) {
   $("#coinDetails").show();
 }
 
+// Event listeners
+$("#searchButton").on("click", function () {
+  // Get the search term
+  const searchTerm = $("#searchInput").val().toLowerCase();
+
+  // Clear the container
+  container.empty();
+
+  // Check if the search term is empty
+  if (!searchTerm) {
+    // If the search term is empty, display an error message
+    container.append("<p>Search term cannot be empty.</p>");
+    return;
+  }
+
+  // Filter the coins based on the search term
+  const filteredCoins = allCoinsData.filter((coin) => coin.symbol.toLowerCase() === searchTerm);
+
+  // Check if any coins were found
+  if (filteredCoins.length > 0) {
+    // Display the filtered coins
+    displayCoins(filteredCoins);
+  } else {
+    // If no coins were found, display a message
+    container.append("<p>No coins found for the given search term.</p>");
+  }
+});
+
+$("#coinsLink").on("click", function (event) {
+  event.preventDefault();
+  // Clear the container and fetch the coins data
+  container.empty();
+  fetchAndDisplayCoins();
+  // Reset all switchers
+  resetSwitchers();
+});
+
+$("#liveDataLink").on("click", function (event) {
+  event.preventDefault();
+  // Clear the container and display the live data
+  container.empty();
+  container.append('<div id="chartContainer" style="height: 370px; width: 100%;"></div>');
+
+  // Check if any coins have been selected
+  if (selectedCoins.length === 0) {
+    // If no coins have been selected, display a message
+    var message = $(
+      '<p class="text-center text-danger" style="font-size: 24px;">You need to select at least one coin.</p>'
+    );
+    container.append(message);
+    return;
+  }
+
+  // Limit the number of coins to 5
+  var selectedCoinsLimited = selectedCoins.slice(0, 5);
+
+  var dataPoints = selectedCoinsLimited.map((coin) => ({
+    type: "line",
+    dataPoints: [],
+    name: coin.name,
+    showInLegend: true,
+  }));
+
+  var chart = new CanvasJS.Chart("chartContainer", {
+    theme: "light1",
+    title: {
+      text: "Currency Prices in USD",
+    },
+    legend: {
+      cursor: "pointer",
+      verticalAlign: "bottom",
+      horizontalAlign: "center",
+      dockInsidePlotArea: false,
+    },
+    data: dataPoints,
+  });
+
+  function updateData() {
+    var fsyms = selectedCoinsLimited.map((coin) => coin.symbol.toUpperCase()).join(",");
+    $.get(`https://min-api.cryptocompare.com/data/pricemulti?fsyms=${fsyms}&tsyms=USD`, function (data) {
+      if (data.Response === "Error") {
+        // If the response contains an error, clear the container and display the error message
+        var message = $('<p class="text-center text-danger" style="font-size: 24px;">' + data.Message + "</p>");
+        container.append(message);
+      } else {
+        Object.keys(data).forEach((coin, index) => {
+          dataPoints[index].dataPoints.push({ x: new Date(), y: data[coin].USD });
+          if (dataPoints[index].dataPoints.length > 50) {
+            // keep only last 50 points
+            dataPoints[index].dataPoints.shift();
+          }
+        });
+        chart.render();
+        setTimeout(updateData, 2000); // Only update if no error
+      }
+    });
+  }
+
+  updateData();
+});
+
+$("#aboutLink").on("click", function (event) {
+  event.preventDefault();
+  // Clear the container
+  container.empty();
+
+  // Add your personal details and project description
+  const personalDetails = `
+    <div class="card mb-4">
+      <div class="card-header">
+        <h6>About Me</h6>
+      </div>
+      <div class="card-body">
+        <p>I'm a dedicated software developer with a keen interest in the ever-evolving world of cryptocurrencies. With a background in computer science, I have a firm understanding of the underlying principles of software development.</p>
+        <p>I specialize in web development, particularly in JavaScript and its frameworks. I have experience in both front-end and back-end development, and I'm always eager to learn new technologies and improve my skills.</p>
+        <p>In my spare time, I enjoy contributing to open-source projects and exploring the latest trends in the tech industry. I believe in continuous learning and strive to stay updated with the latest industry advancements.</p>
+        <p>Here are some of my skills:</p>
+        <ul>
+          <li>JavaScript</li>
+          <li>React</li>
+          <li>Node.js</li>
+          <li>Python</li>
+          <li>Django</li>
+        </ul>
+      </div>
+    </div>
+  `;
+
+  const projectDescription = `
+    <div class="card mt-4">
+      <div class="card-header">
+        <h6>Project Description</h6>
+      </div>
+      <div class="card-body">
+        <p>My recent project involves creating a dynamic web application designed to deliver real-time cryptocurrency data. This application is built with a focus on user interaction, allowing for the seamless fetching, display, and filtration of cryptocurrency information.</p>
+        <p>Utilizing local storage, it efficiently caches data to minimize API calls, ensuring a fast and responsive user experience. Additionally, the application features a live data page that presents the latest prices of selected cryptocurrencies, demonstrating my commitment to leveraging technology to provide valuable and up-to-date financial insights.</p>
+        <p>Here are some of the technologies I used in this project:</p>
+        <ul>
+          <li>HTML/CSS</li>
+          <li>JavaScript</li>
+          <li>Bootstrap</li>
+          <li>jQuery</li>
+          <li>APIs</li>
+        </ul>
+      </div>
+    </div>
+  `;
+
+  // Append your personal details and project description to the container
+  container.append(personalDetails);
+  container.append(projectDescription);
+
+  // Reset all switchers
+  resetSwitchers();
+});
+
+// Code that runs on document ready
 $(document).ready(function () {
   // Fetch and display coins
   fetchAndDisplayCoins();
 
   // Add a title and some content for the coins page
   const container = $("#coins-container .row");
-  container.prepend("<h1>Coins Page</h1>");
 
-  // Function to reset all switchers
-  function resetSwitchers() {
-    $(".form-check-input").prop("checked", false);
-    selectedCoins = [];
-  }
-
-  $("#coinsLink").on("click", function (event) {
-    event.preventDefault();
-    // Clear the container and fetch the coins data
-    container.empty();
-    fetchAndDisplayCoins();
-    // Add a title and some content for the coins page
-    container.prepend("<h1>Coins Page</h1>");
-    // Reset all switchers
-    resetSwitchers();
-  });
-
-  $("#liveDataLink").on("click", function (event) {
-    event.preventDefault();
-    // Clear the container and display the live data
-    container.empty();
-    container.append("<h1>Live Data Page</h1>");
-    container.append('<div id="chartContainer" style="height: 370px; width: 100%;"></div>');
-
-    // Check if any coins have been selected
-    if (selectedCoins.length === 0) {
-      // If no coins have been selected, display a message
-      var message = $(
-        '<p class="text-center text-danger" style="font-size: 24px;">You need to select at least one coin.</p>'
-      );
-      container.append(message);
-      return;
-    }
-
-    // Limit the number of coins to 5
-    var selectedCoinsLimited = selectedCoins.slice(0, 5);
-
-    var dataPoints = selectedCoinsLimited.map((coin) => ({
-      type: "line",
-      dataPoints: [],
-      name: coin.name,
-      showInLegend: true,
-    }));
-
-    var chart = new CanvasJS.Chart("chartContainer", {
-      theme: "light1",
-      title: {
-        text: "Currency Prices in USD",
-      },
-      legend: {
-        cursor: "pointer",
-        verticalAlign: "top",
-        horizontalAlign: "right",
-        dockInsidePlotArea: true,
-      },
-      data: dataPoints,
-    });
-
-    function updateData() {
-      var fsyms = selectedCoinsLimited.map((coin) => coin.symbol.toUpperCase()).join(",");
-      $.get(`https://min-api.cryptocompare.com/data/pricemulti?fsyms=${fsyms}&tsyms=USD`, function (data) {
-        if (data.Response === "Error") {
-          // If the response contains an error, clear the container and display the error message
-          var message = $('<p class="text-center text-danger" style="font-size: 24px;">' + data.Message + "</p>");
-          container.append(message);
-        } else {
-          Object.keys(data).forEach((coin, index) => {
-            dataPoints[index].dataPoints.push({ x: new Date(), y: data[coin].USD });
-            if (dataPoints[index].dataPoints.length > 50) {
-              // keep only last 50 points
-              dataPoints[index].dataPoints.shift();
-            }
-          });
-          chart.render();
-          setTimeout(updateData, 2000); // Only update if no error
-        }
-      });
-    }
-
-    updateData();
-  });
-
-  $("#aboutLink").on("click", function (event) {
-    event.preventDefault();
-    // Clear the container
-    container.empty();
-
-    // Add your personal details and project description
-    const personalDetails = `
-      <div class="card mb-4">
-        <div class="card-header">
-          <h6>About Me</h6>
-        </div>
-        <div class="card-body">
-          <p>I'm a dedicated software developer with a keen interest in the ever-evolving world of cryptocurrencies. With a background in computer science, I have a firm understanding of the underlying principles of software development.</p>
-          <p>I specialize in web development, particularly in JavaScript and its frameworks. I have experience in both front-end and back-end development, and I'm always eager to learn new technologies and improve my skills.</p>
-          <p>In my spare time, I enjoy contributing to open-source projects and exploring the latest trends in the tech industry. I believe in continuous learning and strive to stay updated with the latest industry advancements.</p>
-          <p>Here are some of my skills:</p>
-          <ul>
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>Node.js</li>
-            <li>Python</li>
-            <li>Django</li>
-          </ul>
-        </div>
-      </div>
-    `;
-
-    const projectDescription = `
-      <div class="card mt-4">
-        <div class="card-header">
-          <h6>Project Description</h6>
-        </div>
-        <div class="card-body">
-          <p>My recent project involves creating a dynamic web application designed to deliver real-time cryptocurrency data. This application is built with a focus on user interaction, allowing for the seamless fetching, display, and filtration of cryptocurrency information.</p>
-          <p>Utilizing local storage, it efficiently caches data to minimize API calls, ensuring a fast and responsive user experience. Additionally, the application features a live data page that presents the latest prices of selected cryptocurrencies, demonstrating my commitment to leveraging technology to provide valuable and up-to-date financial insights.</p>
-          <p>Here are some of the technologies I used in this project:</p>
-          <ul>
-            <li>HTML/CSS</li>
-            <li>JavaScript</li>
-            <li>Bootstrap</li>
-            <li>jQuery</li>
-            <li>APIs</li>
-          </ul>
-        </div>
-      </div>
-    `;
-
-    // Append your personal details and project description to the container
-    container.append(personalDetails);
-    container.append(projectDescription);
-
-    // Reset all switchers
-    resetSwitchers();
-  });
+  // Reset selected coins
+  selectedCoins = [];
 });
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    goTopButton.style.display = "block";
+  } else {
+    goTopButton.style.display = "none";
+  }
+};
+
+// When the user clicks on the button, scroll to the top of the document
+goTopButton.onclick = function () {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+};
