@@ -21,9 +21,9 @@ html {
 }
 
 .hero-text-container {
-  background-color: rgba(0, 0, 0, 0.5); /* Black background with 50% opacity */
-  padding: 20px; /* Add some space around the text */
-  border-radius: 10px; /* Optional: round the corners of the container */
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
 }
 
 #title {
@@ -35,10 +35,10 @@ html {
 }
 
 #overview {
-  font-size: 1.25rem; /* Adjust as needed */
+  font-size: 1.25rem;
   font-family: "Arial", sans-serif;
   color: #fff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   text-align: center;
-  margin-top: 20px; /* Add some space between the title and the overview */
+  margin-top: 20px;
 }
