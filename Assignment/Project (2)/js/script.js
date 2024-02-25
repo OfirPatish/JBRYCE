@@ -1,6 +1,6 @@
 // Global variables
 const coinCache = {};
-const container = $("#coins-container .row");
+const coinDisplayContainer = $("#coins-container .row");
 const goTopButton = document.getElementById("goTopButton");
 let countdownInterval;
 let selectedCoins = [];
@@ -24,27 +24,6 @@ function fetchAndDisplayCoins() {
       displayCoins(data.slice(0, 50 * currentPage));
     });
   }
-}
-
-function addSwitchListeners(data) {
-  data.forEach((coin) => {
-    const switchElement = $(`#flexSwitchCheck${coin.id}`);
-    switchElement.on("change", function () {
-      if (this.checked) {
-        if (selectedCoins.length < 5) {
-          selectedCoins.push(coin);
-          localStorage.setItem("selectedCoins", JSON.stringify(selectedCoins));
-        } else {
-          this.checked = false;
-          updateSelectedCoinsList();
-          $("#coinLimitModal").modal("show");
-        }
-      } else {
-        selectedCoins = selectedCoins.filter((selectedCoin) => selectedCoin.id !== coin.id);
-        localStorage.setItem("selectedCoins", JSON.stringify(selectedCoins));
-      }
-    });
-  });
 }
 
 function displayCoins(data) {
@@ -77,11 +56,9 @@ function displayCoins(data) {
         <td><button class="btn btn-primary" onclick="fetchAndDisplayCoinDetails(event, '${
           coin.id
         }')">View Details</button></td>
-        <td>
-          <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheck${coin.id}" ${
-      selectedCoins.find((selectedCoin) => selectedCoin.id === coin.id) ? "checked" : ""
-    }>
+        <td><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheck${
+          coin.id
+        }" ${selectedCoins.find((selectedCoin) => selectedCoin.id === coin.id) ? "checked" : ""}>
           </div>
         </td>
       </tr>
@@ -98,9 +75,9 @@ function displayCoins(data) {
   `;
 
   // Add the table title and the table to the container
-  container.empty();
-  container.append(tableTitle);
-  container.append(table);
+  coinDisplayContainer.empty();
+  coinDisplayContainer.append(tableTitle);
+  coinDisplayContainer.append(table);
 
   // Add the event listeners to the switches
   addSwitchListeners(data); // Pass the data to the function
@@ -114,34 +91,8 @@ function displayCoins(data) {
     });
     const buttonWrapper = $('<div class="d-flex justify-content-center"></div>');
     buttonWrapper.append(viewMoreButton);
-    container.append(buttonWrapper);
+    coinDisplayContainer.append(buttonWrapper);
   }
-}
-
-function updateSelectedCoinsList() {
-  // Get the list element
-  const list = $("#selectedCoinsList");
-
-  // Clear the list
-  list.empty();
-
-  // Add each selected coin to the list
-  selectedCoins.forEach((coin) => {
-    list.append(
-      `<li class="list-group-item d-flex justify-content-between align-items-center">${coin.name} <button class="btn btn-outline-danger btn-sm" onclick="deselectCoin('${coin.id}')">Deselect</button></li>`
-    );
-  });
-}
-
-function deselectCoin(id) {
-  // Deselect the coin
-  $(`#flexSwitchCheck${id}`).prop("checked", false);
-
-  // Remove the coin from the selected coins list
-  selectedCoins = selectedCoins.filter((coin) => coin.id !== id);
-
-  // Update the list in the modal
-  updateSelectedCoinsList();
 }
 
 function fetchAndDisplayCoinDetails(event, id) {
@@ -220,7 +171,7 @@ function fetchAndDisplayCoinDetails(event, id) {
 
 function displayCoinDetails(data) {
   $("#coinImage").attr("src", data.image.large);
-  $("#coinImage").css({ width: "200px", height: "auto" }); // Set the dimensions of the image
+  $("#coinImage").css({ width: "200px", height: "auto" });
 
   // Check if current_price exists for each currency and display the price or a default value
   $("#usdPrice").text(`USD: $${data.market_data.current_price.usd || "N/A"}`);
@@ -232,18 +183,65 @@ function displayCoinDetails(data) {
   $("#coinDetails").show();
 }
 
+function addSwitchListeners(data) {
+  data.forEach((coin) => {
+    const switchElement = $(`#flexSwitchCheck${coin.id}`);
+    switchElement.on("change", function () {
+      if (this.checked) {
+        if (selectedCoins.length < 5) {
+          selectedCoins.push(coin);
+          localStorage.setItem("selectedCoins", JSON.stringify(selectedCoins));
+        } else {
+          this.checked = false;
+          updateSelectedCoinsList();
+          $("#coinLimitModal").modal("show");
+        }
+      } else {
+        selectedCoins = selectedCoins.filter((selectedCoin) => selectedCoin.id !== coin.id);
+        localStorage.setItem("selectedCoins", JSON.stringify(selectedCoins));
+      }
+    });
+  });
+}
+
+function updateSelectedCoinsList() {
+  // Get the list element
+  const list = $("#selectedCoinsList");
+
+  // Clear the list
+  list.empty();
+
+  // Add each selected coin to the list
+  selectedCoins.forEach((coin) => {
+    list.append(
+      `<li class="list-group-item d-flex justify-content-between align-items-center">${coin.name} <button class="btn btn-danger btn-sm" onclick="deselectCoin('${coin.id}')">Deselect</button></li>`
+    );
+  });
+}
+
+function deselectCoin(id) {
+  // Deselect the coin
+  $(`#flexSwitchCheck${id}`).prop("checked", false);
+
+  // Remove the coin from the selected coins list
+  selectedCoins = selectedCoins.filter((coin) => coin.id !== id);
+
+  // Update the list in the modal
+  updateSelectedCoinsList();
+}
+
 // Event listeners
 $("#searchButton").on("click", function () {
   // Get the search term
   const searchTerm = $("#searchInput").val().toLowerCase();
 
   // Clear the container
-  container.empty();
+  coinDisplayContainer.empty();
 
   // Check if the search term is empty
   if (!searchTerm) {
     // If the search term is empty, display an error message
-    container.append("<p>Search term cannot be empty.</p>");
+    coinDisplayContainer.append("<p>Search term cannot be empty.</p>");
     return;
   }
 
@@ -256,14 +254,14 @@ $("#searchButton").on("click", function () {
     displayCoins(filteredCoins);
   } else {
     // If no coins were found, display a message
-    container.append("<p>No coins found for the given search term.</p>");
+    coinDisplayContainer.append("<p>No coins found for the given search term.</p>");
   }
 });
 
 $("#coinsLink").on("click", function (event) {
   event.preventDefault();
   // Clear the container and fetch the coins data
-  container.empty();
+  coinDisplayContainer.empty();
   fetchAndDisplayCoins();
   // Scroll to the coins section
   document.getElementById("coins-container").scrollIntoView({ behavior: "smooth" });
@@ -272,8 +270,8 @@ $("#coinsLink").on("click", function (event) {
 $("#liveDataLink").on("click", function (event) {
   event.preventDefault();
   // Clear the container and display the live data
-  container.empty();
-  container.append('<div id="chartContainer" style="height: 370px; width: 100%;"></div>');
+  coinDisplayContainer.empty();
+  coinDisplayContainer.append('<div id="chartContainer" style="height: 370px; width: 100%;"></div>');
 
   // Check if any coins have been selected
   if (selectedCoins.length === 0) {
@@ -281,7 +279,7 @@ $("#liveDataLink").on("click", function (event) {
     var message = $(
       '<p class="text-center text-danger" style="font-size: 24px;">You need to select at least one coin.</p>'
     );
-    container.append(message);
+    coinDisplayContainer.append(message);
     return;
   }
 
@@ -315,7 +313,7 @@ $("#liveDataLink").on("click", function (event) {
       if (data.Response === "Error") {
         // If the response contains an error, clear the container and display the error message
         var message = $('<p class="text-center text-danger" style="font-size: 24px;">' + data.Message + "</p>");
-        container.append(message);
+        coinDisplayContainer.append(message);
       } else {
         Object.keys(data).forEach((coin, index) => {
           dataPoints[index].dataPoints.push({ x: new Date(), y: data[coin].USD });
@@ -336,7 +334,7 @@ $("#liveDataLink").on("click", function (event) {
 $("#aboutLink").on("click", function (event) {
   event.preventDefault();
   // Clear the container
-  container.empty();
+  coinDisplayContainer.empty();
 
   // Add your personal details and project description
   const personalDetails = `
@@ -381,17 +379,14 @@ $("#aboutLink").on("click", function (event) {
   `;
 
   // Append your personal details and project description to the container
-  container.append(personalDetails);
-  container.append(projectDescription);
+  coinDisplayContainer.append(personalDetails);
+  coinDisplayContainer.append(projectDescription);
 });
 
 // Code that runs on document ready
 $(document).ready(function () {
   // Fetch and display coins
   fetchAndDisplayCoins();
-
-  // Add a title and some content for the coins page
-  const container = $("#coins-container .row");
 
   // Reset selected coins
   selectedCoins = [];
