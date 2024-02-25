@@ -265,8 +265,8 @@ $("#coinsLink").on("click", function (event) {
   // Clear the container and fetch the coins data
   container.empty();
   fetchAndDisplayCoins();
-  // Reset all switchers
-  resetSwitchers();
+  // Scroll to the coins section
+  document.getElementById("coins-container").scrollIntoView({ behavior: "smooth" });
 });
 
 $("#liveDataLink").on("click", function (event) {
@@ -340,41 +340,41 @@ $("#aboutLink").on("click", function (event) {
 
   // Add your personal details and project description
   const personalDetails = `
-    <div class="card mb-4">
-      <div class="card-header">
-        <h6>About Me</h6>
+    <div class="card mb-4 shadow">
+      <div class="card-header bg-primary text-white">
+        <h5>About Me</h5>
       </div>
       <div class="card-body">
         <p>I'm a dedicated software developer with a keen interest in the ever-evolving world of cryptocurrencies. With a background in computer science, I have a firm understanding of the underlying principles of software development.</p>
         <p>I specialize in web development, particularly in JavaScript and its frameworks. I have experience in both front-end and back-end development, and I'm always eager to learn new technologies and improve my skills.</p>
         <p>In my spare time, I enjoy contributing to open-source projects and exploring the latest trends in the tech industry. I believe in continuous learning and strive to stay updated with the latest industry advancements.</p>
         <p>Here are some of my skills:</p>
-        <ul>
-          <li>JavaScript</li>
-          <li>React</li>
-          <li>Node.js</li>
-          <li>Python</li>
-          <li>Django</li>
+        <ul class="list-unstyled">
+          <li><span class="badge bg-secondary">JavaScript</span></li>
+          <li><span class="badge bg-secondary">React</span></li>
+          <li><span class="badge bg-secondary">Node.js</span></li>
+          <li><span class="badge bg-secondary">Python</span></li>
+          <li><span class="badge bg-secondary">Django</span></li>
         </ul>
       </div>
     </div>
   `;
 
   const projectDescription = `
-    <div class="card mt-4">
-      <div class="card-header">
-        <h6>Project Description</h6>
+    <div class="card mt-4 shadow">
+      <div class="card-header bg-primary text-white">
+        <h5>Project Description</h5>
       </div>
       <div class="card-body">
         <p>My recent project involves creating a dynamic web application designed to deliver real-time cryptocurrency data. This application is built with a focus on user interaction, allowing for the seamless fetching, display, and filtration of cryptocurrency information.</p>
         <p>Utilizing local storage, it efficiently caches data to minimize API calls, ensuring a fast and responsive user experience. Additionally, the application features a live data page that presents the latest prices of selected cryptocurrencies, demonstrating my commitment to leveraging technology to provide valuable and up-to-date financial insights.</p>
         <p>Here are some of the technologies I used in this project:</p>
-        <ul>
-          <li>HTML/CSS</li>
-          <li>JavaScript</li>
-          <li>Bootstrap</li>
-          <li>jQuery</li>
-          <li>APIs</li>
+        <ul class="list-unstyled">
+          <li><span class="badge bg-secondary">HTML/CSS</span></li>
+          <li><span class="badge bg-secondary">JavaScript</span></li>
+          <li><span class="badge bg-secondary">Bootstrap</span></li>
+          <li><span class="badge bg-secondary">jQuery</span></li>
+          <li><span class="badge bg-secondary">APIs</span></li>
         </ul>
       </div>
     </div>
@@ -383,9 +383,6 @@ $("#aboutLink").on("click", function (event) {
   // Append your personal details and project description to the container
   container.append(personalDetails);
   container.append(projectDescription);
-
-  // Reset all switchers
-  resetSwitchers();
 });
 
 // Code that runs on document ready
