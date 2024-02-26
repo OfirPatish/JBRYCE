@@ -269,19 +269,18 @@ $("#coinsLink").on("click", function (event) {
 
 $("#liveDataLink").on("click", function (event) {
   event.preventDefault();
-  // Clear the container and display the live data
-  coinDisplayContainer.empty();
-  coinDisplayContainer.append('<div id="chartContainer" style="height: 370px; width: 100%;"></div>');
 
   // Check if any coins have been selected
   if (selectedCoins.length === 0) {
-    // If no coins have been selected, display a message
-    var message = $(
-      '<p class="text-center text-danger" style="font-size: 24px;">You need to select at least one coin.</p>'
-    );
-    coinDisplayContainer.append(message);
+    // If no coins have been selected, display a toast
+    var toast = new bootstrap.Toast(document.getElementById("noCoinsToast"));
+    toast.show();
     return;
   }
+
+  // Clear the container and display the live data
+  coinDisplayContainer.empty();
+  coinDisplayContainer.append('<div id="chartContainer" style="height: 370px; width: 100%;"></div>');
 
   // Limit the number of coins to 5
   var selectedCoinsLimited = selectedCoins.slice(0, 5);
@@ -364,9 +363,18 @@ $("#aboutLink").on("click", function (event) {
         <h5>Project Description</h5>
       </div>
       <div class="card-body">
-        <p>My recent project involves creating a dynamic web application designed to deliver real-time cryptocurrency data. This application is built with a focus on user interaction, allowing for the seamless fetching, display, and filtration of cryptocurrency information.</p>
-        <p>Utilizing local storage, it efficiently caches data to minimize API calls, ensuring a fast and responsive user experience. Additionally, the application features a live data page that presents the latest prices of selected cryptocurrencies, demonstrating my commitment to leveraging technology to provide valuable and up-to-date financial insights.</p>
-        <p>Here are some of the technologies I used in this project:</p>
+        <p>This project is a dynamic web application designed to deliver real-time cryptocurrency data. It allows users to fetch, display, and filter cryptocurrency information interactively. The application efficiently caches data using local storage to minimize API calls, ensuring a fast and responsive user experience.</p>
+        <p>Recently, we've made significant updates to improve the application's performance and user experience. These updates include:</p>
+        <ul>
+          <li>Implemented a caching mechanism to store coin data and reduce the number of API calls.</li>
+          <li>Added a search functionality to filter coins based on their symbols.</li>
+          <li>Introduced a live data page that presents the latest prices of selected cryptocurrencies in a dynamic chart.</li>
+          <li>Enhanced the user interface with Bootstrap and jQuery for a better user experience.</li>
+          <li>Added a "View More" button to load more coins without refreshing the page.</li>
+          <li>Implemented a selection limit for coins to be displayed in the live data page.</li>
+        </ul>
+        <p>The application also features a live data page that presents the latest prices of selected cryptocurrencies, demonstrating our commitment to leveraging technology to provide valuable and up-to-date financial insights.</p>
+        <p>Here are some of the technologies we used in this project:</p>
         <ul class="list-unstyled">
           <li><span class="badge bg-secondary">HTML/CSS</span></li>
           <li><span class="badge bg-secondary">JavaScript</span></li>
