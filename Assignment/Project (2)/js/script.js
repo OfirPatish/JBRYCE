@@ -182,14 +182,17 @@ function fetchAndDisplayCoinDetails(event, id) {
 }
 
 function displayCoinDetails(data) {
+  // Display the coin name at the top of the modal
+  $("#modalTitle").text(data.name);
+
   // Set the image source and size
   $("#coinImage").attr("src", data.image.large);
   $("#coinImage").css({ width: "200px", height: "auto" });
 
   // Check if current_price exists for each currency and display the price or a default value
-  $("#usdPrice").text(`USD: $${data.market_data.current_price.usd || "N/A"}`);
-  $("#eurPrice").text(`EUR: €${data.market_data.current_price.eur || "N/A"}`);
-  $("#ilsPrice").text(`ILS: ₪${data.market_data.current_price.ils || "N/A"}`);
+  $("#usdPrice").html(`<strong>USD:</strong> $${data.market_data.current_price.usd || "N/A"}`);
+  $("#eurPrice").html(`<strong>EUR:</strong> €${data.market_data.current_price.eur || "N/A"}`);
+  $("#ilsPrice").html(`<strong>ILS:</strong> ₪${data.market_data.current_price.ils || "N/A"}`);
 
   // Hide the loading bar and show the coin details
   $("#loadingBar").hide();
