@@ -387,28 +387,38 @@ $("#aboutLink").on("click", function (event) {
 
   // Define the personal details and project description
   const personalDetails = `
-    <!-- Personal details card -->
-    <div class="card mb-4 shadow">
-      <!-- Card header -->
-      <div class="card-header bg-primary text-white">
-        <h5>About Me</h5>
-      </div>
-      <!-- Card body -->
-      <div class="card-body">
-        <!-- Personal details -->
-        <p>I'm a dedicated software developer with a keen interest in the ever-evolving world of cryptocurrencies. With a background in computer science, I have a firm understanding of the underlying principles of software development.</p>
-        <!-- Skills -->
-        <p>Here are some of my skills:</p>
-        <ul class="list-unstyled">
-          <li><span class="badge bg-secondary">JavaScript</span></li>
-          <li><span class="badge bg-secondary">React</span></li>
-          <li><span class="badge bg-secondary">Node.js</span></li>
-          <li><span class="badge bg-secondary">Python</span></li>
-          <li><span class="badge bg-secondary">Django</span></li>
-        </ul>
-      </div>
+  <!-- Personal details card -->
+  <div class="card mb-4 shadow">
+    <!-- Card header -->
+    <div class="card-header bg-primary text-white">
+      <h5>About Me</h5>
     </div>
-  `;
+    <!-- Card body -->
+    <div class="card-body">
+      <!-- Personal details -->
+      <p>I'm a full-stack web developer in training, currently enrolled in a comprehensive course that covers a wide range of technologies and frameworks.</p>
+      <!-- Education -->
+      <h6>Education</h6>
+      <p>I'm currently pursuing a Full-Stack Web Development course from John Bryce Institute...</p>
+      <!-- Projects -->
+      <h6>Projects</h6>
+      <p>This cryptocurrency web application is one of the key projects I've worked on during my course...</p>
+      <!-- Skills -->
+      <h6>Skills</h6>
+      <ul class="list-unstyled">
+        <li><span class="badge bg-secondary">HTML/CSS</span></li>
+        <li><span class="badge bg-secondary">JavaScript</span></li>
+        <li><span class="badge bg-secondary">React</span></li>
+        <li><span class="badge bg-secondary">Node.js</span></li>
+        <li><span class="badge bg-secondary">Express.js</span></li>
+        <li><span class="badge bg-secondary">MongoDB</span></li>
+      </ul>
+      <!-- Contact Information -->
+      <h6>Contact Information</h6>
+      <p>You can reach me at <a href="mailto:ofirpatishop@gmail.com">Gmail</a> or on <a href="www.linkedin.com/in/ofirpatish">LinkedIn</a>.</p>
+    </div>
+  </div>
+`;
 
   const projectDescription = `
     <!-- Project description card -->
