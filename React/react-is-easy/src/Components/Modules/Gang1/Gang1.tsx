@@ -4,6 +4,7 @@ interface Gang1Props {
   nodeID: number;
   name: string;
   location: string;
+  totalEPID: number;
 }
 
 function Gang1(props: Gang1Props): JSX.Element {
@@ -15,6 +16,12 @@ function Gang1(props: Gang1Props): JSX.Element {
       <br />
       location: {props.location}
       <hr />
+      {[...Array(props.totalEPID)].map((index) => (
+        <>
+          <input key={index} type="text" />
+          <br />
+        </>
+      ))}
       <input type="text"></input>
       <input type="submit" value="send"></input>
     </div>

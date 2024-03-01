@@ -21,11 +21,11 @@ function MainPage(): JSX.Element {
   //     { id: 6, name: "Dima" },
   //   ];
   let myDevice = [
-    { id: 1, nodeID: 10, name: "entrance", location: "main-floor", totalepID: 1 },
-    { id: 2, nodeID: 12, name: "dinning", location: "main-floor", totalepID: 1 },
-    { id: 3, nodeID: 14, name: "kitchen", location: "main-floor", totalepID: 1 },
-    { id: 4, nodeID: 16, name: "living-room", location: "main-floor", totalepID: 2 },
-    { id: 5, nodeID: 18, name: "bathroom", location: "main-floor", totalepID: 2 },
+    { id: 1, nodeID: 10, name: "entrance", location: "main-floor", totalEPID: 0 },
+    { id: 2, nodeID: 12, name: "dinning", location: "main-floor", totalEPID: 0 },
+    { id: 3, nodeID: 14, name: "kitchen", location: "main-floor", totalEPID: 0 },
+    { id: 4, nodeID: 16, name: "living-room", location: "main-floor", totalEPID: 1 },
+    { id: 5, nodeID: 18, name: "bathroom", location: "main-floor", totalEPID: 1 },
   ];
 
   return (
@@ -39,7 +39,7 @@ function MainPage(): JSX.Element {
           nodeID={item.nodeID}
           name={item.name}
           location={item.location}
-          totalepID={item.totalepID}
+          totalEPID={item.totalEPID}
         />
       ))}
     </div>
