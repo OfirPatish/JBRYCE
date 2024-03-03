@@ -349,10 +349,10 @@ $("#liveDataLink").on("click", function (event) {
   // Function to update the chart data
   function updateData() {
     // Get the symbols of the selected coins
-    const fsyms = selectedCoinsLimited.map((coin) => coin.symbol.toUpperCase()).join(",");
+    const coinSymbols = selectedCoinsLimited.map((coin) => coin.symbol.toUpperCase()).join(",");
 
     // Fetch the current prices of the selected coins
-    $.get(`https://min-api.cryptocompare.com/data/pricemulti?fsyms=${fsyms}&tsyms=USD`, function (data) {
+    $.get(`https://min-api.cryptocompare.com/data/pricemulti?fsyms=${coinSymbols}&tsyms=USD`, function (data) {
       if (data.Response === "Error") {
         // If the response contains an error, clear the container and display the error message
         const message = $('<p class="text-center text-danger" style="font-size: 24px;">' + data.Message + "</p>");
