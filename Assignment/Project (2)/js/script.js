@@ -415,8 +415,7 @@ $("#aboutLink").on("click", function (event) {
       </ul>
       <!-- Contact Information -->
       <h6>Contact Information</h6>
-      <p>You can reach me at <a href="mailto:ofirpatishop@gmail.com">Gmail</a> or on <a href="www.linkedin.com/in/ofirpatish">LinkedIn</a>.</p>
-    </div>
+      <p>You can reach me at <a href="mailto:ofirpatishop@gmail.com">Gmail</a> or on <a href="https://www.linkedin.com/in/ofirpatish">LinkedIn</a>.</p>    </div>
   </div>
 `;
 
