@@ -114,3 +114,11 @@ html {
 .bi-arrow-down-circle-fill {
   animation: pulse 2s infinite;
 }
+
+@media (max-width: 990px) {
+  .btn {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+    white-space: normal;
+  }
+}
