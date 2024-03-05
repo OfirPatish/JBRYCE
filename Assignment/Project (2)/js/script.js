@@ -18,6 +18,9 @@ function fetchAndDisplayCoins() {
     allCoinsData = JSON.parse(coinsData);
     displayCoins(allCoinsData.slice(0, 50 * currentPage));
   } else {
+    // Show the spinner
+    $("#spinner").show();
+
     // If no cached data or data is older than 24 hours, fetch new data from API
     $.get("https://api.coingecko.com/api/v3/coins/list")
       .done(function (data) {
@@ -26,7 +29,10 @@ function fetchAndDisplayCoins() {
         localStorage.setItem("lastFetch", new Date().getTime().toString());
 
         allCoinsData = data;
-        displayCoins(data.slice(0, 50 * currentPage));
+        setTimeout(() => {
+          displayCoins(data.slice(0, 50 * currentPage));
+          $("#spinner").hide();
+        }, 2000);
       })
       .fail(function (jqXHR, textStatus, errorThrown) {
         // Log the error for debugging
@@ -34,6 +40,8 @@ function fetchAndDisplayCoins() {
         // Display a user-friendly error message
         coinDisplayContainer.empty();
         coinDisplayContainer.append("<p>An error occurred while fetching coin data. Please try again later.</p>");
+        // Hide the spinner
+        $("#spinner").hide();
       });
   }
 }
@@ -105,6 +113,9 @@ function displayCoins(data) {
     buttonWrapper.append(viewMoreButton);
     coinDisplayContainer.append(buttonWrapper);
   }
+
+  // Hide the spinner
+  $("#spinner").hide();
 }
 
 function fetchAndDisplayCoinDetails(event, id) {
