@@ -23,6 +23,7 @@ function Gang1(props: Gang1Props): JSX.Element {
         </>
       ))}
       <input type="text"></input>
+      <br />
       <input type="submit" value="send"></input>
     </div>
   );

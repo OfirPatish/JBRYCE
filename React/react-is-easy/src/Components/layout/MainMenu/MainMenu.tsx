@@ -18,12 +18,10 @@ function MainMenu(): JSX.Element {
       <hr />
       <div className="MainMenu-buttons">
         {menuItems.map((item) => (
-          <>
-            <button key={item.id} className="MainMenu-button">
-              {item.name}
-            </button>
+          <div key={item.id}>
+            <button className="MainMenu-button">{item.name}</button>
             {(item.id === 7 || item.id === 9) && <hr />}
-          </>
+          </div>
         ))}
       </div>
     </div>

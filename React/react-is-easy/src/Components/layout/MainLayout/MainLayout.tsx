@@ -1,7 +1,10 @@
+import Cars from "../../REST/Cars/Cars";
+import Login from "../Login/Login";
 import MainFooter from "../MainFooter/MainFooter";
 import MainHeader from "../MainHeader/MainHeader";
 import MainMenu from "../MainMenu/MainMenu";
 import MainPage from "../MainPage/MainPage";
+import NameDisplayButton from "../NameDisplayButton/NameDisplayButton";
 import "./MainLayout.css";
 
 function MainLayout(): JSX.Element {
@@ -14,7 +17,7 @@ function MainLayout(): JSX.Element {
         <MainMenu />
       </aside>
       <main>
-        <MainPage />
+        <Cars />
       </main>
       <footer>
         <MainFooter />
