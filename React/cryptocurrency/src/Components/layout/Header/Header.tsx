@@ -4,7 +4,7 @@ import "./Header.css";
 const Header: React.FC = () => {
   return (
     <header className="Header">
-      <h1>Cryptocurrency Tracker</h1>
+      <h4>CRYPTOCURRENCY</h4>
     </header>
   );
 };

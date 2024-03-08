@@ -1,0 +1,25 @@
+.App {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "menu main"
+    "footer footer";
+  grid-template-columns: 1fr 9fr; /* Adjust this value */
+  grid-template-rows: auto 1fr auto;
+}
+
+.Header {
+  grid-area: header;
+}
+
+.Menu {
+  grid-area: menu;
+}
+
+.Main {
+  grid-area: main;
+}
+
+.Footer {
+  grid-area: footer;
+}

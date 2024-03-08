@@ -3,7 +3,7 @@ import "./Menu.css";
 function Menu(): JSX.Element {
   return (
     <div className="Menu">
-      <h1>API Documentation</h1>
+      <h4>CRYPTO API 2.0</h4>
       <h2>Assets</h2>
       <p>GET /assets</p>
       <p>GET /assets/:id</p>
