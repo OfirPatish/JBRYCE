@@ -1,0 +1,30 @@
+.Menu {
+  width: 200px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-right: 1px solid #dee2e6;
+  height: 100vh;
+  position: fixed;
+  overflow: auto;
+  font-family: Arial, sans-serif;
+}
+
+.Menu h1 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.Menu p {
+  font-size: 0.9em;
+  margin-left: 10px;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.Menu p:hover {
+  color: #333;
+}

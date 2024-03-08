@@ -1,0 +1,36 @@
+.CryptoList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.CryptoList div {
+  width: 80%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.CryptoList div:hover {
+  background-color: #e9e9e9;
+}
+
+/* .CryptoList div h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.2em;
+} */
+
+.CryptoList div p {
+  margin: 0;
+  color: #666;
+  white-space: nowrap;
+  overflow: auto;
+}
