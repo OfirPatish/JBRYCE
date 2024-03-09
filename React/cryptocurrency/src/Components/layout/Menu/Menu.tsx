@@ -5,21 +5,39 @@ function Menu(): JSX.Element {
     <div className="Menu">
       <div className="sticky">
         <h4>
-          <span>CRYPTO API 2.0</span>
+          <span id="apiTitle">CRYPTO API 2.0</span>
         </h4>
-        <h2>Assets</h2>
-        <p>GET /assets</p>
-        <p>GET /assets/:id</p>
-        <p>GET /assets/:id/history</p>
-        <p>GET /assets/:id/markets</p>
-        <h2>Rates</h2>
-        <p>GET /rates</p>
-        <p>GET /rates/:id</p>
-        <h2>Exchanges</h2>
-        <p>GET /exchanges</p>
-        <p>GET /exchanges/:id</p>
-        <h2>Markets</h2>
-        <p>GET /markets</p>
+        <h3>Assets</h3>
+        <p>
+          <span className="get">GET</span> /assets
+        </p>
+        <p>
+          <span className="get">GET</span> /assets/:id
+        </p>
+        <p>
+          <span className="get">GET</span> /assets/:id/history
+        </p>
+        <p>
+          <span className="get">GET</span> /assets/:id/markets
+        </p>
+        <h3>Rates</h3>
+        <p>
+          <span className="get">GET</span> /rates
+        </p>
+        <p>
+          <span className="get">GET</span> /rates/:id
+        </p>
+        <h3>Exchanges</h3>
+        <p>
+          <span className="get">GET</span> /exchanges
+        </p>
+        <p>
+          <span className="get">GET</span> /exchanges/:id
+        </p>
+        <h3>Markets</h3>
+        <p>
+          <span className="get">GET</span> /markets
+        </p>
       </div>
     </div>
   );

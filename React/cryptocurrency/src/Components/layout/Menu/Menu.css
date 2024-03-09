@@ -10,9 +10,15 @@
   top: 120px;
 }
 
-.Menu h4 span {
+#apiTitle {
   background-color: #e8e8e8;
   padding: 10px;
+  font-family: monospace;
+}
+
+.Menu .get {
+  font-size: 0.8em;
+  color: #008000;
   font-family: monospace;
 }
 
