@@ -4,7 +4,7 @@
     "header header"
     "menu main"
     "footer footer";
-  grid-template-columns: 1fr 9fr; /* Adjust this value */
+  grid-template-columns: 1fr 9fr;
   grid-template-rows: auto 1fr auto;
 }
 

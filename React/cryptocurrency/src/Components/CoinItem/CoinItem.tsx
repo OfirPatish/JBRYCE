@@ -1,4 +1,4 @@
-import { CoinRate } from "../model/Coin";
+import { CoinRate } from "../Model/Coin";
 import "./CoinItem.css";
 
 function CoinItem(props: CoinRate): JSX.Element {

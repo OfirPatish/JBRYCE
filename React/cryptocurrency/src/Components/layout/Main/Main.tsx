@@ -1,6 +1,6 @@
 import React from "react";
 import "./Main.css";
-import CryptoList from "../../crypto/CryptoList/CryptoList";
+import CryptoList from "../../Features/CryptoList/CryptoList";
 
 const Main: React.FC = () => {
   return (

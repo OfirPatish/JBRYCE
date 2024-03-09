@@ -1,5 +1,3 @@
-// API: https://api.coincap.io/v2/rates
-
 class CoinRate {
   public id: string;
   public symbol: string;
