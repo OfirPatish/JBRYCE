@@ -4,7 +4,9 @@ function Menu(): JSX.Element {
   return (
     <div className="Menu">
       <div className="sticky">
-        <h4>CRYPTO API 2.0</h4>
+        <h4>
+          <span>CRYPTO API 2.0</span>
+        </h4>
         <h2>Assets</h2>
         <p>GET /assets</p>
         <p>GET /assets/:id</p>

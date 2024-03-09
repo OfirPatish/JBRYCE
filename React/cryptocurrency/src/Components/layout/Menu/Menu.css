@@ -1,6 +1,6 @@
 .Menu {
   padding: 20px;
-  background-color: #f8f9fa;
+  background-color: #f0f0f0;
   border-right: 1px solid #dee2e6;
   font-family: Arial, sans-serif;
 }
@@ -10,12 +10,10 @@
   top: 120px;
 }
 
-.Menu h1 {
-  font-size: 1.2em;
-  margin-bottom: 10px;
-  color: #333;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
+.Menu h4 span {
+  background-color: #e8e8e8;
+  padding: 10px;
+  font-family: monospace;
 }
 
 .Menu p {
