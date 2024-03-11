@@ -424,9 +424,9 @@ $("#aboutLink").on("click", function (event) {
         <li><span class="badge bg-secondary">Express.js</span></li>
         <li><span class="badge bg-secondary">MongoDB</span></li>
       </ul>
-      <!-- Contact Information -->
+      <!-- Contact Information  -->
       <h6>Contact Information</h6>
-      <p>You can reach me at <a href="mailto:ofirpatishop@gmail.com">Gmail</a> or on <a href="https://www.linkedin.com/in/ofirpatish">LinkedIn</a>.</p>    </div>
+      <p>You can reach me at <a href="mailto:ofirpatishop@gmail.com">Gmail</a>, on <a href="https://www.linkedin.com/in/ofirpatish">LinkedIn</a>, or view my projects on <a href="https://github.com/OfirPatish">GitHub</a>.</p>
   </div>
 `;
 
