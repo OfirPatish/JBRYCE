@@ -1,4 +1,4 @@
-#apiTitle {
+.apiTitle {
   background-color: #e8e8e8;
   padding: 10px;
   font-family: monospace;
@@ -37,4 +37,23 @@
   margin-left: 10px;
   color: #666;
   font-family: monospace;
+}
+
+.docLink,
+.docLink:visited,
+.apiTitle,
+.apiTitle:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.docLink:hover,
+.apiTitle:hover {
+  text-decoration: underline;
+  color: black;
+}
+
+.docLink:active,
+.apiTitle:active {
+  color: black;
 }

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { CoinRate } from "../../Model/Coin";
-import "./CryptoList.css";
-import CoinItem from "../../CoinItem/CoinItem";
+import { CoinRate } from "../../Model/CoinRate";
+import "./Rates.css";
+import RateItem from "../../Features/RateItem/RateItem";
 
-const CryptoList: React.FC = () => {
+const Rates: React.FC = () => {
   const [coins, setCoins] = useState<CoinRate[]>([]);
 
   useEffect(() => {
@@ -14,12 +14,12 @@ const CryptoList: React.FC = () => {
   }, []);
 
   return (
-    <div className="CryptoList">
+    <div className="Rates">
       {coins.map((coin: CoinRate, index: number) => (
-        <CoinItem key={index} {...coin} />
+        <RateItem key={index} {...coin} />
       ))}
     </div>
   );
 };
 
-export default CryptoList;
+export default Rates;

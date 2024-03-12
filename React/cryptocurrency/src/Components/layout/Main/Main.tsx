@@ -1,11 +1,17 @@
 import React from "react";
 import "./Main.css";
-import CryptoList from "../../Features/CryptoList/CryptoList";
+import Header from "../Header/Header";
+import Menu from "../Menu/Menu";
+import Footer from "../Footer/Footer";
+import MainRoute from "../../Route/MainRoute/MainRoute";
 
 const Main: React.FC = () => {
   return (
     <main className="Main">
-      <CryptoList />
+      <Header />
+      <Menu />
+      <MainRoute />
+      <Footer />
     </main>
   );
 };

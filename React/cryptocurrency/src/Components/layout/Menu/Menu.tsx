@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import "./Menu.css";
 
 function Menu(): JSX.Element {
@@ -5,16 +6,22 @@ function Menu(): JSX.Element {
     <div className="Menu">
       <div className="sticky">
         <h4>
-          <span id="apiTitle">CRYPTO API 2.0</span>
+          <NavLink to="/" className="apiTitle">
+            CRYPTO API 2.0
+          </NavLink>
         </h4>
         <h3>Assets</h3>
         <p>
           <span className="get">GET</span>
-          <span className="docLink">/assets</span>
+          <NavLink to="/assets" className="docLink">
+            /assets
+          </NavLink>
         </p>
         <p>
           <span className="get">GET</span>
-          <span className="docLink">/assets/:id</span>
+          <NavLink to="/assets/bitcoin" className="docLink">
+            /assets/:id
+          </NavLink>
         </p>
         <p>
           <span className="get">GET</span>
@@ -27,7 +34,9 @@ function Menu(): JSX.Element {
         <h3>Rates</h3>
         <p>
           <span className="get">GET</span>
-          <span className="docLink">/rates</span>
+          <NavLink to="/rates" className="docLink">
+            /rates
+          </NavLink>
         </p>
         <p>
           <span className="get">GET</span>
@@ -46,6 +55,13 @@ function Menu(): JSX.Element {
         <p>
           <span className="get">GET</span>
           <span className="docLink">/markets</span>
+        </p>
+        <h3>Page404</h3>
+        <p>
+          <span className="get">GET</span>
+          <NavLink to="/page404" className="docLink">
+            /page404
+          </NavLink>
         </p>
       </div>
     </div>
