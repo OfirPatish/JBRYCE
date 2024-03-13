@@ -25,7 +25,9 @@ function Menu(): JSX.Element {
         </p>
         <p>
           <span className="get">GET</span>
-          <span className="docLink">/assets/:id/history</span>
+          <NavLink to="/assets/bitcoin/history" className="docLink">
+            /assets/:id/history
+          </NavLink>
         </p>
         <p>
           <span className="get">GET</span>

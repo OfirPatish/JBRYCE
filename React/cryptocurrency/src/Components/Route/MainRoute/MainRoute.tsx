@@ -5,6 +5,7 @@ import Assets from "../../Pages/Assets/Assets";
 import Rates from "../../Pages/Rates/Rates";
 import Page404 from "../../Pages/Page404/Page404";
 import AssetID from "../../Pages/AssetID/AssetID";
+import AssetHistory from "../../Pages/AssetHistory/AssetHistory";
 
 function MainRoute(): JSX.Element {
   return (
@@ -13,6 +14,7 @@ function MainRoute(): JSX.Element {
         <Route path="/" element={<Home />} />
         <Route path="/assets" element={<Assets />} />
         <Route path="/assets/:id" element={<AssetID />} />
+        <Route path="/assets/:id/history" element={<AssetHistory />} />
         <Route path="/rates" element={<Rates />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
