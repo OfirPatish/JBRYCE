@@ -60,9 +60,9 @@ function Menu(): JSX.Element {
         </p>
         <h3>Page404</h3>
         <p>
-          <span className="get">GET</span>
+          <span className="get">404</span>
           <NavLink to="/page404" className="docLink">
-            /page404
+            Error
           </NavLink>
         </p>
       </div>

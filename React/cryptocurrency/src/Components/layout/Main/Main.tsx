@@ -2,8 +2,8 @@ import React from "react";
 import "./Main.css";
 import Header from "../Header/Header";
 import Menu from "../Menu/Menu";
-import Footer from "../Footer/Footer";
 import MainRoute from "../../Route/MainRoute/MainRoute";
+import Footer from "../Footer/Footer";
 
 const Main: React.FC = () => {
   return (
