@@ -1,5 +1,7 @@
 import "./MainRoute.css";
 import { Route, Routes } from "react-router-dom";
+import Register from "../../Layout/Register/Register";
+import Login from "../../Layout/Login/Login";
 import Home from "../../Pages/Home/Home";
 import Assets from "../../Pages/Assets/Assets";
 import Rates from "../../Pages/Rates/Rates";
@@ -11,7 +13,8 @@ function MainRoute(): JSX.Element {
   return (
     <div className="MainRoute">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/assets" element={<Assets />} />
         <Route path="/assets/:id" element={<AssetID />} />
         <Route path="/assets/:id/history" element={<AssetHistory />} />

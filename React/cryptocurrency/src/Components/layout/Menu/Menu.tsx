@@ -6,7 +6,7 @@ function Menu(): JSX.Element {
     <div className="Menu">
       <div className="sticky">
         <h4>
-          <NavLink to="/" className="apiTitle">
+          <NavLink to="/home" className="apiTitle">
             CRYPTO API 2.0
           </NavLink>
         </h4>
