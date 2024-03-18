@@ -1,5 +1,18 @@
-import { Button, TextField, Checkbox, FormControlLabel, Container, Box, Grid, Typography, Paper } from "@mui/material";
+import {
+  Button,
+  TextField,
+  Checkbox,
+  FormControlLabel,
+  Container,
+  Box,
+  Grid,
+  Typography,
+  Paper,
+  InputAdornment,
+} from "@mui/material";
 import { useForm } from "react-hook-form";
+import PersonIcon from "@mui/icons-material/Person";
+import LockIcon from "@mui/icons-material/Lock";
 
 type FormInputs = {
   username: string;
@@ -26,11 +39,11 @@ function Login(): JSX.Element {
           alignItems: "center",
         }}
       >
-        <Typography component="h1" variant="h5">
-          Login
-        </Typography>
         <Paper elevation={3} sx={{ padding: 3, marginTop: 2, width: "100%" }}>
           <form onSubmit={handleSubmit(onSubmit)}>
+            <Typography component="h1" variant="h5" align="center" sx={{ marginBottom: 2, fontWeight: "bold" }}>
+              Login
+            </Typography>
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
@@ -44,6 +57,14 @@ function Login(): JSX.Element {
                   })}
                   error={Boolean(errors.username)}
                   helperText={errors.username?.message}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <PersonIcon />
+                      </InputAdornment>
+                    ),
+                    style: { borderRadius: 25 },
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -58,21 +79,35 @@ function Login(): JSX.Element {
                   })}
                   error={Boolean(errors.password)}
                   helperText={errors.password?.message}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <LockIcon />
+                      </InputAdornment>
+                    ),
+                    style: { borderRadius: 25 },
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
-                <Box display="flex" justifyContent="center">
+                <Box display="flex" justifyContent="space-between" alignItems="center">
                   <FormControlLabel control={<Checkbox {...register("remember")} />} label="Remember me" />
+                  <Typography variant="body2" color="textSecondary">
+                    Forgot Password?
+                  </Typography>
                 </Box>
               </Grid>
               <Grid item xs={12}>
-                <Box display="flex" justifyContent="center" gap={2}>
-                  <Button type="submit" variant="contained" color="primary">
+                <Box display="flex" flexDirection="column" alignItems="center" gap={2}>
+                  <Button type="submit" variant="contained" color="primary" fullWidth sx={{ borderRadius: 25 }}>
                     Login
                   </Button>
-                  <Button type="button" variant="contained" color="success">
-                    Sign Up
-                  </Button>
+                  <Typography variant="body2" color="textSecondary">
+                    Don't have an account?{" "}
+                    <Typography color="primary" component="span">
+                      Register
+                    </Typography>
+                  </Typography>
                 </Box>
               </Grid>
             </Grid>
