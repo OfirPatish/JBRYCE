@@ -8,7 +8,7 @@ import { Grid } from "@mui/material";
 
 const Main: React.FC = () => {
   return (
-    <Grid container direction="column" style={{ height: "100vh" }}>
+    <Grid container direction="column" style={{ paddingBottom: "100px" }}>
       <Grid item>
         <Header />
       </Grid>

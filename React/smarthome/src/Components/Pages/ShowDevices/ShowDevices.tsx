@@ -28,7 +28,7 @@ function ShowDevices(): JSX.Element {
   ];
 
   return (
-    <Box sx={{ p: 2, mt: 8 }}>
+    <Box sx={{ p: 2, mt: 14 }}>
       {homes.map((home, index) => (
         <Box key={index} sx={{ mt: 2 }}>
           <Typography variant="h4" gutterBottom>

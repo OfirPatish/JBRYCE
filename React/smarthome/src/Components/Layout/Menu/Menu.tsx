@@ -1,56 +1,82 @@
-import { Typography, Box, Button, Stack, Divider } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { Box, List, ListItem, ListItemText, Button, ListItemIcon } from "@mui/material";
+import SaveIcon from "@mui/icons-material/Save";
+import SendIcon from "@mui/icons-material/Send";
+import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 
 function Menu(): JSX.Element {
   return (
     <Box
       sx={{
-        display: "flex",
-        flexDirection: "column",
-        p: 2,
-        bgcolor: "grey.200",
-        width: "240px",
+        width: "auto",
         height: "100vh",
+        bgcolor: "grey.200",
         position: "fixed",
-        mt: 8,
+        top: "50px",
       }}
     >
-      <Typography variant="h6" component="div" sx={{ my: 2, fontWeight: "bold", color: "primary.main", pb: 1 }}>
-        Menu
-      </Typography>
-      <Divider />
-      <Stack spacing={2} width="100%" sx={{ mt: 2 }}>
-        <Typography variant="body1" component="div">
-          <NavLink to="/fetch-data" style={{ textDecoration: "none", color: "inherit" }}>
-            Fetch Data from Server
-          </NavLink>
-        </Typography>
-        <Typography variant="body1" component="div">
-          <NavLink to="/display-components" style={{ textDecoration: "none", color: "inherit" }}>
-            Display Components
-          </NavLink>
-        </Typography>
-        <Button
-          variant="contained"
-          color="primary"
-          fullWidth
-          onClick={() => {
-            /* Save data logic here */
-          }}
-        >
-          Save Data
-        </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          fullWidth
-          onClick={() => {
-            /* Send to controller logic here */
-          }}
-        >
-          Send to Controller
-        </Button>
-      </Stack>
+      <List
+        sx={{
+          width: "100%",
+          maxWidth: 360,
+          mt: 8,
+        }}
+      >
+        <ListItem>
+          <Button
+            variant="contained"
+            color="primary"
+            fullWidth
+            size="large"
+            startIcon={<CloudDownloadIcon />}
+            onClick={() => {
+              /* Fetch data logic here */
+            }}
+          >
+            <ListItemText primary="Fetch Data from Server" />
+          </Button>
+        </ListItem>
+        <ListItem>
+          <Button
+            variant="contained"
+            color="primary"
+            fullWidth
+            size="large"
+            startIcon={<VisibilityIcon />}
+            onClick={() => {
+              /* Display components logic here */
+            }}
+          >
+            <ListItemText primary="Display Components" />
+          </Button>
+        </ListItem>
+        <ListItem>
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            startIcon={<SaveIcon />}
+            onClick={() => {
+              /* Save data logic here */
+            }}
+          >
+            Save Data
+          </Button>
+        </ListItem>
+        <ListItem>
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            startIcon={<SendIcon />}
+            onClick={() => {
+              /* Send to controller logic here */
+            }}
+          >
+            Send to Controller
+          </Button>
+        </ListItem>
+      </List>
     </Box>
   );
 }
