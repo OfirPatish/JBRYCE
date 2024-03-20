@@ -1,16 +1,21 @@
-import { Box, List, ListItem, ListItemText, Button, ListItemIcon } from "@mui/material";
-import SaveIcon from "@mui/icons-material/Save";
-import SendIcon from "@mui/icons-material/Send";
-import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
-import VisibilityIcon from "@mui/icons-material/Visibility";
+import { Box, List, ListItem, ListItemText, Collapse, ListItemButton } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import { useState } from "react";
 
 function Menu(): JSX.Element {
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
+
   return (
     <Box
       sx={{
-        width: "auto",
+        width: 250,
         height: "100vh",
-        bgcolor: "grey.200",
+        bgcolor: "#282828",
         position: "fixed",
         top: "50px",
       }}
@@ -20,62 +25,47 @@ function Menu(): JSX.Element {
           width: "100%",
           maxWidth: 360,
           mt: 8,
+          color: "white",
         }}
       >
-        <ListItem>
-          <Button
-            variant="contained"
-            color="primary"
-            fullWidth
-            size="large"
-            startIcon={<CloudDownloadIcon />}
-            onClick={() => {
-              /* Fetch data logic here */
-            }}
-          >
-            <ListItemText primary="Fetch Data from Server" />
-          </Button>
-        </ListItem>
-        <ListItem>
-          <Button
-            variant="contained"
-            color="primary"
-            fullWidth
-            size="large"
-            startIcon={<VisibilityIcon />}
-            onClick={() => {
-              /* Display components logic here */
-            }}
-          >
-            <ListItemText primary="Display Components" />
-          </Button>
-        </ListItem>
-        <ListItem>
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
-            startIcon={<SaveIcon />}
-            onClick={() => {
-              /* Save data logic here */
-            }}
-          >
-            Save Data
-          </Button>
-        </ListItem>
-        <ListItem>
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
-            startIcon={<SendIcon />}
-            onClick={() => {
-              /* Send to controller logic here */
-            }}
-          >
-            Send to Controller
-          </Button>
-        </ListItem>
+        <ListItemButton onClick={handleClick}>
+          <ListItemText primary="Data Operations" />
+          {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+        </ListItemButton>
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <ListItemButton
+              sx={{ pl: 4 }}
+              onClick={() => {
+                /* Fetch data logic here */
+              }}
+            >
+              <ListItemText primary="Fetch Data from Server" />
+            </ListItemButton>
+            <ListItemButton
+              sx={{ pl: 4 }}
+              onClick={() => {
+                /* Display components logic here */
+              }}
+            >
+              <ListItemText primary="Display Components" />
+            </ListItemButton>
+          </List>
+        </Collapse>
+        <ListItemButton
+          onClick={() => {
+            /* Save data logic here */
+          }}
+        >
+          <ListItemText primary="Save Data" />
+        </ListItemButton>
+        <ListItemButton
+          onClick={() => {
+            /* Send to controller logic here */
+          }}
+        >
+          <ListItemText primary="Send to Controller" />
+        </ListItemButton>
       </List>
     </Box>
   );

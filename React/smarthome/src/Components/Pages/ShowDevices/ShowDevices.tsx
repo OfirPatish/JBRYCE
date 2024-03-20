@@ -1,8 +1,9 @@
-import { Box, Typography, TextField, Divider } from "@mui/material";
+import { Box, Typography, TextField, Divider, Card, CardContent, CardHeader, IconButton } from "@mui/material";
 import { epID } from "../../Model/epid";
 import { Devices } from "../../Model/devices";
 import { Home } from "../../Model/home";
 import ShowEPID from "../ShowEPID/ShowEPID";
+import HomeIcon from "@mui/icons-material/Home";
 
 function ShowDevices(): JSX.Element {
   let homes = [
@@ -28,46 +29,55 @@ function ShowDevices(): JSX.Element {
   ];
 
   return (
-    <Box sx={{ p: 2, mt: 14 }}>
+    <Box sx={{ p: 2, mt: 6 }}>
       {homes.map((home, index) => (
         <Box key={index} sx={{ mt: 2 }}>
-          <Typography variant="h4" gutterBottom>
-            {home.name}
-          </Typography>
-          <Divider />
-          {home.devices.map((device, index) => (
-            <Box key={index} sx={{ mt: 2 }}>
-              <Typography variant="h5">Device {index + 1}</Typography>
-              <TextField
-                label="ID"
-                defaultValue={device.id}
-                style={{ width: "80%", display: "block" }}
-                margin="normal"
-              />
-              <TextField
-                label="Name"
-                defaultValue={device.name}
-                style={{ width: "80%", display: "block" }}
-                margin="normal"
-              />
-              <TextField
-                label="Location"
-                defaultValue={device.location}
-                style={{ width: "80%", display: "block" }}
-                margin="normal"
-              />
-              <TextField
-                label="Node ID"
-                defaultValue={device.nodeid.toString()}
-                style={{ width: "80%", display: "block" }}
-                margin="normal"
-              />
-              <Typography variant="h6" gutterBottom>
-                Endpoints:
-              </Typography>
-              <ShowEPID endPoints={device.epid} />
-            </Box>
-          ))}
+          <Card>
+            <CardHeader
+              avatar={
+                <IconButton>
+                  <HomeIcon />
+                </IconButton>
+              }
+              title={home.name}
+            />
+            <CardContent>
+              <Divider />
+              {home.devices.map((device, index) => (
+                <Box key={index} sx={{ mt: 2 }}>
+                  <Typography variant="h5">Device {index + 1}</Typography>
+                  <TextField
+                    label="ID"
+                    defaultValue={device.id}
+                    style={{ width: "80%", display: "block" }}
+                    margin="normal"
+                  />
+                  <TextField
+                    label="Name"
+                    defaultValue={device.name}
+                    style={{ width: "80%", display: "block" }}
+                    margin="normal"
+                  />
+                  <TextField
+                    label="Location"
+                    defaultValue={device.location}
+                    style={{ width: "80%", display: "block" }}
+                    margin="normal"
+                  />
+                  <TextField
+                    label="Node ID"
+                    defaultValue={device.nodeid.toString()}
+                    style={{ width: "80%", display: "block" }}
+                    margin="normal"
+                  />
+                  <Typography variant="h6" gutterBottom>
+                    Endpoints:
+                  </Typography>
+                  <ShowEPID endPoints={device.epid} />
+                </Box>
+              ))}
+            </CardContent>
+          </Card>
         </Box>
       ))}
     </Box>
