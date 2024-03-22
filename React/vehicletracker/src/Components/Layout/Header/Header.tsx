@@ -30,10 +30,11 @@ function Header(): JSX.Element {
             </IconButton>
           </Hidden>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            IntelliHome
+            AutoTrack
           </Typography>
         </Toolbar>
       </AppBar>
+      <Toolbar />
       <Drawer anchor="left" open={drawerOpen} onClose={handleDrawerClose}>
         <Menu />
       </Drawer>

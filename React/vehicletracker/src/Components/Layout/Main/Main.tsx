@@ -6,7 +6,7 @@ import { Grid, Hidden } from "@mui/material";
 
 const Main: React.FC = () => {
   return (
-    <Grid container direction="column" style={{ paddingBottom: "70px" }}>
+    <Grid container direction="column">
       <Grid item xs={12}>
         <Header />
       </Grid>
