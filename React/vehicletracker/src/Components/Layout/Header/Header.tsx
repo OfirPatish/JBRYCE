@@ -1,44 +1,53 @@
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import { Box } from "@mui/system";
-import IconButton from "@mui/material/IconButton";
+import { AppBar, Toolbar, Typography, IconButton, Menu, MenuItem, ThemeProvider, createTheme } from "@mui/material";
+import { NavLink } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
-import Drawer from "@mui/material/Drawer";
-import Menu from "../Menu/Menu";
-import { useState } from "react";
-import { Hidden } from "@mui/material";
+import React, { useState } from "react";
+import "./Header.css";
 
 function Header(): JSX.Element {
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-  const handleDrawerOpen = () => {
-    setDrawerOpen(true);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
   };
 
-  const handleDrawerClose = () => {
-    setDrawerOpen(false);
+  const handleClose = () => {
+    setAnchorEl(null);
   };
+
+  const darkTheme = createTheme({
+    palette: {
+      mode: "dark",
+    },
+  });
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" sx={{ bgcolor: "#282828" }}>
+    <ThemeProvider theme={darkTheme}>
+      <AppBar position="sticky">
         <Toolbar>
-          <Hidden lgUp>
-            <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }} onClick={handleDrawerOpen}>
-              <MenuIcon />
-            </IconButton>
-          </Hidden>
+          <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleClick}>
+            <MenuIcon />
+          </IconButton>
+          <Menu id="simple-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
+            <MenuItem onClick={handleClose} component={NavLink} to="/search/car">
+              Vehicle Tracking
+            </MenuItem>
+            <MenuItem onClick={handleClose} component={NavLink} to="/search/bike">
+              Bike Tracking
+            </MenuItem>
+            <MenuItem onClick={handleClose} component={NavLink} to="/search/truck">
+              Truck Tracking
+            </MenuItem>
+            <MenuItem onClick={handleClose} component={NavLink} to="/search/off-road">
+              Off-Road Vehicle Tracking
+            </MenuItem>
+          </Menu>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             AutoTrack
           </Typography>
         </Toolbar>
       </AppBar>
-      <Toolbar />
-      <Drawer anchor="left" open={drawerOpen} onClose={handleDrawerClose}>
-        <Menu />
-      </Drawer>
-    </Box>
+    </ThemeProvider>
   );
 }
 

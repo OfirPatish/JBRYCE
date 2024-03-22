@@ -6,7 +6,7 @@ function Menu(): JSX.Element {
     <Box
       sx={{
         width: { xs: "100%", lg: "16.666%" },
-        maxWidth: "400px",
+        maxWidth: "300px",
         height: "calc(100vh - 64px)",
         bgcolor: "#282828",
         position: "fixed",

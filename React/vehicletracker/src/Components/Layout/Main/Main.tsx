@@ -1,35 +1,22 @@
-import Header from "../Header/Header";
-import Menu from "../Menu/Menu";
 import MainRoute from "../../Route/MainRoute/MainRoute";
 import Footer from "../Footer/Footer";
-import { Grid, Hidden } from "@mui/material";
+import Header from "../Header/Header";
+import "./Main.css";
 
-const Main: React.FC = () => {
+function Main(): JSX.Element {
   return (
-    <Grid container direction="column">
-      <Grid item xs={12}>
+    <div className="Main">
+      <header>
         <Header />
-      </Grid>
-      <Grid container item xs={12}>
-        <Hidden lgDown>
-          <Grid item lg={2} className="menu">
-            <Menu />
-          </Grid>
-          <Grid item lg={10}>
-            <MainRoute />
-          </Grid>
-        </Hidden>
-        <Hidden lgUp>
-          <Grid item xs={12}>
-            <MainRoute />
-          </Grid>
-        </Hidden>
-      </Grid>
-      <Grid item xs={12}>
+      </header>
+      <main>
+        <MainRoute />
+      </main>
+      <footer>
         <Footer />
-      </Grid>
-    </Grid>
+      </footer>
+    </div>
   );
-};
+}
 
 export default Main;

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import SingleItem from "../SingleItem/SingleItem";
 import { Vehicle } from "../../Model/Vehicle";
-import { Box, TextField, Button, Typography } from "@mui/material";
+import { Box, TextField, Button, Typography, Stack, Container } from "@mui/material";
 
 function Search(): JSX.Element {
   const URL_CAR =
@@ -51,32 +51,42 @@ function Search(): JSX.Element {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "10px",
-        padding: "20px",
-      }}
-    >
-      <Typography variant="h4" component="div">
-        {currentVehicleType.toUpperCase()} Component
-      </Typography>
-      <Typography variant="body1">Welcome to the search page!</Typography>
-      <TextField
-        variant="outlined"
-        placeholder="Search..."
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-      />
-      <Button variant="contained" onClick={getData}>
-        Search
-      </Button>
-      {vehicles.map((vehicle) => (
-        <SingleItem key={vehicle._id} vehicle={vehicle} />
-      ))}
-    </Box>
+    <Container maxWidth="md" sx={{ marginTop: "20px" }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "10px",
+          padding: "20px",
+          bgcolor: "background.paper",
+          borderRadius: "12px",
+          boxShadow: 1,
+        }}
+      >
+        <Typography variant="h4" component="div" gutterBottom>
+          {currentVehicleType.toUpperCase()} Component
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          Welcome to the search page!
+        </Typography>
+        <TextField
+          variant="outlined"
+          placeholder="Search..."
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          sx={{ width: "100%", marginBottom: "10px" }}
+        />
+        <Button variant="contained" onClick={getData} sx={{ marginBottom: "10px" }}>
+          Search
+        </Button>
+        <Stack spacing={2} width="100%">
+          {vehicles.map((vehicle) => (
+            <SingleItem key={vehicle._id} vehicle={vehicle} />
+          ))}
+        </Stack>
+      </Box>
+    </Container>
   );
 }
 
