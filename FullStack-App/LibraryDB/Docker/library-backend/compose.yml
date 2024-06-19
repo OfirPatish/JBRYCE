@@ -72,7 +72,7 @@ volumes:
 # To push the docker image to the docker hub, use the following commands:
 # docker login
 # docker build -t ofirpatish/library-backend:latest .
-# docker tag ofirpatish/library-backend:latest ofirpatish/library-backend:latest
+# docker tag ofirpatish/library-backend:latest
 # docker push ofirpatish/library-backend:latest
 
 # To run the docker compose file, use the following command:
