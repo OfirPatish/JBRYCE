@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script defer src="script.js"></script>
+    <style>
+      .container {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+      }
+      table {
+        width: 800px;
+        border-collapse: collapse;
+        text-align: center;
+        margin: 0 auto;
+      }
+      th,
+      td {
+        padding: 0.5rem;
+        border: 1px solid black;
+      }
+      th {
+        background-color: lightgray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="table-responsive">
+        <table id="studentsTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Class Number</th>
+              <th>Average Grade</th>
+              <th>Lowest Grade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rows will be added dynamically using JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

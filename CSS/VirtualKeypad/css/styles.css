@@ -1,0 +1,25 @@
+.keypad-container {
+  display: flex; /* Utilizing Flexbox for a flexible and efficient layout arrangement */
+  justify-content: center; /* Horizontally centering children within the container */
+  align-items: center; /* Vertically centering children within the container */
+  min-height: 100vh; /* Full viewport height ensures the container is always at least as tall as the screen */
+  margin: 0; /* Resetting default margin to prevent unexpected spacing */
+  background-color: #f0f0f0; /* A neutral light grey background for minimalistic design */
+}
+
+.keypad {
+  border-collapse: collapse; /* Ensures that cell borders are merged for a unified look */
+  margin: 0 auto; /* Centers the keypad horizontally within its parent container */
+}
+
+.keypad td {
+  border: 1px solid #ccc; /* Defines a subtle border for each key with a light grey color */
+  padding: 20px; /* Adds space inside each key, making it more accessible for interaction */
+  text-align: center; /* Aligns content in the middle of each key for aesthetic balance */
+  font-size: 24px; /* Increases font size for better visibility and user experience */
+  cursor: pointer; /* Provides a visual cue for interactivity with a pointer on hover */
+}
+
+.keypad td:hover {
+  background-color: #e0e0e0; /* Lightens the key's background on hover for visual feedback */
+}

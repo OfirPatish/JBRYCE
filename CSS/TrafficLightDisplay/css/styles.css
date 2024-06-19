@@ -1,0 +1,35 @@
+.traffic-light-container {
+  display: flex; /* Use flexbox layout */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  min-height: 100vh; /* Ensure the container takes at least the full height of the viewport */
+  margin: 0; /* Remove default margin */
+  background-color: #f0f0f0; /* Optional: Set a light grey background color for the page */
+}
+
+.traffic-light {
+  width: 160px; /* Set a fixed width for the traffic light */
+  background-color: #333; /* Set a dark grey color for the traffic light housing */
+  padding: 40px; /* Add padding around the lights to create space inside the housing */
+  border-radius: 40px; /* Round the corners of the traffic light housing */
+}
+
+.light {
+  display: block; /* Make the lights block elements so they stack vertically */
+  width: 100px; /* Set a fixed width for the lights */
+  height: 100px; /* Set a fixed height for the lights */
+  border-radius: 50%; /* Make the lights circular */
+  margin: 20px auto; /* Add space between the lights and center them horizontally */
+}
+
+.red {
+  background-color: red; /* Set the background color to red */
+}
+
+.yellow {
+  background-color: yellow; /* Set the background color to yellow */
+}
+
+.green {
+  background-color: green; /* Set the background color to green */
+}

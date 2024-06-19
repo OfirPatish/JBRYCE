@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Management</title>
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h1>Add Product</h1>
+    <div class="form-wrapper">
+      <form id="productForm">
+        <input type="text" name="productInput" id="productInput" placeholder="Product" required />
+        <input type="number" name="priceInput" id="priceInput" placeholder="Price" min="0" required />
+        <select name="categorySelect" id="categorySelect" required>
+          <option value="">Choose an option below</option>
+          <option value="Drinks">Drinks</option>
+          <option value="Meat">Meat</option>
+          <option value="Dairy">Dairy</option>
+          <option value="Snacks">Snacks</option>
+          <option value="Basics">Basics</option>
+        </select>
+        <input type="url" name="imageInput" id="imageInput" placeholder="Image URL" required />
+        <input type="submit" value="Add Product" />
+      </form>
+    </div>
+    <div id="productList"></div>
+  </body>
+</html>

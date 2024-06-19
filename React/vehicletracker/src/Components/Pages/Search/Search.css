@@ -1,0 +1,75 @@
+.Search {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.Search h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+.Search hr {
+  margin: 20px 0;
+}
+
+.Search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Search input[type="text"] {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.Search input[type="button"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.Search input[type="button"]:hover {
+  background-color: #0056b3;
+}
+
+.Search .results {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.Search .results .CarDetails {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: calc(33.333% - 20px);
+  box-sizing: border-box;
+}
+
+.CarDetails .carNumber {
+  font-size: 1.2em;
+  color: #007bff;
+}
+
+.CarDetails .carInfo {
+  margin-top: 10px;
+  color: #666;
+}

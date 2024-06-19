@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <h1 class="todo-header">Todo List</h1>
+    <hr />
+    <div class="todoList">
+      <!-- Task Display Table -->
+      <table class="task-table">
+        <thead>
+          <tr>
+            <th class="task-column-header">Task</th>
+            <th class="date-column-header">Start Date</th>
+            <th class="date-column-header">End Date</th>
+            <th class="priority-column-header">Priority</th>
+            <th class="status-column-header">Status</th>
+            <th class="action-column-header">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="task-row">
+            <td>Deep clean kitchen</td>
+            <td>10/11/2023</td>
+            <td>11/11/2023</td>
+            <td>High</td>
+            <td><input type="checkbox" class="status-checkbox" /></td>
+            <td><button class="delete-button">Delete</button></td>
+          </tr>
+          <tr class="task-row">
+            <td>Prepare project report</td>
+            <td>12/11/2023</td>
+            <td>15/11/2023</td>
+            <td>Medium</td>
+            <td><input type="checkbox" class="status-checkbox" /></td>
+            <td><button class="delete-button">Delete</button></td>
+          </tr>
+          <tr class="task-row">
+            <td>Book dentist appointment</td>
+            <td>13/11/2023</td>
+            <td>13/11/2023</td>
+            <td>Low</td>
+            <td><input type="checkbox" class="status-checkbox" /></td>
+            <td><button class="delete-button">Delete</button></td>
+          </tr>
+          <tr class="task-row">
+            <td>Plan weekend trip</td>
+            <td>14/11/2023</td>
+            <td>17/11/2023</td>
+            <td>Medium</td>
+            <td><input type="checkbox" class="status-checkbox" /></td>
+            <td><button class="delete-button">Delete</button></td>
+          </tr>
+          <!-- Other tasks here -->
+        </tbody>
+      </table>
+
+      <!-- Form for Adding New Tasks -->
+      <form class="new-task-form">
+        <table>
+          <tr>
+            <td><input type="text" class="new-task-input" placeholder="New task" /></td>
+            <td><input type="date" class="date-input" /></td>
+            <td><input type="date" class="date-input" /></td>
+            <td>
+              <select class="priority-selector">
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+              </select>
+            </td>
+            <td class="submit-button-cell">
+              <input type="submit" class="submit-button" value="Add Task" />
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>

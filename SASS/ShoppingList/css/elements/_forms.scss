@@ -1,0 +1,27 @@
+@import "variables";
+
+.new-task-form {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    td {
+      padding: 10px;
+      border: $base-border;
+    }
+  }
+
+  .new-task-input,
+  .date-input,
+  .priority-selector {
+    width: $input-width;
+    padding: $input-padding;
+    margin-right: $input-margin-right;
+    border: $input-border;
+    border-radius: $input-border-radius;
+  }
+}
+
+.submit-button-cell {
+  text-align: center;
+}

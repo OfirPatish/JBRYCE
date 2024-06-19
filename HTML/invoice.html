@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoice</title>
+  </head>
+  <style>
+    * {
+      text-align: center;
+    }
+  </style>
+  <body>
+    <h1>Table List</h1>
+    <hr />
+    <!-- Receipt Section -->
+    <table border="1" width="75%" cellspacing="0">
+      <caption>
+        <h1>Receipt</h1>
+      </caption>
+      <thead>
+        <!-- Using thead to semantically group header content in a table -->
+        <tr>
+          <th>N.</th>
+          <th>Item</th>
+          <th>Section</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Using tbody to semantically represent the main content of the table -->
+        <tr>
+          <td>1.</td>
+          <td>Shirt</td>
+          <td>M</td>
+          <td>₪10</td>
+        </tr>
+        <tr>
+          <td>2.</td>
+          <td>Pants</td>
+          <td rowspan="2">W</td>
+          <td>₪20</td>
+        </tr>
+        <tr>
+          <td>3.</td>
+          <td>Underwear</td>
+          <td>₪30</td>
+        </tr>
+        <tr>
+          <td>4.</td>
+          <td>Jacket</td>
+          <td rowspan="2">M</td>
+          <td rowspan="2">₪50</td>
+        </tr>
+        <tr>
+          <td>5.</td>
+          <td>Socks</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <!-- Using tfoot to semantically represent the footer content of the table -->
+        <tr>
+          <td colspan="3">Total before VAT</td>
+          <td>₪150</td>
+        </tr>
+        <tr>
+          <td colspan="3">VAT 17%</td>
+          <td>₪25.5</td>
+        </tr>
+        <tr>
+          <td colspan="3">Total After VAT</td>
+          <td>₪175.5</td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>

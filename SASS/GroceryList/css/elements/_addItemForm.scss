@@ -1,0 +1,29 @@
+// _addItemForm.scss
+@import "variables";
+
+.add-item-form {
+  background-color: $add-item-form-bg-color;
+  padding: $add-item-form-padding;
+  margin-top: $add-item-form-margin-top;
+  border-radius: $add-item-form-border-radius;
+  box-shadow: $add-item-form-box-shadow;
+}
+
+.add-item-form h2 {
+  color: $add-item-form-header-color;
+  text-align: center;
+  margin-bottom: $add-item-form-margin-bottom-h2;
+}
+
+.add-item-form form {
+  display: grid;
+  grid-template-columns: $add-item-form-grid-template;
+  gap: $add-item-form-gap;
+}
+
+.add-item-form input[type="text"],
+.add-item-form input[type="date"] {
+  padding: $input-padding;
+  border: $input-border;
+  border-radius: $input-border-radius;
+}

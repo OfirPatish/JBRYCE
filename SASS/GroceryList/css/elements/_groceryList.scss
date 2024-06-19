@@ -1,0 +1,39 @@
+// _groceryList.scss
+@import "variables";
+
+.grocery-list {
+  background-color: $grocery-list-bg-color;
+  padding: $grocery-list-padding;
+  border-radius: $grocery-list-border-radius;
+  box-shadow: $grocery-list-box-shadow;
+}
+
+.grocery-list h1 {
+  color: $grocery-list-header-color;
+  text-align: center;
+  margin-bottom: $grocery-list-margin-bottom-h1;
+}
+
+.grocery-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.grocery-list li {
+  background-color: $list-item-bg-color;
+  margin-bottom: $list-item-margin-bottom;
+  padding: $list-item-padding;
+  border-radius: $list-item-border-radius;
+  box-shadow: $list-item-box-shadow;
+  display: grid;
+  grid-template-columns: $list-item-grid-template;
+  align-items: center;
+  gap: $list-item-gap;
+}
+
+.item-img {
+  width: $item-img-width;
+  height: $item-img-height;
+  margin-right: $item-img-margin-right;
+}

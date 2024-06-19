@@ -1,0 +1,47 @@
+.single-video-component {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.single-video-component img {
+  width: 200px;
+  height: 200px;
+  margin-right: 10px;
+  flex: 0 0 auto;
+}
+
+.single-video-component div {
+  display: flex;
+  flex-direction: column;
+}
+
+.single-video-component div p {
+  max-height: 100px;
+  overflow: auto;
+}
+
+.remove-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  border-radius: 5px;
+  flex: 0 0 auto;
+}
+
+.remove-button:hover {
+  background-color: white;
+  color: #f44336;
+}

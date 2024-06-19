@@ -1,0 +1,32 @@
+.MainMenu {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.MainMenu h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #fff;
+}
+
+.MainMenu hr {
+  margin: 20px 0;
+}
+
+.MainMenu a {
+  display: block;
+  color: #fff;
+  padding: 10px 0;
+  border-bottom: 1px solid #555;
+  transition: color 0.3s;
+}
+
+.MainMenu a:hover {
+  color: #ffcc00;
+}
+
+.MainMenu a:last-child {
+  border-bottom: none;
+}

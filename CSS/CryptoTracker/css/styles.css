@@ -1,0 +1,31 @@
+body {
+  text-align: center; /* Centers all text within the body element */
+}
+
+ul {
+  list-style-type: none; /* Removes the default list item markers (bullets, etc.) */
+  padding: 0; /* Removes the default padding from the list */
+  margin: 0; /* Removes the default margin from the list */
+}
+
+li[data-dir="up"]::before {
+  content: "\2191"; /* Inserts an upwards arrow symbol before the list item text */
+  color: green; /* Sets the color of the arrow to green */
+  font-size: 1em; /* Sets the size of the arrow to the same as the current font size */
+  margin-right: 0.5em; /* Adds a right margin after the arrow for spacing */
+}
+
+li[data-dir="up"] .percent {
+  color: green; /* Sets the text color to green for the element with class 'percent' */
+}
+
+li[data-dir="down"]::before {
+  content: "\2193"; /* Inserts a downwards arrow symbol before the list item text */
+  color: red; /* Sets the color of the arrow to red */
+  font-size: 1em; /* Sets the size of the arrow to the same as the current font size */
+  margin-right: 0.5em; /* Adds a right margin after the arrow for spacing */
+}
+
+li[data-dir="down"] .percent {
+  color: red; /* Sets the text color to red for the element with class 'percent' */
+}

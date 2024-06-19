@@ -1,0 +1,45 @@
+body {
+  padding: 20px; /* Adds padding around the content inside the body, providing spacing from the viewport edges */
+  font-family: Arial, sans-serif; /* Sets Arial as the primary font and sans-serif as the fallback font for the page */
+  text-align: center; /* Centers text and inline-level content inside the body */
+  color: #333; /* Sets a dark gray color for text, enhancing readability */
+}
+
+table {
+  margin: 0 auto; /* Centers the table horizontally within its containing element */
+  border-collapse: collapse; /* Collapses border spacing, making cell borders contiguous */
+  width: 75%; /* Sets the table width to 75% of its parent container's width */
+  max-width: 900px; /* Ensures the table's maximum width does not exceed 900px */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow around the table for a 3D effect */
+}
+
+caption {
+  font-size: 24px; /* Sets the font size of the caption to 24px for prominence */
+  font-weight: bold; /* Applies bold styling to the caption text */
+  margin-bottom: 10px; /* Adds 10px of spacing below the caption */
+}
+
+thead tr,
+tfoot tr {
+  background-color: #e9e9e9; /* Applies a light gray background color to header and footer rows for visual differentiation */
+}
+
+th,
+td {
+  padding: 10px; /* Adds 10px of padding inside each table cell for comfortable spacing */
+  border: 1px solid #ccc; /* Adds a 1px solid light gray border around each cell */
+}
+
+.currency {
+  font-size: 0.8em; /* Slightly reduces the font size of the currency symbol relative to its parent element */
+  margin-right: 0.2em; /* Adds a small amount of space to the right of the currency symbol for separation */
+}
+
+tbody tr:hover {
+  background-color: #f7f7f7; /* Changes the background color on hover for an interactive row highlight */
+}
+
+.total-amount {
+  font-weight: bold; /* Applies bold styling to highlight the total amount */
+  font-size: 1.2em; /* Slightly increases the font size of the total amount for prominence */
+}

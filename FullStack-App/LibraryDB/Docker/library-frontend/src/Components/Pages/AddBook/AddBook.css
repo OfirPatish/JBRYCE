@@ -1,0 +1,47 @@
+.AddBook {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.AddBook form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.AddBook input,
+.AddBook select {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.AddBook button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  width: 100%;
+  max-width: 150px;
+}
+
+.AddBook button:hover {
+  background-color: #0056b3;
+}
+
+.AddBook span {
+  color: red;
+  font-size: 12px;
+}

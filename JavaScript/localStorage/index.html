@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid #ccc;
+        margin: 20px;
+      }
+
+      input[type="text"],
+      input[type="date"],
+      input[type="button"] {
+        padding: 10px;
+        margin: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      table {
+        margin: auto;
+        border-collapse: collapse;
+      }
+
+      #taskList {
+        text-align: left;
+        margin: 20px auto;
+        max-width: 400px;
+      }
+    </style>
+    <script defer src="script.js"></script>
+  </head>
+
+  <body>
+    <h1>Todo List</h1>
+    <hr />
+    <input type="text" placeholder="New Task" id="taskName" />
+    <input type="date" id="taskDate" />
+    <input type="button" value="Add Task" onclick="addTask()" />
+    <input type="button" value="Clear All Tasks" onclick="clearTasks()" />
+    <hr />
+    <div id="taskList"></div>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <style>
+      * {
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Task Form</h1>
+    <hr />
+
+    <form>
+      <!-- Form element to hold input fields and buttons -->
+      <!-- Input field for task name, with a placeholder text. Field is required. -->
+      <input type="text" placeholder="Task Name" required /><br /><br />
+
+      <!-- Radio buttons for selecting task priority. All buttons belong to the same group because they have the same 'name' attribute. -->
+      <input type="radio" name="priority" checked />Low Priority <input type="radio" name="priority" />Medium Priority
+      <input type="radio" name="priority" />High Priority <input type="radio" name="priority" />Just do it<br /><br />
+
+      <!-- Input field for selecting a date. -->
+      <input type="date" /><br /><br />
+
+      <!-- Textarea for additional comments, with a placeholder text. -->
+      <textarea placeholder="Provide additional info" rows="4" cols="50"></textarea><br /><br />
+
+      <!-- Submit button to submit the form and reset button to clear all fields. -->
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Reset" />
+    </form>
+  </body>
+</html>

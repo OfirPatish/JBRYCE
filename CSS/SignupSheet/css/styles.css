@@ -1,0 +1,21 @@
+body {
+  text-align: center; /* Centers the text inside elements */
+}
+
+input {
+  margin-bottom: 10px; /* Adds a 10px space below each input element */
+}
+
+input:invalid[type="password"] {
+  background-color: red; /* Sets the background color to red for invalid inputs */
+  color: white; /* Sets the text color to white for better contrast and readability */
+}
+
+input:valid[type="password"] {
+  background-color: blue; /* Sets the background color to blue for valid inputs */
+  color: white; /* Sets the text color to white for better contrast and readability */
+}
+
+input[type="password"]::placeholder {
+  color: white; /* Sets the color of the placeholder text to white */
+}

@@ -1,0 +1,34 @@
+body,
+html {
+  height: 100%; /* Makes the body and html take the full height of the browser window */
+  margin: 0; /* Removes the default margin provided by browsers */
+  background-color: black; /* Sets the background color of the page to black */
+}
+
+.flashlights {
+  height: 100%; /* Ensures that the element takes full height of its parent element */
+  display: flex; /* Applies the Flexbox layout model to the container, allowing for flexible alignment of child elements */
+}
+
+.light {
+  flex: 1; /* Allows the element to grow and shrink as needed, with equal flex-grow and flex-shrink values */
+  animation: flash 1s infinite alternate; /* Applies the 'flash' animation, making it last 1 second, repeat indefinitely, and alternate the direction */
+}
+
+.blue {
+  background-color: blue; /* Sets the background color of the element to blue */
+}
+
+.red {
+  background-color: red; /* Sets the background color of the element to red */
+  animation-delay: 0.5s; /* Delays the start of the animation by 0.5 seconds, making the red light blink after the blue */
+}
+
+@keyframes flash {
+  from {
+    opacity: 1; /* Starts the animation with the element fully opaque */
+  }
+  to {
+    opacity: 0; /* Ends the animation with the element fully transparent */
+  }
+}

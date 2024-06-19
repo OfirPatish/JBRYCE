@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Grocery List</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="grocery-list">
+        <h1>My Grocery List</h1>
+        <ul>
+          <li>
+            <img src="resources/milk.png" alt="Milk" class="item-img" />
+            <span class="item">Milk</span>
+            <span class="date start-date">12-11-2023</span>
+            <span class="date end-date">19-11-2023</span>
+            <button class="delete-btn">Delete</button>
+          </li>
+          <li>
+            <img src="resources/bread.png" alt="Bread" class="item-img" />
+            <span class="item">Bread</span>
+            <span class="date start-date">14-11-2023</span>
+            <span class="date end-date">24-11-2023</span>
+            <button class="delete-btn">Delete</button>
+          </li>
+          <li>
+            <img src="resources/grapes.png" alt="Grapes" class="item-img" />
+            <span class="item">Grapes</span>
+            <span class="date start-date">14-11-2023</span>
+            <span class="date end-date">24-11-2023</span>
+            <button class="delete-btn">Delete</button>
+          </li>
+        </ul>
+      </div>
+      <div class="add-item-form">
+        <h2>Add New Item</h2>
+        <form>
+          <input type="text" id="item-name" placeholder="Item Name" />
+          <input type="date" id="start-date" />
+          <input type="date" id="end-date" />
+          <button type="submit">Add Item</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

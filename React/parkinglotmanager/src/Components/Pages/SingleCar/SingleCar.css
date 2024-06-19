@@ -1,0 +1,18 @@
+.single-car {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.single-car h2 {
+  color: #007bff;
+  font-size: 1.5em;
+}
+
+.single-car p {
+  color: #555;
+  font-size: 1em;
+}

@@ -1,0 +1,9 @@
+$caption-font-size: 24px;
+$caption-font-weight: bold;
+$caption-margin-bottom: 10px;
+
+caption {
+  font-size: $caption-font-size;
+  font-weight: $caption-font-weight;
+  margin-bottom: $caption-margin-bottom;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <title>Document</title>
+    <script src="js/script.js"></script>
+    <style>
+      img {
+        position: relative;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="resources/image.png" width="150" height="150" />
+    <script>
+      $(() => {
+        var $img = $("img");
+        var animationSpeed = 2000;
+
+        var animateImage = () => {
+          $img
+            .animate({ left: "+=500px" }, animationSpeed) // Move right
+            .animate({ top: "+=500px" }, animationSpeed) // Move down
+            .animate({ left: "-=500px" }, animationSpeed) // Move left
+            .animate({ top: "-=500px" }, animationSpeed, animateImage); // Move up and repeat
+        };
+
+        animateImage();
+      });
+    </script>
+  </body>
+</html>

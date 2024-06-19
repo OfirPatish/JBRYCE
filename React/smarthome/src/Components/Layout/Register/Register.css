@@ -1,0 +1,51 @@
+.Register {
+  width: 300px;
+  margin: 30px auto 0 auto;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.Register h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.Register form {
+  display: flex;
+  flex-direction: column;
+}
+
+.Register form input[type="text"],
+.Register form input[type="password"],
+.Register form input[type="number"] {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.Register form input[type="submit"] {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.Register form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.Register form select {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.ErrorText {
+  color: red;
+  margin-bottom: 10px;
+}

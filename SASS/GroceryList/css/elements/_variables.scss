@@ -1,0 +1,62 @@
+// _variables.scss
+$font-family-main: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+$bg-color-main: #eaeaea;
+$text-color-main: #333;
+
+// Container
+$container-max-width: 800px;
+$container-padding: 20px;
+
+// Grocery List
+$grocery-list-bg-color: #fff;
+$grocery-list-padding: 25px;
+$grocery-list-border-radius: 10px;
+$grocery-list-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+$grocery-list-header-color: #4a90e2;
+$grocery-list-margin-bottom-h1: 30px;
+
+// List Item
+$list-item-bg-color: #f8f8f8;
+$list-item-margin-bottom: 10px;
+$list-item-padding: 15px;
+$list-item-border-radius: 5px;
+$list-item-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+$list-item-grid-template: auto 1fr 1fr 1fr auto;
+$list-item-gap: 10px;
+
+// Item Image
+$item-img-width: auto;
+$item-img-height: auto;
+$item-img-margin-right: 10px;
+
+// Delete Button
+$delete-btn-padding: 5px 10px;
+$delete-btn-bg-color: #ff4d4f;
+$delete-btn-text-color: white;
+$delete-btn-border: none;
+$delete-btn-border-radius: 4px;
+$delete-btn-hover-bg-color: #ff7875;
+
+// Add Item Form
+$add-item-form-bg-color: #fff;
+$add-item-form-padding: 25px;
+$add-item-form-margin-top: 20px;
+$add-item-form-border-radius: 10px;
+$add-item-form-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+$add-item-form-header-color: #4a90e2;
+$add-item-form-margin-bottom-h2: 20px;
+$add-item-form-grid-template: 1fr 1fr 1fr auto;
+$add-item-form-gap: 10px;
+
+// Add Item Form Button
+$add-item-form-button-padding: 10px 20px;
+$add-item-form-button-bg-color: #4a90e2;
+$add-item-form-button-text-color: white;
+$add-item-form-button-border: none;
+$add-item-form-button-border-radius: 4px;
+$add-item-form-button-hover-bg-color: #5aa1f2;
+
+// Input
+$input-padding: 10px;
+$input-border: 1px solid #ddd;
+$input-border-radius: 4px;
