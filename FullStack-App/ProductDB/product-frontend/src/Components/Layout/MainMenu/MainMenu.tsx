@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import { useState, useEffect } from "react";
 import "./MainMenu.css";
 
 function MainMenu(): JSX.Element {
@@ -8,7 +7,7 @@ function MainMenu(): JSX.Element {
       <h2>Menu</h2>
       <hr />
       <NavLink to={"/"}>Home</NavLink>
-      <NavLink to={"/products"}>Products</NavLink>
+      {/* <NavLink to={"/products"}>Products</NavLink> */}
       <NavLink to={"/updateProduct"}>Update Product</NavLink>
     </div>
   );

@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import MainPage from "../../Layout/MainPage/MainPage";
-import Product from "../../Pages/Product/Product";
+import ProductList from "../../Pages/ProductList/ProductList";
 import ProductStock from "../../Pages/ProductStock/ProductStock";
 import NotFound from "../../Pages/NotFound/NotFound";
 
@@ -9,7 +9,7 @@ function MainRoute(): JSX.Element {
     <div className="MainRoute">
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/products" element={<Product />} />
+        <Route path="/products" element={<ProductList />} />
         <Route path="/updateProduct" element={<ProductStock />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

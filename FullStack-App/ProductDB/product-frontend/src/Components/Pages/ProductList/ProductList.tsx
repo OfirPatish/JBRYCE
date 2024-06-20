@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./Product.css";
+import ProductCard from "../ProductCard/ProductCard";
+import "./ProductList.css";
 
 interface Product {
   id: number;
@@ -11,7 +12,7 @@ interface Product {
   LastUpdate: string;
 }
 
-function Product(): JSX.Element {
+const ProductList = (): JSX.Element => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
@@ -26,24 +27,14 @@ function Product(): JSX.Element {
     fetchProducts();
   }, []);
 
-  const formatDate = (dateString: string) => {
-    const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "short", day: "numeric" };
-    return new Date(dateString).toLocaleDateString(undefined, options);
-  };
-
   return (
-    <div className="Product">
+    <div className="product-list">
       <h1>Explore Our Esteemed Products</h1>
-      <ul>
-        {products.map((product: Product) => (
-          <li key={product.id}>
-            {product.name} - {product.ManufacturerName} - ${product.price} - {product.units} units - Last updated:{" "}
-            {formatDate(product.LastUpdate)}
-          </li>
-        ))}
-      </ul>
+      {products.map((product: Product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
     </div>
   );
-}
+};
 
-export default Product;
+export default ProductList;

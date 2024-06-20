@@ -6,7 +6,7 @@ function Header(): JSX.Element {
     <div className="Header">
       <div className="logo-title">
         <img src="/logo.jpg" alt="Logo" style={{ height: "50px", borderRadius: "50%" }} />
-        <h2>Library Management</h2>
+        <h2>Product Management</h2>
       </div>
     </div>
   );
