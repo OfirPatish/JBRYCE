@@ -1,0 +1,54 @@
+.AddMeetingForm {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.AddMeetingForm h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.AddMeetingForm form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.AddMeetingForm select,
+.AddMeetingForm input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.AddMeetingForm button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.AddMeetingForm button:hover {
+  background-color: #0056b3;
+}
+
+.AddMeetingForm button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.successMessage {
+  color: green;
+  margin-top: 10px;
+  font-size: 16px;
+}
