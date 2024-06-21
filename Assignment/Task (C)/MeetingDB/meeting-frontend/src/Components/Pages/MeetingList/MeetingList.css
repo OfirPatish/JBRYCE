@@ -1,0 +1,46 @@
+.MeetingList {
+  margin-bottom: 20px;
+}
+
+.MeetingList h2 {
+  margin-bottom: 10px;
+}
+
+.MeetingCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.MeetingCard {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  padding: 15px;
+  width: calc(33.333% - 20px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.MeetingCard:hover {
+  background-color: #e0f7fa;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.MeetingCardHeader {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.MeetingDateTime {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.MeetingCardBody p {
+  margin: 5px 0;
+}
