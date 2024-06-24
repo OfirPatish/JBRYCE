@@ -61,6 +61,17 @@ services:
     networks:
       - mynetwork
 
+  # Library Frontend service configuration
+  frontend:
+    # Use the latest library-frontend image from Docker Hub.
+    image: ofirpatish/library-frontend:latest
+    # Map port 3000 on the host to port 3000 in the container.
+    ports:
+      - "3000:3000"
+    # Connect the Library Frontend service to the specified network.
+    networks:
+      - mynetwork
+
 # Define the custom network to be used by the services.
 networks:
   mynetwork:
