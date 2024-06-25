@@ -13,6 +13,18 @@ services:
     # Connect the Library Backend service to the specified network.
     networks:
       - mynetwork
+
+  # Library Frontend service configuration
+  library-frontend:
+    # Use the latest library-frontend image from Docker Hub.
+    image: ofirpatish/library-frontend:latest
+    # Map port 3000 on the host to port 3000 in the container.
+    ports:
+      - "3000:3000"
+    # Connect the Library Frontend service to the specified network.
+    networks:
+      - mynetwork
+
   # MySQL service configuration
   mysql:
     # Use the official MySQL 8 image from Docker Hub.
@@ -61,17 +73,6 @@ services:
     networks:
       - mynetwork
 
-  # Library Frontend service configuration
-  frontend:
-    # Use the latest library-frontend image from Docker Hub.
-    image: ofirpatish/library-frontend:latest
-    # Map port 3000 on the host to port 3000 in the container.
-    ports:
-      - "3000:3000"
-    # Connect the Library Frontend service to the specified network.
-    networks:
-      - mynetwork
-
 # Define the custom network to be used by the services.
 networks:
   mynetwork:
@@ -80,13 +81,16 @@ networks:
 # Define the Docker volume to persist MySQL data.
 volumes:
   mysql-data:
-# To push the docker image to the docker hub, use the following commands:
+# # Backend
 # docker login
 # docker build -t ofirpatish/library-backend:latest .
 # docker tag ofirpatish/library-backend:latest
 # docker push ofirpatish/library-backend:latest
 
-# To run the docker compose file, use the following command:
+# # Frontend
+# docker build -t ofirpatish/library-frontend:latest .
+# docker tag ofirpatish/library-frontend:latest
+# docker push ofirpatish/library-frontend:latest
+
+# # Docker Compose
 # docker-compose -f compose.yml up -d
-# To stop the docker compose file, use the following command:
-# docker-compose -f compose.yml down
