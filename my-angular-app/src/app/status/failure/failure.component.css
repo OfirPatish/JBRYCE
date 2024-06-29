@@ -1,0 +1,10 @@
+.failure-box {
+  width: 300px;
+  height: 100px;
+  margin: 0 auto;
+  background-color: red;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+}

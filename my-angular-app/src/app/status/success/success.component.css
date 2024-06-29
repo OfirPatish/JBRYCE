@@ -1,0 +1,10 @@
+.success-box {
+  width: 300px;
+  height: 100px;
+  margin: 0 auto;
+  background-color: green;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+}
