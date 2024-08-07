@@ -21,14 +21,18 @@ Comprehensive projects covering multiple aspects of full-stack development.
 
 Backend development projects with Node.js, Express.js, and MongoDB.
 
-- `BasicAPI/`
-- `CarData/`
-- `EventManagement/`
-- `Express/`
-- `NodeUtilities/`
-- `StaticFileServer/`
-- `StudentGrade/`
-- `WebServer/`
+- `API/`
+  - `BasicAPI/`
+  - `EventManagement/`
+- `Data/`
+  - `CarData/`
+  - `StudentGrade/`
+- `Frameworks/`
+  - `Express/`
+  - `StaticFileServer/`
+- `Utilities/`
+  - `NodeUtilities/`
+- `Server/`
 
 ### Frontend
 
@@ -72,7 +76,7 @@ Course curriculum projects.
 
 1. **Assignment Projects**: Comprehensive projects covering multiple aspects of full-stack development. [Link to projects](Assignments/)
 2. **Course Projects**: Projects part of the course curriculum. [Link to projects](Projects/)
-3. **StudentGrade Project**: Writing student grades to a JSON file using Node.js. [Link to project](Backend/StudentGrade/)
+3. **StudentGrade Project**: Writing student grades to a JSON file using Node.js. [Link to project](Backend/Data/StudentGrade/)
 4. **Vacation Management Project**: A full-stack application for managing vacations. [Link to project](<Assignments/Project%20(3)/MySQL/vacation-frontend/>)
 5. **Weather Microservice**: A microservice-based project for weather data. [Link to project](MicroServices/Weather-Microservice/)
 
