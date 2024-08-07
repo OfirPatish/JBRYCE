@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crust & Charms Pizzeria</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header Section -->
+      <header class="row my-4 align-items-center">
+        <div class="col">
+          <!-- Logo -->
+          <img
+            src="resources/logo.png"
+            width="150px"
+            alt="Crust & Charms Pizzeria Logo"
+            class="img-hover-zoom"
+            style="border-radius: 50%"
+          />
+          <p class="text-muted mt-2">
+            <span class="spinner-grow text-success spinner-grow-sm"></span>
+            Pizza Doers
+          </p>
+        </div>
+        <h1 class="col">Crust & Charms Pizzeria</h1>
+        <div class="col">
+          <!-- Shopping Cart and Login Buttons -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#shoppingCart">
+            Shopping Cart <span class="badge bg-danger">3</span>
+          </button>
+          <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#loginForm">
+            Login
+          </button>
+        </div>
+      </header>
+
+      <hr />
+
+      <!-- Pizza Cards -->
+      <div class="row justify-content-center mb-3">
+        <!-- First Card: Special Pepperoni Pizza -->
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="card">
+            <img src="resources/roma.png" class="card-img-top" alt="Special Pepperoni Pizza" />
+            <div class="card-body">
+              <h5 class="card-title">Special Pepperoni Pizza</h5>
+              <p class="card-text">A classic favorite with extra pepperoni and mozzarella cheese.</p>
+              <a href="#" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second Card: Hawaiian Paradise Pizza -->
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="card">
+            <img src="resources/paradise.png" class="card-img-top" alt="Hawaiian Paradise Pizza" />
+            <div class="card-body">
+              <h5 class="card-title">Hawaiian Paradise Pizza</h5>
+              <p class="card-text">A tropical blend of ham, pineapple, and rich mozzarella cheese.</p>
+              <a href="#" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Third Card: Garden Fresh Veggie Pizza -->
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="card">
+            <img src="resources/veggie.png" class="card-img-top" alt="Garden Fresh Veggie Pizza" />
+            <div class="card-body">
+              <h5 class="card-title">Garden Fresh Veggie Pizza</h5>
+              <p class="card-text">Loaded with bell peppers, olives, mushrooms, onions, and sun-dried tomatoes.</p>
+              <a href="#" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- Add Item Button -->
+      <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#addItem">Add Item</button>
+
+      <!-- Add Item Modal -->
+      <div class="modal" id="addItem">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title">Add New Item</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Add Item Form -->
+              <form>
+                <!-- Pizza Slice Quantity -->
+                <input
+                  type="number"
+                  class="form-control my-2"
+                  placeholder="How many pizza slices (1-5)"
+                  min="0"
+                  max="5"
+                />
+                <!-- RC-Cola Checkbox -->
+                <div class="form-check my-2 d-flex justify-content-center align-items-center">
+                  <input class="form-check-input mt-0 me-2" type="checkbox" id="includeCola" />
+                  <label class="form-check-label" for="includeCola">Include RC-Cola</label>
+                </div>
+                <!-- Toppings Selection -->
+                <select class="form-select my-2">
+                  <option selected>Select Toppings</option>
+                  <option value="pepperoni">Pepperoni</option>
+                  <option value="mushrooms">Mushrooms</option>
+                  <option value="onions">Onions</option>
+                  <option value="sausage">Sausage</option>
+                  <option value="bacon">Bacon</option>
+                  <option value="extra-cheese">Extra Cheese</option>
+                  <option value="black-olives">Black Olives</option>
+                  <option value="green-peppers">Green Peppers</option>
+                  <option value="pineapple">Pineapple</option>
+                  <option value="spinach">Spinach</option>
+                </select>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-bs-dismiss="modal">Order Now!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shopping Cart Modal -->
+      <div class="modal" id="shoppingCart">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title">Shopping Cart</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table table-bordered table-hover table-dark">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Qty</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Item 1 -->
+                  <tr>
+                    <td>MPZ001</td>
+                    <td>Margherita Pizza</td>
+                    <td>2</td>
+                    <td>50 nis</td>
+                  </tr>
+                  <!-- Item 2 -->
+                  <tr>
+                    <td>SPZ002</td>
+                    <td>Spicy Pepperoni</td>
+                    <td>1</td>
+                    <td>30 nis</td>
+                  </tr>
+                  <!-- Item 3 -->
+                  <tr>
+                    <td>VDZ003</td>
+                    <td>Veggie Delight</td>
+                    <td>3</td>
+                    <td>45 nis</td>
+                  </tr>
+                  <!-- Total Sum -->
+                  <tr>
+                    <td colspan="3">Total</td>
+                    <td>265 NIS</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger">Checkout</button>
+              <button type="button" class="btn btn-success" data-bs-dismiss="modal">Continue Shopping</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Login Modal -->
+      <div class="modal" id="loginForm">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title">Login</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <!-- Floating label for Username -->
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="floatingUsername" placeholder="Username" />
+                  <label for="floatingUsername">Username</label>
+                </div>
+                <!-- Floating label for Password -->
+                <div class="form-floating mb-3">
+                  <input type="password" class="form-control" id="floatingPassword" placeholder="Password" />
+                  <label for="floatingPassword">Password</label>
+                </div>
+                <div class="mb-2 d-flex justify-content-between align-items-center">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="rememberMe" />
+                    <label class="form-check-label" for="rememberMe">Remember Me</label>
+                  </div>
+                  <a href="#" class="link-primary">Forgot Password?</a>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer d-flex flex-column align-items-center">
+              <button type="button" class="btn btn-primary w-25 mb-2">Login</button>
+              <span>New User? <a href="#" class="link-primary">Register here</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

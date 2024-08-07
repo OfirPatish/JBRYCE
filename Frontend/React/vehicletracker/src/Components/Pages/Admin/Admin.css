@@ -1,0 +1,59 @@
+.Admin {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.Admin h1 {
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 20px;
+  transition: color 0.3s;
+}
+
+.Admin h2 {
+  font-size: 2em;
+  color: #666;
+  margin-bottom: 20px;
+  transition: color 0.3s;
+}
+
+.Admin p {
+  font-size: 1.2em;
+  color: #666;
+  line-height: 1.6;
+  transition: color 0.3s;
+}
+
+.Admin:hover h1,
+.Admin:hover h2,
+.Admin:hover p {
+  color: #007bff;
+}
+
+.Admin form {
+  margin-top: 20px;
+}
+
+.Admin input,
+.Admin select,
+.Admin button {
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

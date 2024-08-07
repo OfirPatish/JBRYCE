@@ -1,0 +1,49 @@
+/* General styles */
+h1,
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+li {
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+/* Zebra striping for names */
+.zebra-black {
+  background-color: #000000;
+  color: white;
+}
+
+.zebra-white {
+  background-color: #ffffff;
+  color: black;
+}
+
+/* Background colors for genders */
+.bg-blue {
+  background-color: blue;
+  color: white;
+}
+
+.bg-red {
+  background-color: red;
+  color: white;
+}
+
+.bg-black {
+  background-color: black;
+  color: white;
+}

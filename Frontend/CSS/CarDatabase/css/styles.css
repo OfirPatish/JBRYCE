@@ -1,0 +1,59 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333333; /* Dark grey for text ensures readability */
+  background-image: linear-gradient(to right, #ffffff, #f7f7f7); /* Subtle gradient for a modern look */
+}
+
+.layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* Header and footer size to content, main area takes remaining space */
+  grid-template-columns: 200px 1fr; /* Sidebar fixed width, main content area flexible */
+  gap: 1rem; /* Space between grid items */
+  height: 100vh; /* Full viewport height */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+header,
+footer {
+  grid-column: 1 / -1; /* Span across all columns */
+  padding: 1rem;
+  text-align: center;
+  background-color: #4a4a4a; /* Dark grey background for contrast */
+  color: #ffffff; /* White text for legibility */
+}
+
+main {
+  padding: 1rem;
+}
+
+.data-section {
+  display: flex;
+  justify-content: space-around; /* Evenly distribute space among items */
+  margin-top: 1rem; /* Space above each section */
+}
+
+.data-box {
+  padding: 1rem;
+  border: 1px solid #eaeaea; /* Light grey border */
+  border-radius: 0.5rem; /* Rounded corners for a softer look */
+  background-color: #f0f0f0; /* Off-white background for the content boxes */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
+}
+
+aside nav ul {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0;
+}
+
+aside nav ul li {
+  padding: 0.5rem; /* Padding for each list item */
+}
+
+aside nav ul li a {
+  text-decoration: none; /* Remove default text decoration for links */
+  color: #333333; /* Same dark grey as the body text */
+}

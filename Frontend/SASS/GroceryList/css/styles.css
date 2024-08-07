@@ -1,0 +1,108 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #eaeaea;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.grocery-list {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.grocery-list h1 {
+  color: #4a90e2;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.grocery-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.grocery-list li {
+  background-color: #f8f8f8;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.item-img {
+  width: auto;
+  height: auto;
+  margin-right: 10px;
+}
+
+.delete-btn {
+  padding: 5px 10px;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.delete-btn:hover {
+  background-color: #ff7875;
+}
+
+.add-item-form button {
+  padding: 10px 20px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.add-item-form button:hover {
+  background-color: #5aa1f2;
+}
+
+.add-item-form {
+  background-color: #fff;
+  padding: 25px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.add-item-form h2 {
+  color: #4a90e2;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.add-item-form form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 10px;
+}
+
+.add-item-form input[type="text"],
+.add-item-form input[type="date"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,39 @@
+.ServerList {
+  padding: 32px;
+}
+
+.ServerList h1 {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.ServerList .controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.ServerList .controls label {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.ServerList .controls input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+.ServerList .controls button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.ServerList .controls button:hover {
+  background-color: #0056b3;
+}

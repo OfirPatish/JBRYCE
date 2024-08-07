@@ -1,0 +1,13 @@
+@import "variables";
+
+hr {
+  margin-bottom: 20px;
+}
+
+.todoList {
+  width: 80%;
+  margin: 0 auto;
+  background: $todoList-bg-color;
+  padding: 20px;
+  box-shadow: $todoList-box-shadow;
+}

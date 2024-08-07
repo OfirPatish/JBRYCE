@@ -1,0 +1,43 @@
+.Header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  border-bottom: 2px solid #444;
+}
+
+.Header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.Header .user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.Header .greeting {
+  margin-right: 5px;
+  font-size: 18px;
+}
+
+.Header input[type="button"] {
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  margin-left: 10px;
+}
+
+.Header input[type="button"]:hover {
+  background-color: #777;
+}

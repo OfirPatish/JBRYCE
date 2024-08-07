@@ -1,0 +1,134 @@
+body {
+  background-image: url("../resources/tile.jpg");
+  background-size: auto;
+  background-repeat: repeat;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Permanent Marker", cursive;
+}
+
+form {
+  position: relative;
+  background-image: url("../resources/formbg.jpg");
+  background-size: auto;
+  background-repeat: repeat;
+  margin: 0 auto;
+  width: 50%;
+  height: 300px;
+}
+
+#note,
+#dueDate,
+#dueTime {
+  background-color: transparent;
+  position: relative;
+  width: auto;
+  border: none;
+  height: 25px;
+}
+
+#note {
+  top: 51px;
+  left: 80px;
+}
+
+#dueDate {
+  top: 92px;
+  left: 80px;
+}
+
+#dueTime {
+  top: 133px;
+  left: 80px;
+}
+
+.button-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 22px 0;
+}
+
+.btn-custom {
+  padding: 5px 15px;
+  font-size: 14px;
+}
+
+#taskBoard {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.task {
+  position: relative;
+}
+
+.task .btn-close {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.task:hover .btn-close {
+  opacity: 1;
+}
+
+.new-task {
+  background-image: url("../resources/notebg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 200px;
+  height: 300px;
+  padding-top: 40px;
+  padding-left: 10px;
+  padding-bottom: 60px;
+  overflow: auto;
+  position: relative;
+  margin: 0 auto;
+}
+
+.new-task h2 {
+  word-wrap: break-word;
+  height: 150px;
+  overflow: auto;
+}
+
+.task-date-time {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  line-height: 0.5;
+}
+
+.btn-close {
+  position: absolute;
+  top: 25px;
+  right: 5px;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+@media (max-width: 768px) {
+  form {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  #note,
+  #dueDate,
+  #dueTime {
+    font-size: 1em;
+  }
+}

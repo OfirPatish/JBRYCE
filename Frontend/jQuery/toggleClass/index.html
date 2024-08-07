@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+      body.dark-mode {
+        background-color: black;
+        color: white;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+      #changeColorButton {
+        margin-bottom: 20px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="changeColorButton">Change to Dark Mode</button>
+    <script>
+      $(() => {
+        $("#changeColorButton").on("click", () => {
+          $("body").toggleClass("dark-mode");
+          if ($("body").hasClass("dark-mode")) {
+            $("#changeColorButton").css("background-color", "#dc3545");
+            $("#changeColorButton").text("Change to Light Mode");
+          } else {
+            $("#changeColorButton").css("background-color", "#007bff");
+            $("#changeColorButton").text("Change to Dark Mode");
+          }
+        });
+      });
+    </script>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste maiores, eum quidem dolor maxime atque asperiores
+    magni dolorum cum aut nesciunt illo, sequi ipsum ipsam assumenda aspernatur eius est fuga.
+  </body>
+</html>

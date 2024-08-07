@@ -1,0 +1,26 @@
+@import "variables";
+
+.submit-button,
+.delete-button {
+  color: $button-text-color;
+  border: none;
+  padding: $button-padding;
+  border-radius: $button-border-radius;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $button-hover-bg-color;
+  }
+}
+
+.submit-button {
+  background-color: $button-bg-color;
+}
+
+.delete-button {
+  background-color: $button-danger-bg-color;
+
+  &:hover {
+    background-color: $button-danger-hover-bg-color;
+  }
+}

@@ -1,0 +1,11 @@
+$padding-main: 20px;
+$font-family-main: Arial, sans-serif;
+$text-align-main: center;
+$text-color-main: #333;
+
+body {
+  padding: $padding-main;
+  font-family: $font-family-main;
+  text-align: $text-align-main;
+  color: $text-color-main;
+}

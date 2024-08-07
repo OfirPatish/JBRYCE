@@ -1,0 +1,26 @@
+.MainLayout {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "menu main"
+    "footer footer";
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: minmax(200px, auto) 1fr;
+  height: 100vh;
+}
+
+header {
+  grid-area: header;
+}
+
+aside {
+  grid-area: menu;
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
+}

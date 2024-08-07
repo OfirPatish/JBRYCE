@@ -1,0 +1,25 @@
+.Menu {
+  padding: 20px;
+  background-color: #343a40;
+  color: #f8f9fa;
+  height: 100%;
+}
+
+.Menu h2 {
+  margin-bottom: 20px;
+  color: #ecf0f1;
+}
+
+.Menu a {
+  display: block;
+  color: #ecf0f1;
+  text-decoration: none;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.Menu a:hover {
+  background-color: #34495e;
+}

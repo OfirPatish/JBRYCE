@@ -1,0 +1,44 @@
+// Font and Text Styles
+$font-stack: "Arial", sans-serif;
+$base-font-color: #333;
+$line-height: 1.6;
+
+// Colors
+$primary-color: #007bff;
+$danger-color: #dc3545;
+$light-gray: #f4f4f4;
+$dark-gray: #333;
+$border-gray: #ddd;
+$white-color: white;
+$black-color: rgba(0, 0, 0, 0.1);
+$odd-row-color: #f2f2f2;
+
+// Background Colors
+$body-bg-color: $light-gray;
+$todoList-bg-color: $white-color;
+$table-header-bg-color: $primary-color;
+$table-odd-row-bg-color: $odd-row-color;
+
+// Border Styles
+$base-border-color: $border-gray;
+$base-border: 1px solid $base-border-color;
+$border-radius: 4px;
+
+// Box Shadows
+$todoList-box-shadow: 0 0 10px $black-color;
+
+// Button Styles
+$button-text-color: $white-color;
+$button-bg-color: $primary-color;
+$button-hover-bg-color: darken($primary-color, 15%);
+$button-danger-bg-color: $danger-color;
+$button-danger-hover-bg-color: darken($danger-color, 10%);
+$button-padding: 10px 20px;
+$button-border-radius: $border-radius;
+
+// Form Element Styles
+$input-border: 1px solid $border-gray;
+$input-border-radius: $border-radius;
+$input-padding: 5px;
+$input-width: 95%;
+$input-margin-right: 5px;

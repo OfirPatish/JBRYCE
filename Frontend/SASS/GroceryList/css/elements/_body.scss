@@ -1,0 +1,14 @@
+// _body.scss
+@import "variables";
+
+body {
+  font-family: $font-family-main;
+  background-color: $bg-color-main;
+  color: $text-color-main;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

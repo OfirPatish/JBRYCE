@@ -1,0 +1,59 @@
+.apiTitle {
+  background-color: #e8e8e8;
+  padding: 10px;
+  font-family: monospace;
+}
+
+.Menu {
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-right: 1px solid #dee2e6;
+  font-family: Arial, sans-serif;
+}
+
+.Menu .sticky {
+  position: sticky;
+  top: 120px;
+}
+
+.Menu .get {
+  font-size: 0.9em;
+  color: #008000;
+  font-family: monospace;
+  margin-right: 5px;
+  cursor: default;
+}
+
+.Menu .docLink {
+  cursor: pointer;
+}
+
+.Menu .docLink:hover {
+  color: #333;
+}
+
+.Menu p {
+  font-size: 0.9em;
+  margin-left: 10px;
+  color: #666;
+  font-family: monospace;
+}
+
+.docLink,
+.docLink:visited,
+.apiTitle,
+.apiTitle:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.docLink:hover,
+.apiTitle:hover {
+  text-decoration: underline;
+  color: black;
+}
+
+.docLink:active,
+.apiTitle:active {
+  color: black;
+}

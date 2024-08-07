@@ -1,0 +1,36 @@
+.Books {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 30px auto;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+.Books h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.Books table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.Books th,
+.Books td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.Books th {
+  background-color: #f4f4f4;
+}
+
+.Books tr:hover {
+  background-color: #f0f0f0;
+}

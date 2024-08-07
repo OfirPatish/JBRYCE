@@ -1,0 +1,8 @@
+$cell-padding: 10px;
+$cell-border: 1px solid #ccc;
+
+th,
+td {
+  padding: $cell-padding;
+  border: $cell-border;
+}

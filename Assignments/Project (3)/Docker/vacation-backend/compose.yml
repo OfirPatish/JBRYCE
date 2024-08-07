@@ -1,0 +1,96 @@
+# Specify the version of the Docker Compose file format.
+version: "3.8"
+
+# Define the services (containers) to be run.
+services:
+  # Vacation Backend service configuration
+  vacation-backend:
+    # Use the latest vacation-backend image from Docker Hub.
+    image: ofirpatish/vacation-backend:latest
+    # Map port 3000 on the host to port 8080 in the container.
+    ports:
+      - "3001:8080"
+    # Connect the Vacation Backend service to the specified network.
+    networks:
+      - mynetwork
+
+  # Vacation Frontend service configuration
+  vacation-frontend:
+    # Use the latest vacation-frontend image from Docker Hub.
+    image: ofirpatish/vacation-frontend:latest
+    # Map port 3000 on the host to port 3000 in the container.
+    ports:
+      - "3000:3000"
+    # Connect the Vacation Frontend service to the specified network.
+    networks:
+      - mynetwork
+
+  # MySQL service configuration
+  mysql:
+    # Use the official MySQL 8 image from Docker Hub.
+    image: mysql:8.0
+    # Set environment variables for MySQL configuration.
+    environment:
+      # Root user password for MySQL.
+      MYSQL_ROOT_PASSWORD: rootpassword
+      # Name of the default database to be created.
+      MYSQL_DATABASE: vacationdb
+      # Username for a normal user.
+      MYSQL_USER: vacationuser
+      # Password for the normal user.
+      MYSQL_PASSWORD: 12345678
+    # Map port 3307 on the host to port 3307 in the container.
+    ports:
+      - "3307:3307"
+    # Persist MySQL data in a Docker volume.
+    volumes:
+      - mysql-data:/var/lib/mysql
+    # Connect the MySQL service to the specified network.
+    networks:
+      - mynetwork
+    # Command to run when the container starts to set the authentication plugin.
+    command: --default-authentication-plugin=mysql_native_password
+
+  # phpMyAdmin service configuration for managing MySQL databases.
+  phpmyadmin:
+    # Use the latest phpMyAdmin image from Docker Hub.
+    image: phpmyadmin/phpmyadmin
+    # Set environment variables for phpMyAdmin configuration.
+    environment:
+      # Hostname of the MySQL service.
+      PMA_HOST: mysql
+      # Username to connect to MySQL.
+      PMA_USER: vacationuser
+      # Password to connect to MySQL.
+      PMA_PASSWORD: 12345678
+    # Map port 8080 on the host to port 80 in the container.
+    ports:
+      - "8080:80"
+    # Ensure phpMyAdmin starts after the MySQL service.
+    depends_on:
+      - mysql
+    # Connect the phpMyAdmin service to the specified network.
+    networks:
+      - mynetwork
+
+# Define the custom network to be used by the services.
+networks:
+  mynetwork:
+    driver: bridge
+
+# Define the Docker volume to persist MySQL data.
+volumes:
+  mysql-data:
+# # Backend
+# docker login
+# docker build -t ofirpatish/vacation-backend:latest .
+# docker tag ofirpatish/vacation-backend:latest
+# docker push ofirpatish/vacation-backend:latest
+
+# # Frontend
+# docker build -t ofirpatish/vacation-frontend:latest .
+# docker tag ofirpatish/vacation-frontend:latest
+# docker push ofirpatish/vacation-frontend:latest
+
+# # Docker Compose
+# docker-compose -f compose.yml up -d

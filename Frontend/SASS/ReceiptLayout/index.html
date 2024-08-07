@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Receipt</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <!-- Section to display the receipt details in a tabular format -->
+    <section class="receipt">
+      <!-- Creating a table structure for the receipt -->
+      <table>
+        <!-- Caption providing a title for the receipt table -->
+        <caption class="receipt-title">
+          Receipt Details
+        </caption>
+
+        <!-- Thead element to define the table headers -->
+        <thead>
+          <tr>
+            <th>SN</th>
+            <th>Item</th>
+            <th>Section</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+
+        <!-- Tbody element to define the body of the table containing the list of items -->
+        <tbody>
+          <!-- Each table row represents a line item in the receipt -->
+          <tr>
+            <td>SN001</td>
+            <td>Shirt</td>
+            <td>M</td>
+            <td><span class="currency">₪</span>10</td>
+          </tr>
+          <tr>
+            <td>SN002</td>
+            <td>Pants</td>
+            <td rowspan="2">W</td>
+            <td><span class="currency">₪</span>20</td>
+          </tr>
+          <tr>
+            <td>SN003</td>
+            <td>Underwear</td>
+            <td><span class="currency">₪</span>30</td>
+          </tr>
+          <tr>
+            <td>SN004</td>
+            <td>Jacket</td>
+            <td rowspan="2">M</td>
+            <td rowspan="2"><span class="currency">₪</span>50</td>
+          </tr>
+          <tr>
+            <td>SN005</td>
+            <td>Socks</td>
+          </tr>
+        </tbody>
+
+        <!-- Tfoot element to define the footer of the table containing the total costs -->
+        <tfoot>
+          <!-- Displaying total before VAT -->
+          <tr>
+            <td colspan="3">Total before VAT</td>
+            <td><span class="currency">₪</span>150</td>
+          </tr>
+          <!-- Displaying VAT amount -->
+          <tr>
+            <td colspan="3">VAT (17%)</td>
+            <td><span class="currency">₪</span>25.5</td>
+          </tr>
+          <!-- Displaying total after VAT -->
+          <tr>
+            <td colspan="3">Total After VAT</td>
+            <td class="total-amount"><span class="currency">₪</span>175.5</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.avatar-container {
+  width: 100px; /* Sets the width of the container to 100 pixels */
+  height: 100px; /* Sets the height of the container to 100 pixels */
+  position: relative; /* Positions the container relative to its normal position */
+  animation: moveAvatar 8s infinite; /* Links the moveAvatar animation, which runs for 8 seconds and repeats forever */
+}
+
+.avatar {
+  width: 100%; /* Ensures the image's width is 100% of its container's width */
+  height: auto; /* Adjusts the image's height automatically to maintain the aspect ratio */
+}
+
+@keyframes moveAvatar {
+  0%,
+  100% {
+    top: 0; /* Initial and final position at the top-left corner */
+    left: 0;
+  }
+  25% {
+    top: 100%; /* Moves to the bottom-right corner */
+    left: 100%;
+    transform: translate(
+      -100%,
+      -100%
+    ); /* Offsets the position by full container's width and height to keep it within bounds */
+  }
+  50% {
+    top: 100%; /* Moves to the bottom-left corner */
+    left: 0;
+    transform: translateY(-100%); /* Offsets the position vertically to stay within the vertical bounds */
+  }
+  75% {
+    top: 0; /* Moves to the top-right corner */
+    left: 100%;
+    transform: translateX(-100%); /* Offsets the position horizontally to stay within the horizontal bounds */
+  }
+}

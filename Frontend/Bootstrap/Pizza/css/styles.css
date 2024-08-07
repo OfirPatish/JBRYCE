@@ -1,0 +1,21 @@
+body {
+  text-align: center;
+  background-color: #f4f4f4;
+  font-family: "Arial", sans-serif;
+  color: #333;
+}
+
+.container {
+  background-color: white;
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.img-hover-zoom {
+  transition: transform 0.2s ease-in-out;
+}
+
+.img-hover-zoom:hover {
+  transform: scale(1.1);
+}

@@ -1,0 +1,9 @@
+// _container.scss
+@import "variables";
+
+.container {
+  width: 100%;
+  max-width: $container-max-width;
+  padding: $container-padding;
+  box-sizing: border-box;
+}

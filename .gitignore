@@ -1,0 +1,29 @@
+# Node modules
+node_modules/
+
+# macOS system files
+.DS_Store
+
+# Environment variables
+.env
+
+# Log files
+*.log
+
+# macOS specific files
+.AppleDouble
+.LSOverride
+
+# Windows specific files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Build directories
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.swp

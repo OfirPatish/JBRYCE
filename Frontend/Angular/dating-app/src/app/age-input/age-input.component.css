@@ -1,0 +1,36 @@
+/* Center the form on the page */
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Style the label */
+label {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+/* Style the input field */
+input {
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  width: 200px;
+  text-align: center;
+}
+
+/* Style the mirrored year of birth display */
+div:nth-child(2) {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+/* Style the age display */
+div[appAgeColor] {
+  font-size: 1.5em;
+  font-weight: bold;
+}

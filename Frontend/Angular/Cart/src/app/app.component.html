@@ -1,0 +1,9 @@
+<div
+  class="container d-flex flex-column justify-content-center align-items-center min-vh-100"
+>
+  <div class="text-center">
+    <h1>Welcome to {{ title }}</h1>
+    <app-user-input (addProduct)="addProduct($event)"></app-user-input>
+    <app-list [FruitList]="FruitList"></app-list>
+  </div>
+</div>

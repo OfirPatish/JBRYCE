@@ -1,0 +1,89 @@
+.car-form {
+  display: flex; /* Uses Flexbox for layout */
+  justify-content: center; /* Centers horizontally in the flex container */
+  align-items: center; /* Centers vertically in the flex container */
+  height: 100vh; /* Full viewport height */
+  padding: 2rem; /* Spacing inside the container */
+  box-sizing: border-box; /* Ensures padding is included in the total width and height */
+}
+
+form {
+  border: 1px solid #ccc; /* Border around the form */
+  border-radius: 10px; /* Rounded corners */
+  padding: 2rem; /* Spacing inside the form */
+  background-color: #f8f8f8; /* Light grey background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  width: 100%; /* Makes form take full width of its parent */
+  max-width: 500px; /* Maximum width of the form */
+}
+
+.form-group {
+  margin-bottom: 1.5rem; /* Space between each form group */
+}
+
+.form-group label {
+  display: block; /* Labels take the full width of its container */
+  margin-bottom: 0.5rem; /* Space between label and input field */
+  font-size: 1rem; /* Text size for labels */
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%; /* Take full width of their parent */
+  padding: 0.75rem; /* Padding inside the input for spacing */
+  border: 1px solid #ccc; /* Border matching form border */
+  border-radius: 4px; /* Rounded corners for the input */
+  box-sizing: border-box; /* Include padding and border in the input's total width */
+  font-size: 1rem; /* Text size within the input */
+}
+
+input:invalid[type="number"],
+input:invalid[type="text"] {
+  background-color: #ffdddd; /* Light red for errors */
+}
+
+input:valid[type="number"],
+input:valid[type="text"] {
+  background-color: #ddffdd; /* Light green for correct input */
+}
+
+input[type="text"]:hover,
+input[type="number"]:hover,
+select:hover {
+  background-color: #f0f0f0; /* Light grey background on hover */
+}
+
+.action-buttons input[type="submit"],
+.action-buttons input[type="reset"] {
+  padding: 0.75rem 2rem; /* Padding for larger clickable area */
+  margin-right: 0.5rem; /* Space between the buttons */
+  border: none; /* No border for a modern look */
+  border-radius: 4px; /* Rounded corners for the buttons */
+  cursor: pointer; /* Cursor indication for clickable elements */
+  font-size: 1rem; /* Text size in the buttons */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.action-buttons input[type="submit"] {
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white; /* White text */
+}
+
+.action-buttons input[type="reset"] {
+  background-color: #6c757d; /* Bootstrap secondary color */
+  color: white; /* White text */
+}
+
+.action-buttons input[type="submit"]:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.action-buttons input[type="reset"]:hover {
+  background-color: #545b62; /* Darker grey on hover */
+}
+
+.action-buttons {
+  display: flex; /* Apply Flexbox layout */
+  justify-content: center; /* Center horizontally */
+}

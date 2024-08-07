@@ -1,0 +1,28 @@
+// _buttons.scss
+@import "variables";
+
+.delete-btn {
+  padding: $delete-btn-padding;
+  background-color: $delete-btn-bg-color;
+  color: $delete-btn-text-color;
+  border: $delete-btn-border;
+  border-radius: $delete-btn-border-radius;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $delete-btn-hover-bg-color;
+  }
+}
+
+.add-item-form button {
+  padding: $add-item-form-button-padding;
+  background-color: $add-item-form-button-bg-color;
+  color: $add-item-form-button-text-color;
+  border: $add-item-form-button-border;
+  border-radius: $add-item-form-button-border-radius;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $add-item-form-button-hover-bg-color;
+  }
+}

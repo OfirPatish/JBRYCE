@@ -1,0 +1,49 @@
+.MainLayout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
+}
+
+.MainLayout > header {
+  grid-column: 1 / -1;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  /* Sticky Header */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  /* Sticky Header */
+}
+
+.MainLayout > aside {
+  background-color: #fff;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+  position: sticky;
+  /* Sticky Aside */
+  top: 92px;
+  z-index: 500;
+  max-height: calc(100vh - 60px - 40px);
+  overflow-y: auto;
+  /* Sticky Aside */
+}
+
+.MainLayout > main {
+  background-color: #fff;
+  padding: 10px;
+}
+
+.MainLayout > footer {
+  grid-column: 1 / -1;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  /* Sticky Footer */
+  z-index: 1000;
+  /* Sticky Footer */
+}

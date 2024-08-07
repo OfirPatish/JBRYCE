@@ -1,0 +1,21 @@
+.button-grid {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 600px;
+  margin: auto;
+}
+
+#eventTable {
+  width: 100%;
+}
+
+#eventTable table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.event-image {
+  width: 100px;
+  height: auto;
+}

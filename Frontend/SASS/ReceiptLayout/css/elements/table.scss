@@ -1,0 +1,13 @@
+$table-margin: 0 auto;
+$table-border-collapse: collapse;
+$table-width: 75%;
+$table-max-width: 900px;
+$table-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+table {
+  margin: $table-margin;
+  border-collapse: $table-border-collapse;
+  width: $table-width;
+  max-width: $table-max-width;
+  box-shadow: $table-shadow;
+}

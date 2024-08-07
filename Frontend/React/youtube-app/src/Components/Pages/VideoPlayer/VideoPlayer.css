@@ -1,0 +1,13 @@
+.VideoPlayer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.VideoPlayer iframe {
+  max-width: 100%;
+  z-index: 1;
+}

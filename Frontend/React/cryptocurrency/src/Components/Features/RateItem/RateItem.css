@@ -1,0 +1,27 @@
+.RateItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.RateItem div {
+  width: 35%;
+  padding: 1.5rem;
+  margin: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.RateItem div:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.RateItem div p {
+  margin: 0.5rem 0;
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: left;
+}

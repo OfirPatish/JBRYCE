@@ -1,0 +1,100 @@
+<div style="text-align: center">
+  <!-- Boss Information -->
+  <p>{{ whoIsYourBoss() }}</p>
+
+  <!-- Feeling -->
+  <h1>Feeling</h1>
+  <input
+    type="text"
+    name="feeling"
+    [placeholder]="feelingPlaceholder"
+    (input)="feelingResponse($event)"
+  />
+  <p>{{ userResponse }}</p>
+  <br />
+
+  <!-- Age -->
+  <h1>Age</h1>
+  <input
+    type="number"
+    name="age"
+    id="age"
+    placeholder="Enter your age"
+    [(ngModel)]="userAge"
+  />
+  <p>You were born in {{ 2024 - userAge }}</p>
+  <br />
+
+  <!-- Temperature Conversion -->
+  <h1>Convert Celsius to Fahrenheit</h1>
+  <input
+    type="number"
+    name="celsius"
+    id="celsius"
+    placeholder="Enter Celsius"
+    (input)="convertToFahrenheit($event)"
+  />
+  <p>{{ fahrenheitTemperature }} °F</p>
+  <br />
+
+  <!-- Currency Conversion -->
+  <h1>Convert ILS to USD, EUR, CAD</h1>
+  <input
+    type="number"
+    name="ils"
+    id="ils"
+    placeholder="Enter amount in ILS"
+    (input)="convertCurrency($event)"
+  />
+  <p>{{ usdAmount }} USD</p>
+  <p>{{ eurAmount }} EUR</p>
+  <p>{{ cadAmount }} CAD</p>
+  <br />
+
+  <!-- Length Conversion -->
+  <h1>Convert CM to Inches</h1>
+  <input
+    type="number"
+    name="cm"
+    id="cm"
+    placeholder="Enter length in CM"
+    (input)="convertToInches($event)"
+  />
+  <p>{{ inches }} inches</p>
+  <br />
+
+  <h1>Convert meters to feet</h1>
+  <input
+    type="number"
+    name="meter"
+    id="meter"
+    placeholder="Enter length in meters"
+    (input)="convertToFeet($event)"
+  />
+  <p>{{ feet }} feet</p>
+  <br />
+
+  <!-- Lie Detection -->
+  <h1 appHighlight>Test message</h1>
+  <p *ngIf="isLie; else elseBlock">Another message</p>
+  <ng-template #elseBlock>
+    <p>This is else block</p>
+  </ng-template>
+  <br />
+
+  <!-- Status Components -->
+  <app-success></app-success>
+  <br />
+  <app-failure></app-failure>
+  <br />
+
+  <!-- Class Switching -->
+  <div
+    [ngClass]="getCurrentClass()"
+    style="text-align: center; margin: 50px auto; max-width: 600px"
+  >
+    <h1>{{ whoIsYourBoss() }}</h1>
+    <p>{{ getCurrentText() }}</p>
+    <button (click)="nextClass()">NEXT</button>
+  </div>
+</div>

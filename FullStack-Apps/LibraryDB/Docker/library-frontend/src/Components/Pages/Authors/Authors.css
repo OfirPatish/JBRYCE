@@ -1,0 +1,35 @@
+.Authors {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 30px auto;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+.Authors h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.Authors ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.Authors li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.Authors li:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.02);
+}
+
+.Authors li:last-child {
+  border-bottom: none;
+}

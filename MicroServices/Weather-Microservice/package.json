@@ -1,0 +1,17 @@
+{
+  "name": "weather-microservice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Ofir Patish",
+  "license": "ISC",
+  "description": "A micro-service based weather application that provides current weather information for any location.",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4"
+  }
+}

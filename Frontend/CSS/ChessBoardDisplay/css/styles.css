@@ -1,0 +1,23 @@
+body {
+  display: flex; /* Uses flexbox layout to align and distribute child elements */
+  justify-content: center; /* Centers child elements horizontally within the body */
+  align-items: center; /* Centers child elements vertically within the body */
+  height: 100vh; /* Sets the height of the body to be 100% of the viewport height */
+  margin: 0; /* Removes the default margin from the body */
+}
+
+table {
+  border-collapse: collapse; /* Collapses cell borders so that they share a single border */
+  width: 800px; /* Sets a fixed width of 800 pixels for tables */
+  height: 600px; /* Sets a fixed height of 600 pixels for tables */
+}
+
+td {
+  border: 5px solid #000; /* Sets a 5-pixel solid black border for each table cell */
+}
+
+tr:nth-child(odd) td:nth-child(even), /* Targets even cells in odd rows */
+tr:nth-child(even) td:nth-child(odd) {
+  /* Targets odd cells in even rows */
+  background-color: #000; /* Sets the background color of these cells to black */
+}

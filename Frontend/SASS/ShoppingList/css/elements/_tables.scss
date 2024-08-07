@@ -1,0 +1,25 @@
+@import "variables";
+
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+
+  th,
+  td {
+    text-align: center;
+    border: $base-border;
+    padding: 10px;
+  }
+
+  thead {
+    background-color: $table-header-bg-color;
+    color: $white-color;
+  }
+
+  tbody {
+    tr.task-row:nth-child(odd) {
+      background-color: $table-odd-row-bg-color;
+    }
+  }
+}

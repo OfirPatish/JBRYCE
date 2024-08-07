@@ -1,0 +1,23 @@
+/* Center the content in the app component */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+}
+
+/* Style the title */
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+/* Style the context paragraph */
+p {
+  font-size: 1.2em;
+  margin-bottom: 40px;
+  max-width: 600px;
+}

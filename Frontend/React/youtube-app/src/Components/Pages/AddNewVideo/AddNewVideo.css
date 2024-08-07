@@ -1,0 +1,37 @@
+.AddNewVideo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.AddNewVideo input {
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 300px;
+}
+
+.AddNewVideo button {
+  padding: 10px 20px;
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.AddNewVideo button:hover {
+  background-color: #34495e;
+}
+
+.AddNewVideo div {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.AddNewVideo img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+}

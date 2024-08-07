@@ -1,0 +1,99 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.todo-header {
+  text-align: center;
+}
+
+hr {
+  margin-bottom: 20px;
+}
+
+.todoList {
+  width: 80%;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.task-table th,
+.task-table td {
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.task-table thead {
+  background-color: #007bff;
+  color: white;
+}
+
+.task-table tbody tr.task-row:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.status-checkbox {
+  transform: scale(1.2);
+}
+
+.new-task-form table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.new-task-form td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.new-task-input,
+.date-input,
+.priority-selector {
+  width: 95%;
+  padding: 5px;
+  margin-right: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.submit-button-cell {
+  text-align: center;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}

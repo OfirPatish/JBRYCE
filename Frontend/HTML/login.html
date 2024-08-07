@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Ensures proper rendering on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+    <style>
+      /* Container to hold the login form */
+      .login-container {
+        max-width: 300px;
+        margin: 0px auto; /* Centers the container on the page */
+        border: 1px solid #e0e0e0;
+        padding: 20px;
+        border-radius: 5px; /* Rounds the corners of the container */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+      }
+
+      /* Styles for text and password input fields */
+      .login-container input[type="text"],
+      .login-container input[type="password"] {
+        box-sizing: border-box; /* Ensures padding and borders don't increase width */
+        width: 100%; /* Takes up the full width of its container */
+        padding: 10px 15px; /* Added 15px of left and right padding */
+        margin-bottom: 10px; /* Adds spacing between input fields */
+        border: 1px solid #e0e0e0;
+        border-radius: 5px; /* Rounds the corners of the input fields */
+      }
+
+      /* Styles for the login images */
+      .login-container img {
+        width: 15%; /* Sets the width of the login images */
+        margin-right: 5%; /* Adds spacing between images */
+        cursor: pointer; /* Changes the cursor to a hand when hovering over the image */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>Login</h2>
+      <!-- The main login form, action="#" means it won't do anything when submitted -->
+      <form action="#" method="POST">
+        <input type="text" name="username" placeholder="Username" />
+        <input type="password" name="password" placeholder="Password" />
+        <button type="submit" style="width: 100%; margin-top: 10px">Login</button>
+      </form>
+
+      <div style="margin-top: 20px; text-align: center">
+        <!-- Image links for login methods, replace 'img-path' with your image paths -->
+        <img src="img/Facebook.png" alt="Login with Facebook" title="Login with Facebook" />
+        <img src="img/Google.png" alt="Login with Google" title="Login with Google" />
+      </div>
+    </div>
+  </body>
+</html>
