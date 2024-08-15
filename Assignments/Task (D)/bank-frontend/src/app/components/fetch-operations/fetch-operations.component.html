@@ -1,0 +1,28 @@
+<div class="container bg-white p-4 rounded shadow-sm">
+  <h1 class="text-primary text-center mb-4">Bank Operations</h1>
+  <input
+    type="text"
+    [(ngModel)]="accountNumber"
+    class="form-control mb-3"
+    placeholder="Enter account number"
+  />
+  <button (click)="fetchOperations()" class="btn btn-primary btn-block mb-4">
+    Show Details
+  </button>
+
+  <div *ngIf="searchPerformed && operations.length > 0">
+    <h2 class="text-center">Operations</h2>
+    <ul class="list-group">
+      <li
+        *ngFor="let operation of operations"
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        <span class="font-weight-bold">{{ operation.type }}:</span>
+        {{ operation.amount }} on {{ operation.date }}
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="searchPerformed && operations.length === 0">
+    <p class="text-center">No operations found for this account.</p>
+  </div>
+</div>

@@ -1,0 +1,138 @@
+<div class="container bg-white p-4 rounded shadow-sm">
+  <h2 class="text-primary text-center mb-4">Add Operation</h2>
+  <form (ngSubmit)="addOperation(operationForm)" #operationForm="ngForm">
+    <div *ngIf="successMessage" class="alert alert-success">
+      {{ successMessage }}
+    </div>
+    <div class="form-group">
+      <label for="accountNumber">Account Number</label>
+      <input
+        type="text"
+        [(ngModel)]="newOperation.accountNumber"
+        name="accountNumber"
+        id="accountNumber"
+        class="form-control mb-2"
+        placeholder="e.g., 123456789"
+        required
+        #accountNumber="ngModel"
+      />
+      <div
+        *ngIf="accountNumber.invalid && accountNumber.touched"
+        class="text-danger"
+      >
+        Account Number is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="type">Type</label>
+      <select
+        [(ngModel)]="newOperation.type"
+        name="type"
+        id="type"
+        class="form-control mb-2"
+        required
+        #type="ngModel"
+      >
+        <option value="" disabled>Select Type</option>
+        <option value="withdrawal">Withdrawal</option>
+        <option value="deposit">Deposit</option>
+        <option value="loan">Loan</option>
+      </select>
+      <div *ngIf="type.invalid && type.touched" class="text-danger">
+        Type is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="amount">Amount</label>
+      <input
+        type="number"
+        [(ngModel)]="newOperation.amount"
+        name="amount"
+        id="amount"
+        class="form-control mb-2"
+        placeholder="e.g., 1000"
+        required
+        #amount="ngModel"
+      />
+      <div *ngIf="amount.invalid && amount.touched" class="text-danger">
+        Amount is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input
+        type="date"
+        [(ngModel)]="newOperation.date"
+        name="date"
+        id="date"
+        class="form-control mb-2"
+        placeholder="e.g., 2023-01-01"
+        required
+        [min]="minDate"
+        #date="ngModel"
+      />
+      <div *ngIf="date.invalid && date.touched" class="text-danger">
+        Date is required.
+      </div>
+    </div>
+    <div class="form-group" *ngIf="isLoan()">
+      <label for="interest">Interest Rate</label>
+      <input
+        type="number"
+        [(ngModel)]="newOperation.interest"
+        name="interest"
+        id="interest"
+        class="form-control mb-2"
+        placeholder="e.g., 5%"
+        #interest="ngModel"
+      />
+      <div *ngIf="interest.invalid && interest.touched" class="text-danger">
+        Interest Rate is required for loans.
+      </div>
+    </div>
+    <div class="form-group" *ngIf="isLoan()">
+      <label for="amountOfPayments">Number of Payments</label>
+      <input
+        type="number"
+        [(ngModel)]="newOperation.amountOfPayments"
+        name="amountOfPayments"
+        id="amountOfPayments"
+        class="form-control mb-2"
+        placeholder="e.g., 12"
+        #amountOfPayments="ngModel"
+      />
+      <div
+        *ngIf="amountOfPayments.invalid && amountOfPayments.touched"
+        class="text-danger"
+      >
+        Number of Payments is required for loans.
+      </div>
+    </div>
+    <div class="form-group" *ngIf="isLoan()">
+      <label for="dateOfLoan">Date of Loan</label>
+      <input
+        type="date"
+        [(ngModel)]="newOperation.dateOfLoan"
+        name="dateOfLoan"
+        id="dateOfLoan"
+        class="form-control mb-2"
+        placeholder="e.g., 2023-01-01"
+        [min]="minDate"
+        #dateOfLoan="ngModel"
+      />
+      <div *ngIf="dateOfLoan.invalid && dateOfLoan.touched" class="text-danger">
+        Date of Loan is required for loans.
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-success btn-block"
+      [disabled]="operationForm.invalid || isLoading"
+    >
+      Add Operation
+    </button>
+    <div *ngIf="isLoading" class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </form>
+</div>

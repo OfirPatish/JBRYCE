@@ -1,0 +1,48 @@
+.container {
+  max-width: 960px;
+  margin: auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #007bff;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form-control {
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: block;
+  width: 30%;
+  margin: 1rem auto 0;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.list-group-item:hover {
+  background-color: #f1f1f1;
+}
+
+.list-group-item span {
+  font-weight: bold;
+}
+
+.alert {
+  margin-top: 1rem;
+}
