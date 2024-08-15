@@ -16,6 +16,7 @@ Comprehensive projects covering multiple aspects of full-stack development.
 - `Task (A)/`
 - `Task (B)/`
 - `Task (C)/`
+- `Task (D)/`
 
 ### Backend
 
